@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>DVM - Make VM runs like Container</title>
+        <title>DVM - Make VM run like Container</title>
         <meta name="description" content="Policy as a Service, for your cloud infrastructure">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,7 +23,7 @@
         <section class="head">
           <div class="spliter"></div>
           <h4>ISOLATED, SECURE, IMMUTABLE</h4>
-          <h1 data-sr="enter bottom ease-out 50px">Make <b>VM</b> runs like <b>Container</b>_</h1>
+          <h1 data-sr="enter bottom ease-out 50px">Make <b>VM</b> run like <b>Container</b>_</h1>
           <button class="btn btn-large" data-sr="enter bottom wait .5s">VIEW ON GITHUB</button>
         </section>
 
@@ -35,7 +35,7 @@
             <div class="container-pod" data-sr="wait .5s move 40px"></div>
             <ul class="caption" data-sr="wait 2s move 40px enter right">
               <li>Container</li>
-              <li>POD</li>
+              <li>Pod</li>
               <li>Virtual Machine</li>
             </ul>
           </div>
@@ -44,11 +44,38 @@
         <section class="desc desc-1">
           <div class="spliter"></div>
           <h3 data-sr="wait .2s enter bottom">Run any docker image</h3>
-          <pre>
-            <p><b>[root@user ~:]</b># yum install dvm</p>
-            <p><b>[root@user ~:]</b># docker pull nginx:latest</p>
-            <p><b>[root@user ~:]</b># dvm run nginx:latest</p>
-          </pre>
+          <code data-sr="wait .4s enter bottom">
+            <b>[root@user ~:]</b># yum install dvm<br/>
+            <b>[root@user ~:]</b># docker pull nginx:latest<br/>
+            <b>[root@user ~:]</b># dvm run nginx:latest<br/>
+          </code>
+          <!-- <div data-sr="wait .4s enter bottom">
+            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam.</p>
+          </div> -->
+        </section>
+
+        <section class="desc desc-2">
+          <div class="spliter"></div>
+          <h3 data-sr="wait .2s enter bottom">Run containers together as a pod</h3>
+          <div class="desc-img pod" data-sr="wait .4s enter bottom"></div>
+          <!-- <div data-sr="wait .4s enter bottom">
+            <ul>
+              <li>Containers in a pod shared Network and PID Namespace.</li>
+              <li>Containers in a pod may cooperate seamlessly.</li>
+              <li>Containers in a POD could be developed and tested - separately.</li>
+            </ul>
+            <p>VM is the boundary of a POD in DVM</p>
+          </div> -->
+        </section>
+
+        <section class="desc desc-3">
+          <div class="spliter"></div>
+          <h3 data-sr="wait .2s enter bottom">Isolation by KVM</h3>
+          <div class="desc-img isolation" data-sr="wait .4s enter bottom"></div>
+        </section>
+
+        <section class="get">
+          <a href="#" class="btn btn-large">VIEW ON GITHUB</a>
         </section>
 
 
