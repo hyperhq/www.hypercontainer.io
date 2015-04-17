@@ -274,6 +274,14 @@ body {
   line-height: 68px; }
   .btn-large:hover {
     border: 6px solid #606EC3; }
+  @media (max-width: 400px) {
+    .btn-large {
+      font-size: 18px;
+      width: 198px;
+      height: 48px;
+      line-height: 48px; }
+      .btn-large:hover {
+        line-height: 36px; } }
 
 .page-header {
   width: 100%;
@@ -312,9 +320,15 @@ body {
     .head h1 b {
       font-weight: 400;
       color: #606EC3; }
+    @media (max-width: 400px) {
+      .head h1 {
+        font-size: 36px; } }
   .head h4 {
     font-family: "anmono", "Consolas", "Monaco", "Ubuntu Mono", monospace !important;
     color: #C7C7C7; }
+    @media (max-width: 400px) {
+      .head h4 {
+        font-size: 14px; } }
   .head .btn-large {
     margin: 10vh auto 0 auto; }
 
@@ -345,6 +359,10 @@ body {
     min-width: 480px;
     max-width: 760px;
     margin: 0 auto; }
+    @media (max-width: 400px) {
+      .desc p, .desc code, .desc .desc-img {
+        max-width: 320px;
+        min-width: 320px; } }
   .desc p {
     font-size: 18px;
     font-weight: 100;
@@ -396,6 +414,9 @@ body {
     font-weight: 100;
     font-size: 18px;
     color: #747474; }
+    @media (max-width: 400px) {
+      .dvm-anatomy .caption {
+        margin-left: 0; } }
     .dvm-anatomy .caption li {
       line-height: 100px;
       list-style: circle;
@@ -409,6 +430,9 @@ body {
         height: 1px;
         width: 66px;
         background-color: #C7C7C7; }
+        @media (max-width: 400px) {
+          .dvm-anatomy .caption li:before {
+            display: none; } }
       .dvm-anatomy .caption li:first-child:before {
         width: 207px; }
 
@@ -430,7 +454,11 @@ body {
 .get {
   height: 400px;
   background: #333752;
-  padding: 180px; }
+  padding: 180px 0; }
+  @media (max-width: 400px) {
+    .get {
+      padding: 80px;
+      height: 200px; } }
   .get .btn-large {
     margin: 0 auto;
     background: transparent;

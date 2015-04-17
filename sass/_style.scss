@@ -10,6 +10,11 @@ $light-p    : #CFD1E2;
 	min-width : 480px;
 	max-width : 760px;
 	margin    : 0 auto;
+
+	@media (max-width:400px) {
+		max-width: 320px;
+		min-width: 320px;
+	}
 }
 
 
@@ -85,6 +90,15 @@ body {
 	&:hover {
 		border : 6px solid $base-p;
 	}
+
+	@media (max-width:400px) {
+		font-size   : 18px;
+		width       : 198px;
+		height      : 48px;
+		line-height : 48px;
+
+		&:hover { line-height: 36px; }
+	}
 }
 
 .page-header {
@@ -135,12 +149,20 @@ body {
 		font-size   : 48px;
 
 		b { font-weight: 400; color: $base-p; }
+
+		@media (max-width:400px) {
+			font-size: 36px;
+		}
 	}
 
 	h4 {
 		@include font-mono;
 
 		color: $light-grey;
+
+		@media (max-width:400px) {
+			font-size: 14px;
+		}
 	}
 
 	.btn-large { margin: 10vh auto 0 auto; }
@@ -223,6 +245,10 @@ body {
 	margin   : 0 auto;
 	position : relative;
 
+	@media (max-width:400px) {
+		// width: 100%;
+	}
+
 	div { 
 		background-size   : 100% auto; 
 		background-repeat : no-repeat;
@@ -256,6 +282,10 @@ body {
 		margin-left : 220px;
 		width       : 180px;
 
+		@media (max-width:400px) {
+			margin-left : 0; 
+		}
+
 		@include font-major;
 
 		text-align  : left;
@@ -278,6 +308,10 @@ body {
 				height           : 1px;
 				width            : 66px;
 				background-color : $light-grey;
+
+				@media (max-width:400px) {
+					display: none; 
+				}
 			}
 
 			&:first-child:before {
@@ -306,7 +340,12 @@ body {
 .get {
 	height     : 400px;
 	background : #333752;
-	padding    : 180px;
+	padding    : 180px 0;
+
+	@media (max-width:400px) {
+		padding : 80px; 
+		height  : 200px;
+	}
 
 	.btn-large {
 		margin          : 0 auto;
