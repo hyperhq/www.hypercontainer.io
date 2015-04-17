@@ -19,6 +19,18 @@ body {
 	}
 }
 
+.revealed {
+	opacity: 1;
+}
+
+.wrapper {
+	max-width : 1440px;
+	width     : 100%;
+	margin    : 0 auto;
+	padding   : 10px 50px;
+	position  : relative;
+}
+
 .spliter {
 	background-image  : url('../img/spliter.svg');
 	background-size   : 38px 23px;
@@ -31,21 +43,76 @@ body {
 	padding-bottom : 36px;
 }
 
+.logo { 
+	background        : url('../img/logo.svg');
+	background-size   : 98px 34px;
+	background-repeat : no-repeat;
+	width             : 98px;
+	height            : 34px;
+}
+
+.btn-large {
+	@include font-mono;
+
+	background    : #fff;
+	border        : 1px solid $base-p;
+	border-radius : 2px;
+	font-size     : 24px;
+	color         : $base-p;
+	width         : 264px;
+	height        : 68px;
+	line-height   : 68px;
+	text-align    : center;
+	transition    : all .1s ease-in;	
+	position      : relative;
+
+	&:hover {
+		border-radius : 0;
+		border        : 6px solid $base-p;
+		background    : rgba(255,255,255,.2);
+		line-height   : 56px;
+	}
+}
+
 .page-header {
-	width    : 100%;
-	position : fixed;
-	top      : 0;
-	height   : 48px;
-	z-index  : 100;
+	width     : 100%;
+	position  : fixed;
+	top       : 0;
+	height    : 48px;
+	z-index   : 100;
 
 	background: rgba(255,255,255,.9);
+
+	.logo {
+		margin-top: 7px;
+	}
+
+	.btn-header { 
+		position      : absolute;
+		top           : 17px;
+		right         : 50px;
+		background    : #fff;
+		border        : 1px solid $base-p;
+		border-radius : 2px;
+		width         : 80px;
+		height        : 34px;
+		line-height   : 31px;
+		color         : $base-p;
+
+		&:hover {
+			border-radius : 0;
+			border        : 3px solid $base-p;
+			background    : rgba(255,255,255,.2);
+			line-height   : 27px;
+		}
+	}
 }
 
 .head {
 	position    : relative;
 	width       : 100%;
 	height      : 100vh;
-	padding-top : 30vh;
+	padding-top : 25vh;
 
 	text-align : center;
 
@@ -54,7 +121,7 @@ body {
 	                   url('../img/grey.png');
 
     background-blend-mode: screen;
-    animation: bg-move 25s ease-in-out infinite;
+    animation: bg-move 30s linear infinite;
 
 	h1 {
 		font-weight : 100;
@@ -68,8 +135,43 @@ body {
 
 		color: $light-grey;
 	}
+
+	.btn-large { margin-top: 10vh; }
+
 }
 
 @keyframes bg-move {
 	to { background-position: 0 100%}
+}
+
+.desc {
+	width      : 100%;
+	text-align : center;
+	position   : relative;
+	padding    : 80px 0;
+
+	&:nth-child(2n) { background: #F3F6F8;}
+
+	h3 {
+		// @include font-mono;
+
+		font-size   : 32px;
+		color       : $base-p;
+		font-weight : 100;
+		
+		b { font-weight: 100; color: $light-grey;}
+	}
+}
+
+.dvm-anatomy {
+	position    : absolute;
+	top         : -103px;
+	left        : 50%;
+	margin-left : -177px;
+
+	background      : url('../img/feature-img.png');
+	background-size : 100% auto;
+
+	width  : 354px;
+	height : 432px;
 }

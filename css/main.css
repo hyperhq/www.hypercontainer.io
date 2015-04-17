@@ -224,6 +224,16 @@ body {
   body * {
     box-sizing: border-box; }
 
+.revealed {
+  opacity: 1; }
+
+.wrapper {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 50px;
+  position: relative; }
+
 .spliter {
   background-image: url('../img/spliter.svg');
   background-size: 38px 23px;
@@ -233,6 +243,33 @@ body {
   margin: 0 auto;
   padding-bottom: 36px; }
 
+.logo {
+  background: url('../img/logo.svg');
+  background-size: 98px 34px;
+  background-repeat: no-repeat;
+  width: 98px;
+  height: 34px; }
+
+.btn-large {
+  font-family: "anmono", "Consolas", "Monaco", "Ubuntu Mono", monospace !important;
+  background: #fff;
+  border: 1px solid #606EC3;
+  border-radius: 2px;
+  font-size: 24px;
+  color: #606EC3;
+  width: 264px;
+  height: 68px;
+  line-height: 68px;
+  text-align: center;
+  -webkit-transition: all .1s ease-in;
+          transition: all .1s ease-in;
+  position: relative; }
+  .btn-large:hover {
+    border-radius: 0;
+    border: 6px solid #606EC3;
+    background: rgba(255, 255, 255, 0.2);
+    line-height: 56px; }
+
 .page-header {
   width: 100%;
   position: fixed;
@@ -240,19 +277,37 @@ body {
   height: 48px;
   z-index: 100;
   background: rgba(255, 255, 255, 0.9); }
+  .page-header .logo {
+    margin-top: 7px; }
+  .page-header .btn-header {
+    position: absolute;
+    top: 17px;
+    right: 50px;
+    background: #fff;
+    border: 1px solid #606EC3;
+    border-radius: 2px;
+    width: 80px;
+    height: 34px;
+    line-height: 31px;
+    color: #606EC3; }
+    .page-header .btn-header:hover {
+      border-radius: 0;
+      border: 3px solid #606EC3;
+      background: rgba(255, 255, 255, 0.2);
+      line-height: 27px; }
 
 .head {
   position: relative;
   width: 100%;
   height: 100vh;
-  padding-top: 30vh;
+  padding-top: 25vh;
   text-align: center;
   background-color: rgba(167, 169, 191, 0.2);
   background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.9) 0%, rgba(167, 169, 191, 0.2) 100%), url('../img/grey.png');
   background: linear-gradient(-180deg, rgba(255, 255, 255, 0.9) 0%, rgba(167, 169, 191, 0.2) 100%), url('../img/grey.png');
   background-blend-mode: screen;
-  -webkit-animation: bg-move 25s ease-in-out infinite;
-          animation: bg-move 25s ease-in-out infinite; }
+  -webkit-animation: bg-move 30s linear infinite;
+          animation: bg-move 30s linear infinite; }
   .head h1 {
     font-weight: 100;
     font-size: 48px; }
@@ -262,6 +317,8 @@ body {
   .head h4 {
     font-family: "anmono", "Consolas", "Monaco", "Ubuntu Mono", monospace !important;
     color: #C7C7C7; }
+  .head .btn-large {
+    margin-top: 10vh; }
 
 @-webkit-keyframes bg-move {
   to {
@@ -270,3 +327,28 @@ body {
 @keyframes bg-move {
   to {
     background-position: 0 100%; } }
+
+.desc {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  padding: 80px 0; }
+  .desc:nth-child(2n) {
+    background: #F3F6F8; }
+  .desc h3 {
+    font-size: 32px;
+    color: #606EC3;
+    font-weight: 100; }
+    .desc h3 b {
+      font-weight: 100;
+      color: #C7C7C7; }
+
+.dvm-anatomy {
+  position: absolute;
+  top: -103px;
+  left: 50%;
+  margin-left: -177px;
+  background: url('../img/feature-img.png');
+  background-size: 100% auto;
+  width: 354px;
+  height: 432px; }
