@@ -58,13 +58,15 @@ body {
 .btn {
 	@include font-mono;
 
-	background    : #fff;
-	border        : 1px solid $base-p;
-	color         : $base-p;
-	text-align    : center;
-	transition    : all .1s ease-in;	
-	position      : relative;
-	border-radius : 2px;
+	background      : #fff;
+	border          : 1px solid $base-p;
+	color           : $base-p;
+	text-align      : center;
+	transition      : all .1s ease-in;	
+	position        : relative;
+	border-radius   : 2px;
+	text-decoration : none;
+	display         : block;
 
 	&:hover {
 		border-radius : 0;
@@ -74,7 +76,6 @@ body {
 }
 
 .btn-large {
-	display         : block;
 	font-size     : 24px;
 	
 	width         : 264px;
@@ -312,7 +313,6 @@ body {
 		background      : transparent;
 		border          : 1px solid $light-p;
 		color           : $light-p;
-		text-decoration : none;
 
 		&:hover {
 			border : 6px solid $light-p;
