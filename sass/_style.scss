@@ -1,0 +1,75 @@
+@import "webfont";
+
+$base-p     : #606EC3;
+$dark-grey  : #747474;
+$light-grey : #C7C7C7;
+$light-p    : #CFD1E2;
+
+body {
+	@include font-major;
+
+	font-weight : 400;
+	font-size   : 16px;
+	overflow-x  : hidden;
+	background  : #fff;
+	margin      : 0;
+
+	* {
+		box-sizing: border-box;
+	}
+}
+
+.spliter {
+	background-image  : url('../img/spliter.svg');
+	background-size   : 38px 23px;
+	background-repeat : no-repeat;
+
+	width            : 38px;
+	height           : 23px;
+
+	margin         : 0 auto;
+	padding-bottom : 36px;
+}
+
+.page-header {
+	width    : 100%;
+	position : fixed;
+	top      : 0;
+	height   : 48px;
+	z-index  : 100;
+
+	background: rgba(255,255,255,.9);
+}
+
+.head {
+	position    : relative;
+	width       : 100%;
+	height      : 100vh;
+	padding-top : 30vh;
+
+	text-align : center;
+
+	background-color : rgba(167,169,191,.2);
+	background       : linear-gradient(-180deg, rgba(255,255,255,.9) 0%, rgba(167,169,191,.2) 100%),
+	                   url('../img/grey.png');
+
+    background-blend-mode: screen;
+    animation: bg-move 25s ease-in-out infinite;
+
+	h1 {
+		font-weight : 100;
+		font-size   : 48px;
+
+		b { font-weight: 400; color: $base-p; }
+	}
+
+	h4 {
+		@include font-mono;
+
+		color: $light-grey;
+	}
+}
+
+@keyframes bg-move {
+	to { background-position: 0 100%}
+}

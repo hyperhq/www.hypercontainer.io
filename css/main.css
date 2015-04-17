@@ -1,0 +1,272 @@
+/*! HTML5 Boilerplate v5.0.0 | MIT License | http://h5bp.com/ */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4; }
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio, canvas, iframe, img, svg, video {
+  vertical-align: middle; }
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical; }
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0; }
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Hide visually and from screen readers:
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ */
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+  visibility: hidden; }
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.clearfix:after {
+  clear: both; }
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+@media print {
+  *, *:before, *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important; }
+  a, a:visited {
+    text-decoration: underline; }
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+  /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+  a[href^="#"]:after, a[href^="javascript:"]:after {
+    content: ""; }
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+  /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+  thead {
+    display: table-header-group; }
+  tr, img {
+    page-break-inside: avoid; }
+  img {
+    max-width: 100% !important; }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; }
+  h2, h3 {
+    page-break-after: avoid; } }
+
+@font-face {
+  font-family: 'quicksand';
+  src: url('../font/quicksand_light-webfont.eot');
+  src: url('../font/quicksand_light-webfont.eot?#iefix') format('embedded-opentype'), url('../font/quicksand_light-webfont.woff2') format('woff2'), url('../font/quicksand_light-webfont.woff') format('woff'), url('../font/quicksand_light-webfont.ttf') format('truetype'), url('../font/quicksand_light-webfont.svg#quicksand') format('svg');
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'robotoslab';
+  src: url('../font/robotoslab-thin-webfont.eot');
+  src: url('../font/robotoslab-thin-webfont.eot?#iefix') format('embedded-opentype'), url('../font/robotoslab-thin-webfont.woff2') format('woff2'), url('../font/robotoslab-thin-webfont.woff') format('woff'), url('../font/robotoslab-thin-webfont.ttf') format('truetype'), url('../font/robotoslab-thin-webfont.svg#robotoslab') format('svg');
+  font-weight: 100;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'robotoslab';
+  src: url('../font/robotoslab-regular-webfont.eot');
+  src: url('../font/robotoslab-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../font/robotoslab-regular-webfont.woff2') format('woff2'), url('../font/robotoslab-regular-webfont.woff') format('woff'), url('../font/robotoslab-regular-webfont.ttf') format('truetype'), url('../font/robotoslab-regular-webfont.svg#robotoslab') format('svg');
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'anmono';
+  src: url('../font/anonymouspro-regular-webfont.eot');
+  src: url('../font/anonymouspro-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../font/anonymouspro-regular-webfont.woff2') format('woff2'), url('../font/anonymouspro-regular-webfont.woff') format('woff'), url('../font/anonymouspro-regular-webfont.ttf') format('truetype'), url('../font/anonymouspro-regular-webfont.svg#anonymouspro') format('svg');
+  font-weight: 400;
+  font-style: normal; }
+
+body {
+  font-family: "robotoslab", "Helvetica Neue", Arial, "Hiragino Sans GB", "Microsoft YaHei",
+             "WenQuanYi Micro Hei", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  overflow-x: hidden;
+  background: #fff;
+  margin: 0; }
+  body * {
+    box-sizing: border-box; }
+
+.spliter {
+  background-image: url('../img/spliter.svg');
+  background-size: 38px 23px;
+  background-repeat: no-repeat;
+  width: 38px;
+  height: 23px;
+  margin: 0 auto;
+  padding-bottom: 36px; }
+
+.page-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 48px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.9); }
+
+.head {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding-top: 30vh;
+  text-align: center;
+  background-color: rgba(167, 169, 191, 0.2);
+  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.9) 0%, rgba(167, 169, 191, 0.2) 100%), url('../img/grey.png');
+  background: linear-gradient(-180deg, rgba(255, 255, 255, 0.9) 0%, rgba(167, 169, 191, 0.2) 100%), url('../img/grey.png');
+  background-blend-mode: screen;
+  -webkit-animation: bg-move 25s ease-in-out infinite;
+          animation: bg-move 25s ease-in-out infinite; }
+  .head h1 {
+    font-weight: 100;
+    font-size: 48px; }
+    .head h1 b {
+      font-weight: 400;
+      color: #606EC3; }
+  .head h4 {
+    font-family: "anmono", "Consolas", "Monaco", "Ubuntu Mono", monospace !important;
+    color: #C7C7C7; }
+
+@-webkit-keyframes bg-move {
+  to {
+    background-position: 0 100%; } }
+
+@keyframes bg-move {
+  to {
+    background-position: 0 100%; } }

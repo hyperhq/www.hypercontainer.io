@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'quicksand';
+    src: url('../font/quicksand_light-webfont.eot');
+    src: url('../font/quicksand_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/quicksand_light-webfont.woff2') format('woff2'),
+         url('../font/quicksand_light-webfont.woff') format('woff'),
+         url('../font/quicksand_light-webfont.ttf') format('truetype'),
+         url('../font/quicksand_light-webfont.svg#quicksand') format('svg');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'robotoslab';
+    src: url('../font/robotoslab-thin-webfont.eot');
+    src: url('../font/robotoslab-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/robotoslab-thin-webfont.woff2') format('woff2'),
+         url('../font/robotoslab-thin-webfont.woff') format('woff'),
+         url('../font/robotoslab-thin-webfont.ttf') format('truetype'),
+         url('../font/robotoslab-thin-webfont.svg#robotoslab') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotoslab';
+    src: url('../font/robotoslab-regular-webfont.eot');
+    src: url('../font/robotoslab-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/robotoslab-regular-webfont.woff2') format('woff2'),
+         url('../font/robotoslab-regular-webfont.woff') format('woff'),
+         url('../font/robotoslab-regular-webfont.ttf') format('truetype'),
+         url('../font/robotoslab-regular-webfont.svg#robotoslab') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'anmono';
+    src: url('../font/anonymouspro-regular-webfont.eot');
+    src: url('../font/anonymouspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/anonymouspro-regular-webfont.woff2') format('woff2'),
+         url('../font/anonymouspro-regular-webfont.woff') format('woff'),
+         url('../font/anonymouspro-regular-webfont.ttf') format('truetype'),
+         url('../font/anonymouspro-regular-webfont.svg#anonymouspro') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@mixin font-mono {
+    font-family: "anmono","Consolas","Monaco","Ubuntu Mono", monospace !important ;
+}
+
+@mixin font-major {
+    font-family: "robotoslab", "Helvetica Neue", Arial, "Hiragino Sans GB", "Microsoft YaHei",
+             "WenQuanYi Micro Hei", sans-serif;
+}
