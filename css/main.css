@@ -259,7 +259,9 @@ body {
   -webkit-transition: all .1s ease-in;
           transition: all .1s ease-in;
   position: relative;
-  border-radius: 2px; }
+  border-radius: 2px;
+  text-decoration: none;
+  display: block; }
   .btn:hover {
     border-radius: 0;
     background: rgba(255, 255, 255, 0.2);
@@ -314,7 +316,7 @@ body {
     font-family: "anmono", "Consolas", "Monaco", "Ubuntu Mono", monospace !important;
     color: #C7C7C7; }
   .head .btn-large {
-    margin-top: 10vh; }
+    margin: 10vh auto 0 auto; }
 
 @-webkit-keyframes bg-move {
   to {
@@ -430,12 +432,10 @@ body {
   background: #333752;
   padding: 180px; }
   .get .btn-large {
-    display: block;
     margin: 0 auto;
     background: transparent;
     border: 1px solid #CFD1E2;
-    color: #CFD1E2;
-    text-decoration: none; }
+    color: #CFD1E2; }
     .get .btn-large:hover {
       border: 6px solid #CFD1E2; }
 
