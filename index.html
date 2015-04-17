@@ -16,30 +16,46 @@
         <header class="page-header">
           <div class="wrapper">
             <div class="logo"></div>
-            <button class="btn-header">GitHub</button>
+            <button class="btn btn-header">GitHub</button>
           </div>
         </header>
 
         <section class="head">
           <div class="spliter"></div>
           <h4>ISOLATED, SECURE, IMMUTABLE</h4>
-          <h1>Make <b>VM</b> runs like <b>Container</b>_</h1>
-          <button class="btn-large">VIEW ON GITHUB</button>
+          <h1 data-sr="enter bottom ease-out 50px">Make <b>VM</b> runs like <b>Container</b>_</h1>
+          <button class="btn btn-large" data-sr="enter bottom wait .5s">VIEW ON GITHUB</button>
         </section>
 
         <section class="desc">
           <div class="spliter"></div>
-          <h3>DVM <b>=</b> Docker <b>+</b> KVM</h3>
+          <h3 data-sr="wait .2s enter bottom">DVM <b>=</b> Docker <b>+</b> KVM</h3>
           <div class="dvm-anatomy">
-            <div class="feature-img"></div>
+            <div class="vm" data-sr="wait 1.2s move 80px"></div>
+            <div class="container-pod" data-sr="wait .5s move 40px"></div>
+            <ul class="caption" data-sr="wait 2s move 40px enter right">
+              <li>Container</li>
+              <li>POD</li>
+              <li>Virtual Machine</li>
+            </ul>
           </div>
+        </section>
+
+        <section class="desc desc-1">
+          <div class="spliter"></div>
+          <h3 data-sr="wait .2s enter bottom">Run any docker image</h3>
+          <pre>
+            <p><b>[root@user ~:]</b># yum install dvm</p>
+            <p><b>[root@user ~:]</b># docker pull nginx:latest</p>
+            <p><b>[root@user ~:]</b># dvm run nginx:latest</p>
+          </pre>
         </section>
 
 
         <footer>(c) 2015, CompanyName. All rights reserved.</footer>
 
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="js/vendor/t.min.js"></script>
+        <script src="js/vendor/scrollReveal.min.js"></script>
         <script src="js/main.js"></script>
 
         <script>
