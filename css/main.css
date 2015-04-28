@@ -287,9 +287,61 @@ body {
   width: 100%;
   position: fixed;
   top: 0;
-  height: 61px;
+  height: 60px;
   z-index: 100;
   background: white; }
+  .page-header nav.header {
+    position: absolute;
+    right: 150px;
+    top: 0;
+    width: 90%;
+    text-align: right; }
+    .page-header nav.header .dropdown {
+      display: inline-block;
+      height: 60px;
+      line-height: 30px;
+      position: relative;
+      color: #666666;
+      cursor: pointer; }
+      .page-header nav.header .dropdown > span {
+        padding: 15px 20px;
+        line-height: 30px;
+        display: inline-block; }
+      .page-header nav.header .dropdown ul {
+        height: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: left;
+        overflow: hidden; }
+        .page-header nav.header .dropdown ul li {
+          line-height: 30px;
+          background: #ffffff;
+          padding: 15px 20px;
+          border-bottom: 1px solid #eeeeee; }
+          .page-header nav.header .dropdown ul li a {
+            color: #666666;
+            text-decoration: none; }
+          .page-header nav.header .dropdown ul li:hover {
+            background: #efefef; }
+          .page-header nav.header .dropdown ul li:last-child {
+            border-bottom: 0; }
+      .page-header nav.header .dropdown:hover {
+        background: #efefef; }
+        .page-header nav.header .dropdown:hover ul {
+          height: auto; }
+    .page-header nav.header > a {
+      display: inline-block;
+      line-height: 30px;
+      color: #666666;
+      text-decoration: none;
+      height: 60px;
+      padding: 15px 20px; }
+      .page-header nav.header > a:hover {
+        background: #efefef; }
   .page-header .btn-header {
     position: absolute;
     top: 13px;
@@ -361,7 +413,7 @@ body {
       -webkit-animation: blink 1s infinite;
       animation: blink 1s infinite; }
 
-@keyframes blink {
+@-webkit-keyframes blink {
   0% {
     opacity: 1; }
 
@@ -371,7 +423,7 @@ body {
   100% {
     opacity: 1; } }
 
-@-webkit-keyframes blink {
+@keyframes blink {
   0% {
     opacity: 1; }
 
@@ -388,6 +440,11 @@ body {
 @keyframes bg-move {
   to {
     background-position: 0 100%; } }
+
+.install {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center; }
 
 .desc {
   width: 100%;

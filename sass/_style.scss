@@ -105,7 +105,7 @@ body {
 	width     : 100%;
 	position  : fixed;
 	top       : 0;
-	height    : 61px;
+	height    : 60px;
 	z-index   : 100;
 
 	background: rgba(255,255,255,1);
@@ -113,6 +113,70 @@ body {
 	.logo {
 	}
 
+    nav.header{
+      position: absolute;
+      right: 150px;
+      top: 0;
+      width: 90%;
+      text-align: right;
+      .dropdown{
+        display: inline-block;
+        height: 60px;
+        line-height: 30px;
+        position: relative;
+        color: #666666;
+        cursor: pointer;
+        >span{
+          padding: 15px 20px;
+          line-height: 30px;
+          display: inline-block;
+        }
+        ul{
+          height: 0;
+          position: absolute;
+          top:100%;
+          left: 0;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          text-align: left;
+          overflow: hidden;
+          li{
+            line-height: 30px;
+            background: #ffffff;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eeeeee;
+            a{
+              color: #666666;
+              text-decoration: none;
+            }
+            &:hover{
+              background: #efefef;
+            }
+            &:last-child{
+              border-bottom: 0;
+            }
+          }
+        }
+        &:hover{
+          background: #efefef;
+          ul{
+            height: auto;
+          }
+        }
+      }
+      > a{
+        display: inline-block;
+        line-height: 30px;
+        color: #666666;
+        text-decoration: none;
+        height: 60px;
+        padding: 15px 20px;
+        &:hover{
+          background: #efefef;
+        }
+      }
+    }
 	.btn-header { 
 		position      : absolute;
 		top           : 13px;
@@ -216,56 +280,14 @@ body {
   }
 }
 
-@-webkit-keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-moz-keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-ms-keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-o-keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes bg-move {
 	to { background-position: 0 100%}
+}
+
+.install{
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .desc {
