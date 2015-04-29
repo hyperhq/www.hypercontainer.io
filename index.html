@@ -17,7 +17,7 @@
           <div class="wrapper">
             <div class="logo"></div>
             <nav class="header">
-                <a href="#">Home</a>
+                <a href="/">Home</a>
                 <a href="#">Why DVM</a>
                 <div class="dropdown">
                     <span>Products</span>
@@ -41,10 +41,9 @@
         </section>
 
         <section class="install">
-            <pre>
-                <code>
-curl https://install.getdvm.com/ | sh</code>
-            </pre>
+            <div class="how-to">How to install DVM?</div>
+            <div class="tips">Paste this at a Terminal prompt.</div>
+            <pre><code>curl https://install.getdvm.com/ | sh</code></pre>
         </section>
 
         <section class="desc">
@@ -99,7 +98,58 @@ curl https://install.getdvm.com/ | sh</code>
         </section>
 
 
-        <footer>(c) 2015, GetDVM Inc. All rights reserved.</footer>
+        <footer>
+            <div class="wrapper clearfix">
+                <div class="column">
+                    <h2>Company</h2>
+                    <ul>
+                        <li><a target="_blank" href="#">About</a></li>
+                        <li><a target="_blank" href="https://medium.com/@dvm">Jobs</a></li>
+                        <li><a target="_blank" href="#">Security</a></li>
+                    </ul>
+                    <h2>Products</h2>
+                    <ul>
+                        <li><a target="_blank" href="#">HyperKernel</a></li>
+                        <li><a target="_blank" href="#">HyperStack</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h2>Support & Community</h2>
+                    <ul>
+                        <li><a target="_blank" href="https://github.com/getdvm">Github</a></li>
+                        <li><a target="_blank" href="#">Mailing List</a></li>
+                        <li><a target="_blank" href="https://groups.google.com/d/forum/dvm-user">General</a></li>
+                        <li><a target="_blank" href="https://groups.google.com/d/forum/dvm-dev">Developer</a></li>
+                        <li><a target="_blank" href="https://twitter.com/getdvm">Twitter</a></li>
+                        <li><a target="_blank" href="#">IRC</a></li>
+                        <li><a target="_blank" href="https://gitter.im/getdvm">Gitter.im</a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/getdvm">Facebook</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h2>Documentation</h2>
+                    <ul>
+                        <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/get_started/index.html">Get Started</a></li>
+                        <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/instance/index.html">Instance Management</a></li>
+                        <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/pod/index.html">Running Pod</a></li>
+                        <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/reference/index.html">Reference</a></li>
+                        <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/release_notes/index.html">Release Notes</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="subscribe">
+                        <form action="">
+                            <input type="text" placeholder="Enter Your Email"/>
+                            <button class="button" type="submit">Subscribe</button>
+                        </form>
+                        <p class="hint">Subscribe to get early access.</p>
+                    </div>
+                    <div class="copyright">
+                        (c) 2015, GetDVM Inc. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
         <script src="js/vendor/scrollReveal.min.js"></script>

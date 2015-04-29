@@ -1,8 +1,6 @@
 var tPosition = {line: 0, column: 0};
 terminal = function(option){
-  console.log(option);
   option = option || {data: []};
-  console.log(option);
   option.data = option.data || [];
   option.timeout = option.timeout || 3000;
   var allString = 0;
@@ -57,6 +55,24 @@ function insertTerminal(option){
   }
 }
 
+function selectText(element) {
+  var doc = document
+    , text = $(element).get(0)
+    , range, selection
+    ;
+  if (doc.body.createTextRange) {
+    range = document.body.createTextRange();
+    range.moveToElementText(text);
+    range.select();
+  } else if (window.getSelection) {
+    selection = window.getSelection();
+    range = document.createRange();
+    range.selectNodeContents(text);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+}
+
 $(window).load(function() {
   terminal({
     data  : [
@@ -75,7 +91,7 @@ $(window).load(function() {
       },{
         prefix: "[root@user ~:]#",
         command: "docker ps",
-        result: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid animi beatae consectetur eaque fugiat impedit rerum sed?"
+        result: ""
       },{
         prefix: "[root@user ~:]#",
         command: "virsh list",
@@ -86,8 +102,11 @@ $(window).load(function() {
       }
     ],
     dom: ".terminal-player pre code",
-    timeout: 6000
+    timeout: 5000
   });
+  $(".install pre").click(function(){
+    selectText(".install pre code");
+  })
 });
 window.sr = new scrollReveal();
 

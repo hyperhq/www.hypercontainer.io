@@ -151,7 +151,7 @@ body {
               text-decoration: none;
             }
             &:hover{
-              background: #efefef;
+//              background: #efefef;
             }
             &:last-child{
               border-bottom: 0;
@@ -159,7 +159,6 @@ body {
           }
         }
         &:hover{
-          background: #efefef;
           ul{
             height: auto;
           }
@@ -173,7 +172,7 @@ body {
         height: 60px;
         padding: 15px 20px;
         &:hover{
-          background: #efefef;
+          color: #333333;
         }
       }
     }
@@ -288,6 +287,23 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
+  pre{
+    width: 900px;
+    margin: 30px auto 60px auto;
+    padding: 60px 0;
+    font-size: 20px;
+    color: #666666;
+  }
+  .how-to{
+    margin: 100px auto 10px auto;
+    font-size: 32px;
+    color: $base-p;
+    font-weight: 100;
+  }
+  .tips{
+    font-size: 14px;
+    color: #888888;
+  }
 }
 
 .desc {
@@ -483,4 +499,54 @@ footer {
 	font-size   : 14px;
 	font-weight : 100;
 	padding     : 50px;
+    .column{
+      width: 25%;
+      padding: 10px;
+      float: left;
+      text-align: left;
+      h2{
+        font-size: 18px;
+        margin-top: 0;
+      }
+      a{
+        color: #dddddd;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 15px;
+        &:hover{
+          color: $light-p;
+        }
+      }
+      ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    .subscribe{
+      input{
+        padding: 5px 10px;
+        border: 0;
+        height: 32px;
+        display: inline-block;
+        font-family: sans-serif;
+        width: 65%;
+        line-height: 16px;
+        color: $base-p;
+      }
+      button.button{
+        display: inline-block;
+        height: 32px;
+        margin-left: -3px;
+        width: 45px;
+        background: $base-p url("../img/submit.png") no-repeat center;
+        border: 0;
+        text-indent: 999999999999px;
+      }
+    }
+    .copyright{
+      margin-top: 30px;
+      color: #fff;
+
+    }
 }

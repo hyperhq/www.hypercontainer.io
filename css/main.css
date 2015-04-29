@@ -325,14 +325,10 @@ body {
           .page-header nav.header .dropdown ul li a {
             color: #666666;
             text-decoration: none; }
-          .page-header nav.header .dropdown ul li:hover {
-            background: #efefef; }
           .page-header nav.header .dropdown ul li:last-child {
             border-bottom: 0; }
-      .page-header nav.header .dropdown:hover {
-        background: #efefef; }
-        .page-header nav.header .dropdown:hover ul {
-          height: auto; }
+      .page-header nav.header .dropdown:hover ul {
+        height: auto; }
     .page-header nav.header > a {
       display: inline-block;
       line-height: 30px;
@@ -341,7 +337,7 @@ body {
       height: 60px;
       padding: 15px 20px; }
       .page-header nav.header > a:hover {
-        background: #efefef; }
+        color: #333333; }
   .page-header .btn-header {
     position: absolute;
     top: 13px;
@@ -445,6 +441,20 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   text-align: center; }
+  .install pre {
+    width: 900px;
+    margin: 30px auto 60px auto;
+    padding: 60px 0;
+    font-size: 20px;
+    color: #666666; }
+  .install .how-to {
+    margin: 100px auto 10px auto;
+    font-size: 32px;
+    color: #606EC3;
+    font-weight: 100; }
+  .install .tips {
+    font-size: 14px;
+    color: #888888; }
 
 .desc {
   width: 100%;
@@ -580,3 +590,42 @@ footer {
   font-size: 14px;
   font-weight: 100;
   padding: 50px; }
+  footer .column {
+    width: 25%;
+    padding: 10px;
+    float: left;
+    text-align: left; }
+    footer .column h2 {
+      font-size: 18px;
+      margin-top: 0; }
+    footer .column a {
+      color: #dddddd;
+      text-decoration: none;
+      font-weight: 300;
+      font-size: 15px; }
+      footer .column a:hover {
+        color: #CFD1E2; }
+    footer .column ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+  footer .subscribe input {
+    padding: 5px 10px;
+    border: 0;
+    height: 32px;
+    display: inline-block;
+    font-family: sans-serif;
+    width: 65%;
+    line-height: 16px;
+    color: #606EC3; }
+  footer .subscribe button.button {
+    display: inline-block;
+    height: 32px;
+    margin-left: -3px;
+    width: 45px;
+    background: #606EC3 url("../img/submit.png") no-repeat center;
+    border: 0;
+    text-indent: 999999999999px; }
+  footer .copyright {
+    margin-top: 30px;
+    color: #fff; }
