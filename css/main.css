@@ -596,7 +596,8 @@ footer {
     float: left;
     text-align: left; }
     footer .column h2 {
-      font-size: 18px;
+      font-size: 18px; }
+    footer .column h2:first-child {
       margin-top: 0; }
     footer .column a {
       color: #dddddd;
