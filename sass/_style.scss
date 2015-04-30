@@ -337,7 +337,18 @@ body {
   &:nth-child(2n) {
     background: #F3F6F8;
   }
+  &.title{
+    background: #fff;
+    margin-top: 200px;
+    padding: 0;
+    h3{
+      margin-bottom: 0;
+    }
+  }
 
+  table{
+    margin-bottom: 200px;
+  }
   h3 {
     // @include font-mono;
 
@@ -399,15 +410,59 @@ body {
 
 }
 
+table{
+  margin: 40px auto;
+  border: 1px solid #dedede;
+  thead{
+    border-bottom: 1px solid #dedede;
+  }
+  tr{
+    border-bottom: 1px solid #dedede;
+    &:last-child{
+      border-bottom: 0;
+    }
+  }
+  td, th{
+    color: #888;
+    text-align: left;
+    border-right: 1px solid #dedede;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    transition: background 0.3s;
+    &:first-child{
+      font-weight: bold;
+      color: #666666;
+      min-width: 150px;
+      @media (max-width: 560px) {
+        min-width: 0;
+      }
+    }
+    &:hover{
+      background: #fafafa;
+    }
+    &:last-child{
+      border-right: 0;
+    }
+  }
+  th{
+    font-weight: bold;
+    color: #666666;
+  }
+}
+
 .desc-img {
-  background-size: 100% auto;
+  background-size: auto 100%;
   background-repeat: no-repeat;
-  padding: 60px 0 !important;
+  padding: 80px 0 !important;
+  background-position: center;
+  margin-bottom: -40px!important;
+}
+.desc-img.fast{
+  background-image: url("../img/feature-fast.png");
 }
 .desc-img.pod {
   background-image: url("../img/feature-pod.png");
-  width: 373px;
-  height: 370px;
 }
 .desc-img.isolation {
   background-image: url("../img/feature-isolation.png");
