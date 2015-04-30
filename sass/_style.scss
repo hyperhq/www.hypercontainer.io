@@ -103,12 +103,12 @@ body {
 
 .page-header {
   width: 100%;
-  position: fixed;
+  position: absolute;
   top: 0;
   height: 60px;
   z-index: 100;
 
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0);
 
   .logo {
   }
@@ -316,6 +316,9 @@ body {
     font-size: 24px;
     padding: 10px 20px;
     height: 52px;
+    background: $base-p;
+    color: #ffffff;
+    font-family: robotoslab,"Helvetica Neue",Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
   }
   .install-input {
     height: 52px;
@@ -354,7 +357,7 @@ body {
 
     font-size: 32px;
     color: $base-p;
-    font-weight: 100;
+    font-weight: 400;
 
     b {
       font-weight: 100;
@@ -368,7 +371,7 @@ body {
 
   p {
     font-size: 18px;
-    font-weight: 100;
+//    font-weight: 100;
     color: $dark-grey;
     text-align: center;
     margin-top: 5px;
