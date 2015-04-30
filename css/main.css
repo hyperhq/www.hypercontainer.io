@@ -497,7 +497,7 @@ body {
     font-size: 18px;
     font-weight: 100;
     color: #747474;
-    text-align: left;
+    text-align: center;
     margin-top: 5px; }
     .desc p:first-child {
       padding-top: 60px; }
@@ -514,12 +514,18 @@ body {
       color: #C7C7C7; }
   .desc .desc-quarter {
     width: 50%;
-    float: left; }
+    float: left;
+    height: 400px; }
+    @media (max-width: 960px) {
+      .desc .desc-quarter {
+        width: 100%; }
+        .desc .desc-quarter:nth-child(2n) {
+          background: #F3F6F8; } }
 
 .desc-img {
   background-size: 100% auto;
   background-repeat: no-repeat;
-  margin: 60px auto !important; }
+  padding: 60px 0 !important; }
 
 .desc-img.pod {
   background-image: url("../img/feature-pod.png");
@@ -527,9 +533,7 @@ body {
   height: 370px; }
 
 .desc-img.isolation {
-  background-image: url("../img/feature-isolation.png");
-  width: 573px;
-  height: 180px; }
+  background-image: url("../img/feature-isolation.png"); }
 
 .get {
   height: 400px;
@@ -559,6 +563,16 @@ footer {
     padding: 10px;
     float: left;
     text-align: left; }
+    @media (max-width: 960px) {
+      footer .column {
+        width: 25%; }
+        footer .column:nth-child(5) {
+          text-align: center;
+          width: 100%; } }
+    @media (max-width: 640px) {
+      footer .column {
+        width: 100%;
+        text-align: center; } }
     footer .column h2 {
       font-size: 18px; }
     footer .column h2:first-child {
@@ -588,7 +602,8 @@ footer {
     font-family: sans-serif;
     width: 65%;
     line-height: 16px;
-    color: #606EC3; }
+    color: #606EC3;
+    max-width: 300px; }
   footer .subscribe button.button {
     display: inline-block;
     height: 32px;
