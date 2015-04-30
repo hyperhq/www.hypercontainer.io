@@ -44,9 +44,13 @@ function insertTerminal(option){
       }
     }, option.delay)
   }else{
+    var delay = option.delay;
+    if(tPosition.column == 1){
+      delay += 1000;
+    }
     window.setTimeout(function(){
       insertTerminal(option)
-    }, option.delay)
+    }, delay)
   }
   if(isEnd){
     window.setTimeout(function(){
@@ -78,24 +82,23 @@ $(window).load(function() {
     data  : [
       {
         prefix: "[root@user ~:]#",
-        command: "yum install dvm",
-        result:  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid animi aperiam atque consequuntur cum dicta."
+        command: "docker pull ubuntu:latest"
       }, {
         prefix: "[root@user ~:]#",
-        command: "docker pull nginx:latest",
-        result: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ipsa labore modi optio rerum vel vero."
-      },{
-        prefix: "[root@user ~:]#",
-        command: "dvm run nginx:latest",
-        result: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad asperiores commodi."
+        command: "dvm run ubuntu:latest",
+        result: "[TODO] i-12345678 is created..."
       },{
         prefix: "[root@user ~:]#",
         command: "docker ps",
         result: ""
       },{
         prefix: "[root@user ~:]#",
+        command: "",
+        result: ""
+      },{
+        prefix: "[root@user ~:]#",
         command: "virsh list",
-        result: "..... <br/>.....<br/>................<br/>Done"
+        result: "................<br/>Done"
       },{
         prefix: "[root@user ~:]#",
         command: ""
@@ -105,7 +108,7 @@ $(window).load(function() {
     timeout: 5000
   });
   $(".install pre").click(function(){
-    selectText(".install pre code");
+    $(".install input").select();
   })
 });
 window.sr = new scrollReveal();

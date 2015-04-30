@@ -34,67 +34,23 @@
         </header>
 
         <section class="head">
-          <h4>ISOLATED, SECURE, IMMUTABLE</h4>
           <h1 data-sr="enter bottom ease-out 50px">Make <b>VM</b> run like <b>Container</b>_</h1>
           <div class="terminal-player"><pre><code></code></pre></div>
-          <a href="#" class="btn btn-large" data-sr="enter bottom wait .5s">VIEW ON GITHUB</a>
+            <section class="install">
+                <pre><button class="install-button">Install</button><input class="install-input" type="text" value="curl https://install.getdvm.com/ | sh" readonly="readonly"/></pre>
+            </section>
         </section>
 
-        <section class="install">
-            <div class="how-to">How to install DVM?</div>
-            <div class="tips">Paste this at a Terminal prompt.</div>
-            <pre><code>curl https://install.getdvm.com/ | sh</code></pre>
-        </section>
 
-        <section class="desc">
-          <div class="spliter"></div>
-          <h3 data-sr="wait .2s enter bottom">DVM <b>=</b> Docker <b>+</b> KVM</h3>
-          <div class="dvm-anatomy">
-            <div class="vm" data-sr="wait 1.2s move 80px"></div>
-            <div class="container-pod" data-sr="wait .5s move 40px"></div>
-            <ul class="caption" data-sr="wait 2s move 40px enter right">
-              <li>Container</li>
-              <li>Pod</li>
-              <li>Virtual Machine</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="desc desc-1">
-          <div class="spliter"></div>
-          <h3 data-sr="wait .2s enter bottom">Run any docker image</h3>
-          <code data-sr="wait .4s enter bottom">
-            <b>[root@user ~:]</b># yum install dvm<br/>
-            <b>[root@user ~:]</b># docker pull nginx:latest<br/>
-            <b>[root@user ~:]</b># dvm run nginx:latest<br/>
-          </code>
-          <!-- <div data-sr="wait .4s enter bottom">
-            <p>Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam.</p>
-          </div> -->
-        </section>
-
-        <section class="desc desc-2">
-          <div class="spliter"></div>
-          <h3 data-sr="wait .2s enter bottom">Run containers together as a pod</h3>
-          <div class="desc-img pod" data-sr="wait .4s enter bottom"></div>
-          <!-- <div data-sr="wait .4s enter bottom">
-            <ul>
-              <li>Containers in a pod shared Network and PID Namespace.</li>
-              <li>Containers in a pod may cooperate seamlessly.</li>
-              <li>Containers in a POD could be developed and tested - separately.</li>
-            </ul>
-            <p>VM is the boundary of a POD in DVM</p>
-          </div> -->
-        </section>
-
-        <section class="desc desc-3">
-          <div class="spliter"></div>
-          <h3 data-sr="wait .2s enter bottom">Isolation by KVM</h3>
-          <div class="desc-img isolation" data-sr="wait .4s enter bottom"></div>
-        </section>
-
-        <section class="get">
-          <a href="#" class="btn btn-large">VIEW ON GITHUB</a>
+        <section class="desc clearfix">
+            <div class="desc-quarter">
+                <h3 data-sr="wait .2s enter bottom">Fast as Container</h3>
+                <div class="desc-img isolation" data-sr="wait .4s enter bottom"></div>
+                <div data-sr="wait .4s enter bottom">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. alias dolore eligendi molestias reiciendis. A architecto at, atque, consectetur est facere </p>
+                    <p>Lorem ipsum dolo consectetur adipisicing elit. Accusamus a liquid architecto beatae, ducimus non quas quidem voluptate? Assumenda deleniti distinctio excepturi magni, maiores, minus nobis omnis optio tenetur unde voluptate.fuga laboriosam odit quos, repellat reprehenderit repudiandae sequi velit.</p>
+                </div>
+            </div>
         </section>
 
 
@@ -107,6 +63,8 @@
                         <li><a target="_blank" href="https://medium.com/@dvm">Jobs</a></li>
                         <li><a target="_blank" href="#">Security</a></li>
                     </ul>
+                </div>
+                <div class="column">
                     <h2>Products</h2>
                     <ul>
                         <li><a target="_blank" href="#">HyperKernel</a></li>
@@ -117,9 +75,13 @@
                     <h2>Support & Community</h2>
                     <ul>
                         <li><a target="_blank" href="https://github.com/getdvm">Github</a></li>
-                        <li><a target="_blank" href="#">Mailing List</a></li>
-                        <li><a target="_blank" href="https://groups.google.com/d/forum/dvm-user">General</a></li>
-                        <li><a target="_blank" href="https://groups.google.com/d/forum/dvm-dev">Developer</a></li>
+                        <li><p>Mailing List</p>
+                            <ul>
+                                <li><a target="_blank" href="https://groups.google.com/d/forum/dvm-user">General</a></li>
+                                <li><a target="_blank" href="https://groups.google.com/d/forum/dvm-dev">Developer</a></li>
+                            </ul>
+                        </li>
+
                         <li><a target="_blank" href="https://twitter.com/getdvm">Twitter</a></li>
                         <li><a target="_blank" href="#">IRC</a></li>
                         <li><a target="_blank" href="https://gitter.im/getdvm">Gitter.im</a></li>
@@ -142,7 +104,7 @@
                             <input type="text" placeholder="Enter Your Email"/>
                             <button class="button" type="submit">Subscribe</button>
                         </form>
-                        <p class="hint">Subscribe to get early access.</p>
+                        <p class="hint">Subscribe to the weekly newsletter.</p>
                     </div>
                     <div class="copyright">
                         (c) 2015, GetDVM Inc. All rights reserved.

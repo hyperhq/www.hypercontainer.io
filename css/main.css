@@ -248,7 +248,8 @@ body {
   background-size: 98px 34px;
   background-repeat: no-repeat;
   width: 98px;
-  height: 34px; }
+  height: 34px;
+  background-position: -35px; }
 
 .btn {
   font-family: "anmono", "Consolas", "Monaco", "Ubuntu Mono", monospace !important;
@@ -344,7 +345,12 @@ body {
     right: 50px;
     width: 80px;
     height: 34px;
-    line-height: 31px; }
+    line-height: 31px;
+    background-size: 20px;
+    vertical-align: baseline; }
+    .page-header .btn-header img {
+      display: inline-block;
+      width: 22px; }
     .page-header .btn-header:hover {
       border: 3px solid #606EC3;
       line-height: 27px; }
@@ -439,28 +445,36 @@ body {
 
 .install {
   max-width: 1400px;
-  margin: 0 auto;
-  text-align: center; }
+  width: 100%;
+  margin: 0 auto; }
   .install pre {
-    width: 900px;
-    margin: 30px auto 60px auto;
-    padding: 60px 0;
-    font-size: 20px;
-    color: #666666; }
-  .install .how-to {
-    margin: 100px auto 10px auto;
-    font-size: 32px;
-    color: #606EC3;
-    font-weight: 100; }
+    margin-top: 10vh;
+    color: #666666;
+    padding: 5vh 0; }
   .install .tips {
     font-size: 14px;
-    color: #888888; }
+    color: #888888;
+    margin-top: 2em; }
+  .install .install-button {
+    border: 0;
+    font-size: 24px;
+    padding: 10px 20px;
+    height: 52px; }
+  .install .install-input {
+    height: 52px;
+    padding: 10px 20px;
+    font-size: 24px;
+    width: 50%;
+    text-align: center; }
 
 .desc {
   width: 100%;
+  max-width: 1440px;
   text-align: center;
   position: relative;
-  padding: 80px 0; }
+  padding: 80px 0;
+  margin-left: auto;
+  margin-right: auto; }
   .desc:nth-child(2n) {
     background: #F3F6F8; }
   .desc h3 {
@@ -498,59 +512,9 @@ body {
     padding: 16px 24px; }
     .desc code b {
       color: #C7C7C7; }
-
-.dvm-anatomy {
-  width: 354px;
-  height: 660px;
-  margin: 0 auto;
-  position: relative; }
-  .dvm-anatomy div {
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    position: absolute; }
-  .dvm-anatomy .container-pod {
-    background-image: url('../img/container-pod.png');
-    top: 80px;
-    width: 354px;
-    height: 263px; }
-  .dvm-anatomy .vm {
-    background-image: url('../img/vm.png');
-    width: 354px;
-    height: 432px;
-    top: 190px; }
-  .dvm-anatomy .caption {
-    position: absolute;
-    top: 64px;
-    left: 50%;
-    margin-left: 220px;
-    width: 180px;
-    font-family: "robotoslab", "Helvetica Neue", Arial, "Hiragino Sans GB", "Microsoft YaHei",
-             "WenQuanYi Micro Hei", sans-serif;
-    text-align: left;
-    font-weight: 100;
-    font-size: 18px;
-    color: #747474; }
-    @media (max-width: 400px) {
-      .dvm-anatomy .caption {
-        margin-left: 0; } }
-    .dvm-anatomy .caption li {
-      line-height: 100px;
-      list-style: circle;
-      position: relative; }
-      .dvm-anatomy .caption li:before {
-        content: "";
-        position: absolute;
-        top: 50px;
-        right: 160px;
-        display: block;
-        height: 1px;
-        width: 66px;
-        background-color: #C7C7C7; }
-        @media (max-width: 400px) {
-          .dvm-anatomy .caption li:before {
-            display: none; } }
-      .dvm-anatomy .caption li:first-child:before {
-        width: 207px; }
+  .desc .desc-quarter {
+    width: 50%;
+    float: left; }
 
 .desc-img {
   background-size: 100% auto;
@@ -591,7 +555,7 @@ footer {
   font-weight: 100;
   padding: 50px; }
   footer .column {
-    width: 25%;
+    width: 20%;
     padding: 10px;
     float: left;
     text-align: left; }
@@ -610,6 +574,12 @@ footer {
       list-style: none;
       margin: 0;
       padding: 0; }
+      footer .column ul p {
+        margin: 5px 0 5px 0; }
+      footer .column ul ul {
+        margin-left: 20px;
+        list-style: disc;
+        margin-bottom: 5px; }
   footer .subscribe input {
     padding: 5px 10px;
     border: 0;
