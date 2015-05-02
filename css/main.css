@@ -360,7 +360,7 @@ body {
   width: 100%;
   height: 100vh;
   min-height: 640px;
-  padding-top: 15vh;
+  padding-top: 12vh;
   text-align: center;
   background-color: rgba(167, 169, 191, 0.2);
   background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.6) 0%, rgba(167, 169, 191, 0.2) 100%), url('../img/grey.png');
@@ -448,7 +448,7 @@ body {
   width: 100%;
   margin: 0 auto; }
   .install pre {
-    margin-top: 10vh;
+    margin-top: 7vh;
     color: #666666;
     padding: 5vh 0; }
   .install .tips {
