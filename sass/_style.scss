@@ -211,7 +211,7 @@ pre, code {
   text-align: center;
 
   background-color: rgba(167, 169, 191, .2);
-  background: linear-gradient(-180deg, rgba(255, 255, 255, .6) 0%, rgba(167, 169, 191, .2) 100%), url('../img/grey.png');
+  background: linear-gradient(-180deg, rgba(255, 255, 255, 0.6) 0%, rgba(167, 169, 191, .2) 100%), url('../img/grey-darker.png');
   background-blend-mode: screen;
   animation: bg-move 30s linear infinite;
 
@@ -245,7 +245,7 @@ pre, code {
   .terminal-player {
     width: 100vh;
     max-width: 700px;
-    background: #000;
+    background: #34323f;
     height: 35vh;
     overflow: auto;
     text-align: left;

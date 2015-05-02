@@ -366,8 +366,8 @@ pre, code {
   padding-top: 12vh;
   text-align: center;
   background-color: rgba(167, 169, 191, 0.2);
-  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.6) 0%, rgba(167, 169, 191, 0.2) 100%), url('../img/grey.png');
-  background: linear-gradient(-180deg, rgba(255, 255, 255, 0.6) 0%, rgba(167, 169, 191, 0.2) 100%), url('../img/grey.png');
+  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0.6) 0%, rgba(167, 169, 191, 0.2) 100%), url('../img/grey-darker.png');
+  background: linear-gradient(-180deg, rgba(255, 255, 255, 0.6) 0%, rgba(167, 169, 191, 0.2) 100%), url('../img/grey-darker.png');
   background-blend-mode: screen;
   -webkit-animation: bg-move 30s linear infinite;
           animation: bg-move 30s linear infinite; }
@@ -391,7 +391,7 @@ pre, code {
   .head .terminal-player {
     width: 100vh;
     max-width: 700px;
-    background: #000;
+    background: #34323f;
     height: 35vh;
     overflow: auto;
     text-align: left;
