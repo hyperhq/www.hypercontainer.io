@@ -231,7 +231,7 @@ pre, code {
   font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif; }
 
 .wrapper {
-  max-width: 1440px;
+  max-width: 1170px;
   width: 100%;
   margin: 0 auto;
   padding: 10px 50px;
@@ -299,7 +299,8 @@ pre, code {
     right: 150px;
     top: 0;
     width: 90%;
-    text-align: right; }
+    text-align: right;
+    font-size: 18px; }
     .page-header nav.header .dropdown {
       display: inline-block;
       height: 60px;
