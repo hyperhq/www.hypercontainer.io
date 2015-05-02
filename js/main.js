@@ -86,7 +86,7 @@ $(window).load(function() {
       }, {
         prefix: "[root@user ~:]#",
         command: "dvm run ubuntu:latest",
-        result: "[TODO] i-12345678 is created..."
+        result: "i-12345678 is created..."
       },{
         prefix: "[root@user ~:]#",
         command: "docker ps",
