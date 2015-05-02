@@ -227,6 +227,9 @@ body {
   body * {
     box-sizing: border-box; }
 
+pre, code {
+  font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif; }
+
 .wrapper {
   max-width: 1440px;
   width: 100%;
@@ -602,7 +605,7 @@ footer {
   text-align: center;
   color: #CFD1E2;
   font-size: 14px;
-  font-weight: 100;
+  font-weight: 400;
   padding: 50px; }
   footer .column {
     width: 20%;
@@ -626,7 +629,6 @@ footer {
     footer .column a {
       color: #dddddd;
       text-decoration: none;
-      font-weight: 300;
       font-size: 15px; }
       footer .column a:hover {
         color: #CFD1E2; }
