@@ -471,7 +471,8 @@ pre, code {
     padding: 10px 20px;
     font-size: 24px;
     width: 50%;
-    text-align: center; }
+    text-align: center;
+    vertical-align: bottom; }
 
 .desc {
   width: 100%;
