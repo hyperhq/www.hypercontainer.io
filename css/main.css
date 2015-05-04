@@ -564,6 +564,15 @@ pre, code {
       font-size: 18px; }
       .desc .blog ul.task-list li, .desc .security ul.task-list li {
         padding: 5px 0; }
+    .desc .blog.why, .desc .security.why {
+      max-width: 800px; }
+      .desc .blog.why section, .desc .security.why section {
+        padding-top: 60px;
+        position: relative; }
+        .desc .blog.why section h2, .desc .security.why section h2 {
+          position: absolute;
+          top: 0;
+          padding: 0; }
   .desc blockquote {
     margin: 0;
     padding: 5px 20px;

@@ -458,6 +458,18 @@ pre, code {
         padding: 5px 0;
       }
     }
+    &.why{
+      max-width: 800px;
+      section{
+        padding-top: 60px;
+        position: relative;
+        h2{
+          position: absolute;
+          top: 0;
+          padding: 0;
+        }
+      }
+    }
   }
   blockquote{
     margin: 0;
