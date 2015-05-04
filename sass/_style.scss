@@ -452,7 +452,25 @@ pre, code {
       color: #666;
       font-size: 18px;
       li{
-        padding: 5px;
+        padding: 5px 0;
+      }
+    }
+  }
+  blockquote{
+    margin: 0;
+    padding: 5px 20px;
+    border-left: 3px solid #efefef;
+    p:first-child{
+      padding: 0;
+    }
+    p{
+      color: #999999;
+    }
+    ul{
+      padding-left: 15px;
+      margin: 0;
+      li{
+        color: #999999;
       }
     }
   }

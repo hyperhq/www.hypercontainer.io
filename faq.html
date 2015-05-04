@@ -3,10 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>About DVM | DVM - Make VM run like Container</title>
+    <title>FAQs | DVM - Make VM run like Container</title>
     <meta name="description" content="DVM - Make VM run like Container. Fast as Container, Isolated by VM.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 
     <link rel="stylesheet" href="css/normalize.css">
@@ -29,22 +28,44 @@
 </header>
 
 <section class="desc title">
-    <h3 data-sr="wait .1s enter bottom">About DVM</h3>
+    <h3 data-sr="wait .1s enter bottom">FAQ</h3>
     <div class="blog">
-        <p>DVM was founded by Peng Zhao and Xu Wang in 2014 with the goal to <strong><em>Make VM run like Container</em></strong>.</p>
+        <p>Q: Which hypervisor does DVM support?</p>
 
-        <p><img src="./img/blog/1_2.png" alt="image_2"/></p>
+        <blockquote>
+            <p>DVM is <strong><em>Hypervisor Agnostic</em></strong>. Currently, DVM supports KVM and Xen, with VMware ESX in the roadmap.</p>
+        </blockquote>
 
-        <p>With the rise of <strong><em>Docker</em></strong>, the public cloud of tomorrow will be very different than the cloud of today. And we believe that the future of <strong><em>Container-as-a-Service</em></strong> is just around the corner.</p>
+        <p>Q: How is DVM different from CoreOS?</p>
 
-        <p>Here at DVM, we're developing technologies to <strong><em>Enable the public Container-as-a-Service</em></strong>. Our idea is to combine the best from both virtualization and container:</p>
+        <blockquote>
+            <p>CoreOS is a minimalist Linux distro built for running app container. Though CoreOS is designed primarily for bare metal server, it is commonly used as Guest OS in the cloud, due to the lack of isolation. DVM, on the other hand, eliminates the need of Guest OS, by isolating apps in separated kernels.</p>
+        </blockquote>
 
-        <ul class="task-list">
-            <li><strong>Fast as Container</strong></li>
-            <li><strong>Isolated by VM</strong></li>
-        </ul>
+        <p>Q: What is the performance of DVM?</p>
 
-        <p>We build software to take you all the way safely from today to tomorrow and beyond, and we are proud to be born and grow as an <strong><em>Open Source</em></strong> company, since 2014, from Beijing, China.</p>
+        <blockquote>
+            <ul class="task-list">
+                <li>Boot:</li>
+                <li>CPU:</li>
+                <li>Mem:</li>
+                <li>Disk I/O:</li>
+                <li>Network:</li>
+            </ul>
+        </blockquote>
+
+        <p>Q: Does DVM use container to run the app image?</p>
+
+        <blockquote>
+            <p><strong><em>No</em></strong>, DVM doesn't use container (Docker daemon, LXC, Cgroup, Namespace) technology, except the <code>mnt</code> namespace if Pod is used. DVM is 100% virtualization-based solution, which benefits  from the hardware-enforced security in hypervisor.</p>
+        </blockquote>
+
+        <p>Q: What kernel version is available in DVM?</p>
+
+        <blockquote>
+            <p>Currently, the default HyperKernel in DVM is based on <a href="https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.0.1" rel="noreferrer">4.0.1</a>. You can also configure DVM to use any compatible Linux kernel, though they might be slow to boot and require more RAM.</p>
+        </blockquote>
+
     </div>
 </section>
 

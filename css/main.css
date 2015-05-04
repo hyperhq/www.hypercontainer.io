@@ -561,7 +561,20 @@ pre, code {
       color: #666;
       font-size: 18px; }
       .desc .blog ul.task-list li, .desc .security ul.task-list li {
-        padding: 5px; }
+        padding: 5px 0; }
+  .desc blockquote {
+    margin: 0;
+    padding: 5px 20px;
+    border-left: 3px solid #efefef; }
+    .desc blockquote p:first-child {
+      padding: 0; }
+    .desc blockquote p {
+      color: #999999; }
+    .desc blockquote ul {
+      padding-left: 15px;
+      margin: 0; }
+      .desc blockquote ul li {
+        color: #999999; }
 
 table {
   margin: 40px auto;
