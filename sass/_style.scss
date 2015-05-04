@@ -434,6 +434,9 @@ pre, code {
 //        max-width: 1000px;
       }
     }
+    strong{
+      color: #333333;
+    }
     h1, h2, h3, h4 ,h5 ,h6, p, pre, table{
       width: 100%;
       max-width: 100%;
@@ -535,9 +538,8 @@ table{
 }
 
 .get {
-  height: 400px;
   background: #333752;
-  padding: 180px 0;
+  padding: 100px 0;
 
   @media (max-width: 400px) {
     padding: 80px;
@@ -607,31 +609,48 @@ footer {
       }
     }
   }
-  .subscribe {
-    input {
-      padding: 5px 10px;
-      border: 0;
-      height: 32px;
-      display: inline-block;
-      font-family: sans-serif;
-      width: 65%;
-      line-height: 16px;
-      color: $base-p;
-      max-width: 300px;
-    }
-    button.button {
-      display: inline-block;
-      height: 32px;
-      margin-left: -3px;
-      width: 45px;
-      background: $base-p url("../img/submit.png") no-repeat center;
-      border: 0;
-      text-indent: 999999999999px;
-    }
-  }
   .copyright {
     margin-top: 30px;
     color: #fff;
-
+    &.no-subscribe{
+      margin-top: 0;
+    }
+  }
+}
+.subscribe {
+  input {
+    padding: 5px 10px;
+    border: 0;
+    height: 32px;
+    display: inline-block;
+    font-family: sans-serif;
+    width: 65%;
+    line-height: 16px;
+    color: $base-p;
+    max-width: 300px;
+    vertical-align: bottom;
+  }
+  button.button {
+    display: inline-block;
+    height: 32px;
+    margin-left: -3px;
+    width: 45px;
+    background: $base-p url("../img/submit.png") no-repeat center;
+    border: 0;
+    text-indent: 999999999999px;
+  }
+}
+.get.subscribe{
+  text-align: center;
+  color: #dedede;
+  .hint{
+    word-spacing: 10px;
+  }
+  button{
+    height: 40px;
+    width: 65px;
+  }
+  input{
+    height: 40px;
   }
 }

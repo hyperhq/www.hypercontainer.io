@@ -546,6 +546,8 @@ pre, code {
     .desc .blog pre, .desc .security pre {
       text-align: left;
       margin: 1em auto; }
+    .desc .blog strong, .desc .security strong {
+      color: #333333; }
     .desc .blog h1, .desc .blog h2, .desc .blog h3, .desc .blog h4, .desc .blog h5, .desc .blog h6, .desc .blog p, .desc .blog pre, .desc .blog table, .desc .security h1, .desc .security h2, .desc .security h3, .desc .security h4, .desc .security h5, .desc .security h6, .desc .security p, .desc .security pre, .desc .security table {
       width: 100%;
       max-width: 100%;
@@ -626,9 +628,8 @@ table {
   background-image: url("../img/feature-isolation.png"); }
 
 .get {
-  height: 400px;
   background: #333752;
-  padding: 180px 0; }
+  padding: 100px 0; }
   @media (max-width: 400px) {
     .get {
       padding: 80px;
@@ -683,24 +684,39 @@ footer {
         margin-left: 20px;
         list-style: disc;
         margin-bottom: 5px; }
-  footer .subscribe input {
-    padding: 5px 10px;
-    border: 0;
-    height: 32px;
-    display: inline-block;
-    font-family: sans-serif;
-    width: 65%;
-    line-height: 16px;
-    color: #606EC3;
-    max-width: 300px; }
-  footer .subscribe button.button {
-    display: inline-block;
-    height: 32px;
-    margin-left: -3px;
-    width: 45px;
-    background: #606EC3 url("../img/submit.png") no-repeat center;
-    border: 0;
-    text-indent: 999999999999px; }
   footer .copyright {
     margin-top: 30px;
     color: #fff; }
+    footer .copyright.no-subscribe {
+      margin-top: 0; }
+
+.subscribe input {
+  padding: 5px 10px;
+  border: 0;
+  height: 32px;
+  display: inline-block;
+  font-family: sans-serif;
+  width: 65%;
+  line-height: 16px;
+  color: #606EC3;
+  max-width: 300px;
+  vertical-align: bottom; }
+.subscribe button.button {
+  display: inline-block;
+  height: 32px;
+  margin-left: -3px;
+  width: 45px;
+  background: #606EC3 url("../img/submit.png") no-repeat center;
+  border: 0;
+  text-indent: 999999999999px; }
+
+.get.subscribe {
+  text-align: center;
+  color: #dedede; }
+  .get.subscribe .hint {
+    word-spacing: 10px; }
+  .get.subscribe button {
+    height: 40px;
+    width: 65px; }
+  .get.subscribe input {
+    height: 40px; }
