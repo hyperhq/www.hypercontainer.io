@@ -348,10 +348,17 @@ pre, code {
   }
   &.title{
     background: #fff;
-    margin-top: 200px;
+//    margin-top: 200px;
     padding: 0;
-    h3{
+    h3:first-child{
       margin-bottom: 0;
+      padding-top: 200px;
+      padding-bottom: 1em;
+      margin-top: 0;
+      background-color: rgba(167, 169, 191, .2);
+      background: url('../img/grey-darker.png');
+      background-blend-mode: screen;
+      animation: bg-move 30s linear infinite;
     }
   }
 
