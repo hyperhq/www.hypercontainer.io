@@ -629,6 +629,9 @@ table {
 .desc-img.isolation {
   background-image: url("../img/feature-isolation.png"); }
 
+.desc-img.immutable {
+  background-image: url("../img/feature-immutable.png"); }
+
 .get {
   background: url("../img/pattern.png");
   padding: 100px 0; }
