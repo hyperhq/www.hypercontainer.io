@@ -3,10 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Why DVM? | DVM - Make VM run like Container</title>
+    <title>Security | DVM - Make VM run like Container</title>
     <meta name="description" content="DVM - Make VM run like Container. Fast as Container, Isolated by VM.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 
     <link rel="stylesheet" href="css/normalize.css">
@@ -28,77 +27,56 @@
 </header>
 
 <section class="desc title">
-    <h3 data-sr="wait .1s enter bottom">WHY DVM?</h3>
-    <div class="why" data-sr="wait .2s enter bottom">
+    <h3 data-sr="wait .1s enter bottom">Security</h3>
+    <div class="security"><h2>Security</h2>
 
-        <p><em>DVM</em> combines <strong>the best from both world</strong>: Virtualization and App Container.</p>
+        <p>We understand that many users place a high level of trust in tools we make to deploy and run their applications. We make the privacy of customer data and security of our tools and services a top priority. We apply best practices and focus on security to make sure we can maintain the trust of our customers.</p>
 
-        <table>
-            <thead>
-            <tr>
-                <th>-</th>
-                <th>Container</th>
-                <th>VM</th>
-                <th>DVM</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Isolation</td>
-                <td>Weak, shared kernel</td>
-                <td>Strong, HW-enforced</td>
-                <td>Strong, HW-enforced</td>
-            </tr>
-            <tr>
-                <td>Boot</td>
-                <td>Fast, sub-second</td>
-                <td>Slow, tens of seconds</td>
-                <td>Fast, sub-second</td>
-            </tr>
-            <tr>
-                <td>Portable</td>
-                <td>Yes, but kernel dependency sometimes</td>
-                <td>No</td>
-                <td>Yes, bring your own kernel</td>
-            </tr>
-            <tr>
-                <td>Performance</td>
-                <td>Great</td>
-                <td>Good</td>
-                <td>Good, the same with VM</td>
-            </tr>
-            <tr>
-                <td>Immutable</td>
-                <td>Yes</td>
-                <td>No, configuration management required</td>
-                <td>Yes, only kernel+image</td>
-            </tr>
-            <tr>
-                <td>Image Size</td>
-                <td>Small, MBs</td>
-                <td>Big, GBs</td>
-                <td>Small, MBs</td>
-            </tr>
-            <tr>
-                <td>Compatibility</td>
-                <td>No, need new tools</td>
-                <td>Great, everything just works</td>
-                <td>Good, it is still a “Machine”, much less changes</td>
-            </tr>
-            <tr>
-                <td>Mature</td>
-                <td>Not yet</td>
-                <td>Production ready, SDN, SDS, LiveMigration, etc.</td>
-                <td>Not yet, but can leverage with VM technology</td>
-            </tr>
-            <tr>
-                <td>Migration</td>
-                <td>Need to build a new container platform</td>
-                <td>-</td>
-                <td>Plug &amp; Play with any virtual infrastructure</td>
-            </tr>
-            </tbody>
-        </table>
+        <h2>Privacy</h2>
+
+        <p>Each DVM product provides a published privacy policy that discloses what information may be collected and how it is used. Please see our individual products for their specific policy. For any specific questions, please contact <a href="mailto:security@getdvm.com" rel="noreferrer">security@getdvm.com</a>.</p>
+
+        <h2>Vulnerability Reporting</h2>
+
+        <p>We deeply appreciate any effort to disclose responsibly.</p>
+
+        <p>If you would like to report a vulnerability, or have any security concerns with a DVM product, please e-mail <a href="mailto:security@getdvm.com" rel="noreferrer">security@getdvm.com</a>. For non-critical matters, we prefer customers open a ticket with the appropriate product.</p>
+
+        <h2>Secure Communications</h2>
+
+        <p>If you would like to secure your communications with us, the following PGP key can be used.</p>
+
+        <pre><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1
+
+mQENBFMORM0BCADBRyKO1MhCirazOSVwcfTr1xUxjPvfxD3hjUwHtjsOy/bT6p9f
+W2mRPfwnq2JB5As+paL3UGDsSRDnK9KAxQb0NNF4+eVhr/EJ18s3wwXXDMjpIifq
+fIm2WyH3G+aRLTLPIpscUNKDyxFOUbsmgXAmJ46Re1fn8uKxKRHbfa39aeuEYWFA
+3drdL1WoUngvED7f+RnKBK2G6ZEpO+LDovQk19xGjiMTtPJrjMjZJ3QXqPvx5wca
+KSZLr4lMTuoTI/ZXyZy5bD4tShiZz6KcyX27cD70q2iRcEZ0poLKHyEIDAi3TM5k
+SwbbWBFd5RNPOR0qzrb/0p9ksKK48IIfH2FvABEBAAG0K0hhc2hpQ29ycCBTZWN1
+cml0eSA8c2VjdXJpdHlAaGFzaGljb3JwLmNvbT6JATgEEwECACIFAlMORM0CGwMG
+CwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEFGFLYc0j/xMyWIIAIPhcVqiQ59n
+Jc07gjUX0SWBJAxEG1lKxfzS4Xp+57h2xxTpdotGQ1fZwsihaIqow337YHQI3q0i
+SqV534Ms+j/tU7X8sq11xFJIeEVG8PASRCwmryUwghFKPlHETQ8jJ+Y8+1asRydi
+psP3B/5Mjhqv/uOK+Vy3zAyIpyDOMtIpOVfjSpCplVRdtSTFWBu9Em7j5I2HMn1w
+sJZnJgXKpybpibGiiTtmnFLOwibmprSu04rsnP4ncdC2XRD4wIjoyA+4PKgX3sCO
+klEzKryWYBmLkJOMDdo52LttP3279s7XrkLEE7ia0fXa2c12EQ0f0DQ1tGUvyVEW
+WmJVccm5bq25AQ0EUw5EzQEIANaPUY04/g7AmYkOMjaCZ6iTp9hB5Rsj/4ee/ln9
+wArzRO9+3eejLWh53FoN1rO+su7tiXJA5YAzVy6tuolrqjM8DBztPxdLBbEi4V+j
+2tK0dATdBQBHEh3OJApO2UBtcjaZBT31zrG9K55D+CrcgIVEHAKY8Cb4kLBkb5wM
+skn+DrASKU0BNIV1qRsxfiUdQHZfSqtp004nrql1lbFMLFEuiY8FZrkkQ9qduixo
+mTT6f34/oiY+Jam3zCK7RDN/OjuWheIPGj/Qbx9JuNiwgX6yRj7OE1tjUx6d8g9y
+0H1fmLJbb3WZZbuuGFnK6qrE3bGeY8+AWaJAZ37wpWh1p0cAEQEAAYkBHwQYAQIA
+CQUCUw5EzQIbDAAKCRBRhS2HNI/8TJntCAClU7TOO/X053eKF1jqNW4A1qpxctVc
+z8eTcY8Om5O4f6a/rfxfNFKn9Qyja/OG1xWNobETy7MiMXYjaa8uUx5iFy6kMVaP
+0BXJ59NLZjMARGw6lVTYDTIvzqqqwLxgliSDfSnqUhubGwvykANPO+93BBx89MRG
+unNoYGXtPlhNFrAsB1VR8+EyKLv2HQtGCPSFBhrjuzH3gxGibNDDdFQLxxuJWepJ
+EK1UbTS4ms0NgZ2Uknqn1WRU1Ki7rE4sTy68iZtWpKQXZEJa0IGnuI2sSINGcXCJ
+oEIgXTMyCILo34Fa/C6VCm2WBgz9zZO8/rHIiQm1J5zqz0DrDwKBUM9C
+=LYpS
+-----END PGP PUBLIC KEY BLOCK-----</code>
+        </pre>
     </div>
 </section>
 

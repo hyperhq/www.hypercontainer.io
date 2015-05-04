@@ -3,10 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Why DVM? | DVM - Make VM run like Container</title>
+    <title>Blog | DVM - Make VM run like Container</title>
     <meta name="description" content="DVM - Make VM run like Container. Fast as Container, Isolated by VM.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 
     <link rel="stylesheet" href="css/normalize.css">
@@ -28,10 +27,56 @@
 </header>
 
 <section class="desc title">
-    <h3 data-sr="wait .1s enter bottom">WHY DVM?</h3>
-    <div class="why" data-sr="wait .2s enter bottom">
+    <h3 data-sr="wait .1s enter bottom">DVM - Make VM run like Container</h3>
+    <div class="blog">
 
-        <p><em>DVM</em> combines <strong>the best from both world</strong>: Virtualization and App Container.</p>
+        <p>Docker, without doubt, has been the phenomenon in the world of open source startups. With the rise of Docker,  we are observing a paradigm shift from virtualization to containerization, which throws away the idea to emulate the entire, complete "Machine", instead to package the minimal amount of data for running the application and its dependencies.</p>
+
+        <h2>CaaS and the need for isolation</h2>
+
+        <p>Besides the trimmed image size, Containerizatin also removes the middle layer of the Guest OS. According to <a href="https://www.docker.com/whatisdocker/" rel="noreferrer">Docker's website</a>:</p>
+
+        <p><img src="./img/blog/1_1.png" alt="image_01"/></p>
+
+        <p>A great benefit of this is <strong><em>Immutable Infrastructure</em></strong>. Configurations are moved out to external data store, the image is static, app run in the exact same state as it is shipped, no more moving parts. Therefore, a new form of cloud is emerging: <strong><em>Container-as-a-Service</em></strong>, which blurs the line between IaaS and PaaS:</p>
+
+        <p><img src="./img/blog/1_2.png" alt="image_02"/></p>
+
+        <p>However, container, which is rooted in <strong><em>Shared Kernel</em></strong>, is considered lacking of the necessary isolation for multi-tenant environments. When containers of different customers share the single kernel on the box, no matter physical or virtual, it is not surprising that the attack surface is so big that it is merely impossible to ensure the security. </p>
+
+        <p>Virtualization, on the other hand, is born to emulate isolated hardware, a.k.a. "Machine". This hardware-enforced isolation is safe. As the proof, most public clouds today, if not all, are built on virtualization. </p>
+
+        <p>So, the question is: <strong>How we can make VM run like Container?</strong></p>
+
+        <p>Without surprise, two major CaaS services today, <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html" rel="noreferrer">AWS ECS</a> and <a href="https://cloud.google.com/container-engine/docs/clusters/" rel="noreferrer">Google GCE</a>, are both built on top of VM instance. </p>
+
+        <h2>Introduce DVM</h2>
+
+        <p>Simply put,</p>
+
+        <pre>
+<code>DVM = Hypervisor + Docker Image</code>
+        </pre>
+
+        <p>DVM allows you to run a Docker image with any hypervisor (KVM, Xen, etc.). It creates a "VM" instance with a minimalist Linux kernel (called <strong><em>HyperKernel</em></strong>), which loads the Docker images from the host machine. </p>
+
+        <p>Since there is no guest OS in the DVM instance (like CoreOS or RancherOS) except the kernel, DVM has an amazingly fast boot performance:</p>
+
+        <p>It takes 0.54 second to launch a Nginx image on a common laptop:</p>
+
+        <pre>
+<code>[root@user ~:]# docker pull nginx:latest
+[root@user ~:]# dvm run nginx:latest
+open Chrome ---&gt; load the page</code>
+        </pre>
+
+        <p>Internal of DVM, it doesn't use Docker daemon, LXC, cgroup, namepsace (except <code>mnt</code> in the case of Pod), and any other Container technology. Instead, DVM is a pure hypervisor-based solution, where each instance runs its own kernel.</p>
+
+        <h2>The best from both worlds</h2>
+
+        <p>I am not saying that hypervisor is better than container to implement the goal of Containerization. Technology are always with pros/cons. </p>
+
+        <p>Besides the isolation feature, DVM actually combines the best from both virtualization and container:</p>
 
         <table>
             <thead>
@@ -83,7 +128,7 @@
                 <td>Compatibility</td>
                 <td>No, need new tools</td>
                 <td>Great, everything just works</td>
-                <td>Good, it is still a “Machine”, much less changes</td>
+                <td>Good, it is still a "Machine", much less changes</td>
             </tr>
             <tr>
                 <td>Mature</td>
@@ -99,6 +144,10 @@
             </tr>
             </tbody>
         </table>
+
+        <p>DVM is an open source project, which is inspired by Google's experimental <a href="" rel="noreferrer">NoVM</a>. </p>
+
+        <p><a href="https://www.docker.com/whatisdocker/" rel="noreferrer">https://www.docker.com/whatisdocker/</a></p>
     </div>
 </section>
 

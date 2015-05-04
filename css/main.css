@@ -489,7 +489,7 @@ pre, code {
     padding: 0; }
     .desc.title h3 {
       margin-bottom: 0; }
-  .desc table {
+  .desc .why table {
     margin-bottom: 200px; }
   .desc h3 {
     font-size: 32px;
@@ -514,7 +514,7 @@ pre, code {
     margin-top: 5px; }
     .desc p:first-child {
       padding-top: 60px; }
-  .desc code {
+  .desc pre code {
     font-family: "anmono", "Consolas", "Monaco", "Ubuntu Mono", monospace !important;
     display: inline-block;
     text-align: left;
@@ -523,7 +523,7 @@ pre, code {
     color: #3CF220;
     font-size: 16px;
     padding: 16px 24px; }
-    .desc code b {
+    .desc pre code b {
       color: #C7C7C7; }
   .desc .desc-quarter {
     width: 50%;
@@ -534,6 +534,33 @@ pre, code {
         width: 100%; }
         .desc .desc-quarter:nth-child(2n) {
           background: #F3F6F8; } }
+  .desc .blog, .desc .security {
+    padding-bottom: 200px;
+    max-width: 1050px;
+    width: 100%;
+    margin: 0 auto; }
+    .desc .blog p, .desc .security p {
+      text-align: left;
+      margin-bottom: 20px; }
+    .desc .blog pre, .desc .security pre {
+      text-align: left;
+      margin: 1em auto; }
+    .desc .blog h1, .desc .blog h2, .desc .blog h3, .desc .blog h4, .desc .blog h5, .desc .blog h6, .desc .blog p, .desc .blog pre, .desc .blog table, .desc .security h1, .desc .security h2, .desc .security h3, .desc .security h4, .desc .security h5, .desc .security h6, .desc .security p, .desc .security pre, .desc .security table {
+      width: 100%;
+      max-width: 100%;
+      text-align: justify;
+      margin-left: auto;
+      margin-right: auto; }
+    .desc .blog img, .desc .security img {
+      max-width: 100%; }
+    .desc .blog h2:first-child, .desc .security h2:first-child {
+      padding-top: 50px; }
+    .desc .blog ul.task-list, .desc .security ul.task-list {
+      text-align: left;
+      color: #666;
+      font-size: 18px; }
+      .desc .blog ul.task-list li, .desc .security ul.task-list li {
+        padding: 5px; }
 
 table {
   margin: 40px auto;
