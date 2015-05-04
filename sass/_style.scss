@@ -355,10 +355,6 @@ pre, code {
       padding-top: 200px;
       padding-bottom: 1em;
       margin-top: 0;
-      background-color: rgba(167, 169, 191, .2);
-      background: url('../img/grey-darker.png');
-      background-blend-mode: screen;
-      animation: bg-move 30s linear infinite;
     }
   }
 
@@ -385,7 +381,7 @@ pre, code {
   p {
     font-size: 18px;
 //    font-weight: 100;
-    color: $dark-grey;
+    color: #555;
     text-align: center;
     margin-top: 5px;
 
@@ -474,13 +470,13 @@ pre, code {
       padding: 0;
     }
     p{
-      color: #999999;
+      color: #777777;
     }
     ul{
       padding-left: 15px;
       margin: 0;
       li{
-        color: #999999;
+        color: #777777;
       }
     }
   }
@@ -499,7 +495,7 @@ table{
     }
   }
   td, th{
-    color: #888;
+    color: #666;
     text-align: left;
     border-right: 1px solid #dedede;
     padding: 10px;
@@ -508,7 +504,7 @@ table{
     transition: background 0.3s;
     &:first-child{
       font-weight: bold;
-      color: #666666;
+      color: #555;
       min-width: 150px;
       @media (max-width: 560px) {
         min-width: 0;
@@ -545,7 +541,7 @@ table{
 }
 
 .get {
-  background: #333752;
+  background: url("../img/pattern.png");
   padding: 100px 0;
 
   @media (max-width: 400px) {
@@ -566,7 +562,7 @@ table{
 }
 
 footer {
-  background: #000;
+  background: url("../img/pattern2.png");
   text-align: center;
   color: $light-p;
   font-size: 14px;
@@ -652,6 +648,7 @@ footer {
   color: #dedede;
   .hint{
     word-spacing: 10px;
+    color: #666666;
   }
   button{
     height: 40px;

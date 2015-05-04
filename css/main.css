@@ -491,12 +491,7 @@ pre, code {
       margin-bottom: 0;
       padding-top: 200px;
       padding-bottom: 1em;
-      margin-top: 0;
-      background-color: rgba(167, 169, 191, 0.2);
-      background: url('../img/grey-darker.png');
-      background-blend-mode: screen;
-      -webkit-animation: bg-move 30s linear infinite;
-              animation: bg-move 30s linear infinite; }
+      margin-top: 0; }
   .desc .why table {
     margin-bottom: 200px; }
   .desc h3 {
@@ -517,7 +512,7 @@ pre, code {
         min-width: 320px; } }
   .desc p {
     font-size: 18px;
-    color: #747474;
+    color: #555;
     text-align: center;
     margin-top: 5px; }
     .desc p:first-child {
@@ -578,12 +573,12 @@ pre, code {
     .desc blockquote p:first-child {
       padding: 0; }
     .desc blockquote p {
-      color: #999999; }
+      color: #777777; }
     .desc blockquote ul {
       padding-left: 15px;
       margin: 0; }
       .desc blockquote ul li {
-        color: #999999; }
+        color: #777777; }
 
 table {
   margin: 40px auto;
@@ -595,7 +590,7 @@ table {
     table tr:last-child {
       border-bottom: 0; }
   table td, table th {
-    color: #888;
+    color: #666;
     text-align: left;
     border-right: 1px solid #dedede;
     padding: 10px;
@@ -605,7 +600,7 @@ table {
             transition: background 0.3s; }
     table td:first-child, table th:first-child {
       font-weight: bold;
-      color: #666666;
+      color: #555;
       min-width: 150px; }
       @media (max-width: 560px) {
         table td:first-child, table th:first-child {
@@ -635,7 +630,7 @@ table {
   background-image: url("../img/feature-isolation.png"); }
 
 .get {
-  background: #333752;
+  background: url("../img/pattern.png");
   padding: 100px 0; }
   @media (max-width: 400px) {
     .get {
@@ -650,7 +645,7 @@ table {
       border: 6px solid #CFD1E2; }
 
 footer {
-  background: #000;
+  background: url("../img/pattern2.png");
   text-align: center;
   color: #CFD1E2;
   font-size: 14px;
@@ -721,7 +716,8 @@ footer {
   text-align: center;
   color: #dedede; }
   .get.subscribe .hint {
-    word-spacing: 10px; }
+    word-spacing: 10px;
+    color: #666666; }
   .get.subscribe button {
     height: 40px;
     width: 65px; }
