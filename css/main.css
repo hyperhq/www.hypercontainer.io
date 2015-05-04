@@ -367,7 +367,7 @@ pre, code {
   padding-top: 12vh;
   text-align: center;
   background-color: rgba(167, 169, 191, 0.2);
-  background: url('../img/grey-darker.png');
+  background: url("../img/grey-darker.png");
   background-blend-mode: screen;
   -webkit-animation: bg-move 30s linear infinite;
           animation: bg-move 30s linear infinite; }
@@ -485,7 +485,7 @@ pre, code {
   .desc:nth-child(2n) {
     background: #F3F6F8; }
   .desc.title {
-    background: #fff;
+    background: transparent;
     padding: 0; }
     .desc.title h3:first-child {
       margin-bottom: 0;
@@ -723,3 +723,17 @@ footer {
     width: 65px; }
   .get.subscribe input {
     height: 40px; }
+
+body.gray-bg:before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background-color: rgba(167, 169, 191, 0.2);
+  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0) 0, #ffffff 300px), url(../img/grey-darker.png);
+  background: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0, #ffffff 300px), url(../img/grey-darker.png);
+  background-blend-mode: screen;
+  -webkit-animation: bg-move 30s linear infinite;
+          animation: bg-move 30s linear infinite; }
