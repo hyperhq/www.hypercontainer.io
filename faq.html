@@ -36,10 +36,10 @@
             <p>DVM is <strong><em>Hypervisor Agnostic</em></strong>. Currently, DVM supports KVM and Xen, with VMware ESX in the roadmap.</p>
         </blockquote>
 
-        <p>Q: How is DVM different from CoreOS?</p>
+        <p>Q: How is DVM different from minimal Linux distros, such like CoreOS and RancherOS?</p>
 
         <blockquote>
-            <p>CoreOS is a minimalist Linux distro built for running app container. Though CoreOS is designed primarily for bare metal server, it is commonly used as Guest OS in the cloud, due to the lack of isolation. DVM, on the other hand, eliminates the need of Guest OS, by isolating apps in separated kernels.</p>
+            <p>CoreOS and RancherOS are two popular minimalist Linux distros built for running app container. Though primarily designed for bare metal server, they are commonly used as Guest OS in the cloud, due to the lack of isolation of container. DVM, on the other hand, eliminates the need of Guest OS, by leveraging the hardware-enforced isolation in hypervisor. However, we see DVM as one form of <strong><em>App Container</em></strong>, therefore we are working on integrating DVM and these minimalist Linux distros.</p>
         </blockquote>
 
         <p>Q: What is the performance of DVM?</p>
@@ -57,13 +57,13 @@
         <p>Q: Does DVM use container to run the app image?</p>
 
         <blockquote>
-            <p><strong><em>No</em></strong>, DVM doesn't use container (Docker daemon, LXC, Cgroup, Namespace) technology, except the <code>mnt</code> namespace if Pod is used. DVM is 100% virtualization-based solution, which benefits  from the hardware-enforced security in hypervisor.</p>
+            <p><strong><em>No</em></strong>, DVM is a virtualization-based solution. It doesn't use any container technology (Docker daemon, LXC, Cgroup, Namespace), except <code>mnt</code> namespace if Pod is used. </p>
         </blockquote>
 
         <p>Q: What kernel version is available in DVM?</p>
 
         <blockquote>
-            <p>Currently, the default HyperKernel in DVM is based on <a href="https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.0.1" rel="noreferrer">4.0.1</a>. You can also configure DVM to use any compatible Linux kernel, though they might be slow to boot and require more RAM.</p>
+            <p>The default HyperKernel in the current DVM release is based on <a href="https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.0.1" rel="noreferrer">stable 4.0.1</a>. You may configure DVM to use any compatible Linux kernel, though they are slow to boot and demand more RAM.</p>
         </blockquote>
 
     </div>
