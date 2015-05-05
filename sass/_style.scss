@@ -463,10 +463,19 @@ pre, code {
       section{
         padding-top: 60px;
         position: relative;
+        min-height: 175px;
         h2{
           position: absolute;
           top: 0;
           padding: 0;
+        }
+        p{
+          padding-left: 200px;
+        }
+        img{
+          position: absolute;
+          top: 60px;
+          left: 0;
         }
       }
     }

@@ -32,51 +32,41 @@
     <h3 data-sr="wait .1s enter bottom">The Best from Both Worlds: VM and Container</h3>
     <div class="blog why">
             <section>
-                <h2>
-                    <a name="user-content-performance" class="anchor" href="#performance" rel="noreferrer"><span class="octicon octicon-link"></span></a>Performance</h2>
-
+                <img class="performance" src="./img/why/perf.png" alt="performance"/>
+                <h2>Performance</h2>
                 <p>When VMs take tens of seconds to boot, DVM is able to launch in <strong><em>sub-second</em></strong>. Also, DVM asks the <strong><em>minimal resource footprint</em></strong>: ~10MB mem. You may run hundreds of DVM instances on a server, where a couple tens of VMs will overload.</p>
-
             </section>
             <section>
-                <h2>
-                    <a name="user-content-secure" class="anchor" href="#secure" rel="noreferrer"><span class="octicon octicon-link"></span></a>Secure</h2>
-
+                <img class="secure" src="./img/why/secure.png" alt="secure"/>
+                <h2>Secure</h2>
                 <p>DVM is immune from the "shared kernel" problem in container. Virtualization offers an excellent <strong><em>hardware-enforced isolation</em></strong>. The attack surface for a VM instance is quite small, as it lacks the variety of functions (and, therefore, the potential flaws to be exploited) provided by standard operating systems.</p>
             </section>
             <section>
-                <h2>
-                    <a name="user-content-portable" class="anchor" href="#portable" rel="noreferrer"><span class="octicon octicon-link"></span></a>Portable</h2>
-
+                <img class="portable" src="./img/why/portable.png" alt="portable"/>
+                <h2>Portable</h2>
                 <p>DVM is <strong><em>Hypervisor Agnostic</em></strong>. <a href="http://gnep.gitbooks.io/dvm/content/release_notes/index.html" rel="noreferrer">The current implementation</a> supports KVM and Xen, with more in the roadmap. Combined with <a href="https://github.com/appc" rel="noreferrer">the portability of App Container Image</a>, DVM allows you to build, ship, run app anywhere, without concerning the underlying technologies.</p>
             </section>
             <section>
-                <h2>
-                    <a name="user-content-immutable" class="anchor" href="#immutable" rel="noreferrer"><span class="octicon octicon-link"></span></a>Immutable</h2>
-
+                <img class="immutable" src="./img/why/immutable.png" alt="immutable"/>
+                <h2>Immutable</h2>
                 <p>DVM eliminates the need for guest OS. There are no moving parts inside of a DVM instance to be configured or managed. Therefore <strong><em>the entire stack is immutable</em></strong>.</p>
             </section>
             <section>
-                <h2>
-                    <a name="user-content-byok---bring-your-own-kernel" class="anchor" href="#byok---bring-your-own-kernel" rel="noreferrer"><span class="octicon octicon-link"></span></a>BYOK - bring your own kernel</h2>
-
+                <img class="byok" src="./img/why/byok.png" alt="byok"/>
+                <h2>BYOK - bring your own kernel</h2>
                 <p>In a multi-tenant environment, the platform must allow developers to pick different the kernel and its modules. This is an easy job in DVM, but very hard to do in container, due to the nature of ”sharing the host kernel".</p>
             </section>
             <section>
-                <h2>
-                    <a name="user-content-production-ready" class="anchor" href="#production-ready" rel="noreferrer"><span class="octicon octicon-link"></span></a>Production Ready</h2>
-
+                <img class="production" src="./img/why/production.png" alt="production"/>
+                <h2>Production Ready</h2>
                 <p>Virtualization is mature. Features like LiveMigration, SDN, SDS have been <strong><em>battle-tested</em></strong> for years. With DVM, <strong><em>just plug-&amp;-play</em></strong>. You don't have to wait another two years for the container-version of SDN.   </p>
             </section>
             <section>
-                <h2>
-                    <a name="user-content-better-roi" class="anchor" href="#better-roi" rel="noreferrer"><span class="octicon octicon-link"></span></a>Better ROI</h2>
-
+                <img class="roi" src="./img/why/roi.png" alt="roi"/>
+                <h2>Better ROI</h2>
                 <p>Virtualization is commonly implemented among enterprises. It is not surprising that someone has a virtualized infrastructure running. DVM provides a plug-&amp;-play path for <strong><em>seamless migration</em></strong>, instead of rebuilding everything with container.</p>
             </section>
-
             <p>The following table gives a more detailed comparision between Container, (traditional) VM and DVM:</p>
-
             <table>
                 <thead>
                 <tr>

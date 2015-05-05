@@ -568,11 +568,18 @@ pre, code {
       max-width: 800px; }
       .desc .blog.why section, .desc .security.why section {
         padding-top: 60px;
-        position: relative; }
+        position: relative;
+        min-height: 175px; }
         .desc .blog.why section h2, .desc .security.why section h2 {
           position: absolute;
           top: 0;
           padding: 0; }
+        .desc .blog.why section p, .desc .security.why section p {
+          padding-left: 200px; }
+        .desc .blog.why section img, .desc .security.why section img {
+          position: absolute;
+          top: 60px;
+          left: 0; }
   .desc blockquote {
     margin: 0;
     padding: 5px 20px;
