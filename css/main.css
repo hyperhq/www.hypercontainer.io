@@ -575,11 +575,20 @@ pre, code {
           top: 0;
           padding: 0; }
         .desc .blog.why section p, .desc .security.why section p {
-          padding-left: 200px; }
+          padding-left: 200px;
+          min-width: 0; }
         .desc .blog.why section img, .desc .security.why section img {
           position: absolute;
           top: 60px;
           left: 0; }
+        @media (max-width: 500px) {
+          .desc .blog.why section, .desc .security.why section {
+            padding: 0 5%; }
+            .desc .blog.why section img, .desc .security.why section img {
+              position: relative;
+              top: 0; }
+            .desc .blog.why section p, .desc .security.why section p {
+              padding: 0; } }
   .desc blockquote {
     margin: 0;
     padding: 5px 20px;
