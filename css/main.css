@@ -538,7 +538,7 @@ pre, code {
           background: #F3F6F8; } }
   .desc .blog, .desc .security {
     padding-bottom: 200px;
-    max-width: 1050px;
+    max-width: 800px;
     width: 100%;
     margin: 0 auto; }
     .desc .blog p, .desc .security p {
