@@ -362,13 +362,13 @@ pre, code {
 .head {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   min-height: 640px;
   padding-top: 12vh;
   text-align: center;
   background-color: rgba(167, 169, 191, 0.2);
-  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0) 90vh, #ffffff 100%), url(../img/grey-darker.png);
-  background: linear-gradient(-180deg, rgba(255, 255, 255, 0) 90vh, #ffffff 100%), url(../img/grey-darker.png);
+  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0) 100vh, #ffffff 110vh), url(../img/grey-darker.png);
+  background: linear-gradient(-180deg, rgba(255, 255, 255, 0) 100vh, #ffffff 110vh), url(../img/grey-darker.png);
   background-blend-mode: screen;
   -webkit-animation: bg-move 30s linear infinite;
           animation: bg-move 30s linear infinite; }
@@ -418,6 +418,8 @@ pre, code {
       font-weight: 100;
       -webkit-animation: blink 1s infinite;
       animation: blink 1s infinite; }
+  .head + section {
+    padding-top: 40px; }
 
 @-webkit-keyframes blink {
   0% {
