@@ -544,6 +544,9 @@ pre, code {
     .desc .blog p, .desc .security p {
       text-align: left;
       margin-bottom: 20px; }
+      .desc .blog p.publish-date, .desc .security p.publish-date {
+        color: #cccccc;
+        font-size: 15px; }
     .desc .blog pre, .desc .security pre {
       text-align: left;
       margin: 1em auto; }
@@ -726,7 +729,7 @@ footer {
   width: 65%;
   line-height: 16px;
   color: #606EC3;
-  max-width: 300px;
+  max-width: 350px;
   vertical-align: bottom; }
 .subscribe button.button {
   display: inline-block;

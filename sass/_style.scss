@@ -425,6 +425,10 @@ pre, code {
     p{
       text-align: left;
       margin-bottom: 20px;
+      &.publish-date{
+        color: #cccccc;
+        font-size: 15px;
+      }
     }
     pre{
       text-align: left;
@@ -660,7 +664,7 @@ footer {
     width: 65%;
     line-height: 16px;
     color: $base-p;
-    max-width: 300px;
+    max-width: 350px;
     vertical-align: bottom;
   }
   button.button {
