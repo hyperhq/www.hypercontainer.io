@@ -367,8 +367,8 @@ pre, code {
   padding-top: 12vh;
   text-align: center;
   background-color: rgba(167, 169, 191, 0.2);
-  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0) 0, #ffffff 100%), url(../img/grey-darker.png);
-  background: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0, #ffffff 100%), url(../img/grey-darker.png);
+  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0) 75vh, #ffffff 100%), url(../img/grey-darker.png);
+  background: linear-gradient(-180deg, rgba(255, 255, 255, 0) 75vh, #ffffff 100%), url(../img/grey-darker.png);
   background-blend-mode: screen;
   -webkit-animation: bg-move 30s linear infinite;
           animation: bg-move 30s linear infinite; }
