@@ -212,7 +212,7 @@ pre, code {
   text-align: center;
 
   background-color: rgba(167, 169, 191, .2);
-  background: url("../img/grey-darker.png");
+  background: linear-gradient(-180deg,rgba(255, 255, 255, 0)0,rgba(255, 255, 255, 1) 100%),url(../img/grey-darker.png);
   background-blend-mode: screen;
   animation: bg-move 30s linear infinite;
 
@@ -461,13 +461,11 @@ pre, code {
     &.why{
       max-width: 800px;
       section{
-        padding-top: 60px;
+        padding-top: 40px;
         position: relative;
-        min-height: 175px;
+        min-height: 165px;
         h2{
-          position: absolute;
-          top: 0;
-          padding: 0;
+          padding-left: 200px;
         }
         p{
           padding-left: 200px;

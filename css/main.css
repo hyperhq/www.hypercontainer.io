@@ -367,7 +367,8 @@ pre, code {
   padding-top: 12vh;
   text-align: center;
   background-color: rgba(167, 169, 191, 0.2);
-  background: url("../img/grey-darker.png");
+  background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0) 0, #ffffff 100%), url(../img/grey-darker.png);
+  background: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0, #ffffff 100%), url(../img/grey-darker.png);
   background-blend-mode: screen;
   -webkit-animation: bg-move 30s linear infinite;
           animation: bg-move 30s linear infinite; }
@@ -567,13 +568,11 @@ pre, code {
     .desc .blog.why, .desc .security.why {
       max-width: 800px; }
       .desc .blog.why section, .desc .security.why section {
-        padding-top: 60px;
+        padding-top: 40px;
         position: relative;
-        min-height: 175px; }
+        min-height: 165px; }
         .desc .blog.why section h2, .desc .security.why section h2 {
-          position: absolute;
-          top: 0;
-          padding: 0; }
+          padding-left: 200px; }
         .desc .blog.why section p, .desc .security.why section p {
           padding-left: 200px;
           min-width: 0; }
