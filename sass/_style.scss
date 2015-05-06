@@ -395,6 +395,8 @@ pre, code {
 
     display: inline-block;
 
+    width: 100%;
+    max-width: 100%;
     text-align: left;
     background: black;
     line-height: 22px;
@@ -406,7 +408,9 @@ pre, code {
     b {
       color: $light-grey;
     }
-
+    &.thin{
+      width: auto;
+    }
   }
   .desc-quarter {
     width: 50%;

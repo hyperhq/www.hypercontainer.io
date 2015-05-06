@@ -521,6 +521,8 @@ pre, code {
   .desc pre code {
     font-family: "anmono", "Consolas", "Monaco", "Ubuntu Mono", monospace !important;
     display: inline-block;
+    width: 100%;
+    max-width: 100%;
     text-align: left;
     background: black;
     line-height: 22px;
@@ -529,6 +531,8 @@ pre, code {
     padding: 16px 24px; }
     .desc pre code b {
       color: #C7C7C7; }
+    .desc pre code.thin {
+      width: auto; }
   .desc .desc-quarter {
     width: 50%;
     float: left;
