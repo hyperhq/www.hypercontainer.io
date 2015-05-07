@@ -32,14 +32,15 @@
     <h3 data-sr="wait .1s enter bottom">How it Works</h3>
     <div class="blog">
 
-            <p>DVM is comprised of two components:</p>
+
+            <p>DVM is composed by two components:</p>
 
             <ul class="task-list">
                 <li>DVM Daemon (with REST APIs)</li>
                 <li>DVM CLI</li>
             </ul>
 
-            <p><img src="https://camo.githubusercontent.com/53d1c0642c4982ad3ed528893cc5326914a70754/68747470733a2f2f7472656c6c6f2d6174746163686d656e74732e73332e616d617a6f6e6177732e636f6d2f3535326362623065333063633439303031616161323566632f373835783339342f62356430636139303064363930326131616130663233646332343161383264342f64766d5f617263682e706e67" alt="" data-canonical-src="https://trello-attachments.s3.amazonaws.com/552cbb0e30cc49001aaa25fc/785x394/b5d0ca900d6902a1aa0f23dc241a82d4/dvm_arch.png" style="max-width:100%;"></p>
+            <p><a href="https://camo.githubusercontent.com/53d1c0642c4982ad3ed528893cc5326914a70754/68747470733a2f2f7472656c6c6f2d6174746163686d656e74732e73332e616d617a6f6e6177732e636f6d2f3535326362623065333063633439303031616161323566632f373835783339342f62356430636139303064363930326131616130663233646332343161383264342f64766d5f617263682e706e67" target="_blank"><img src="https://camo.githubusercontent.com/53d1c0642c4982ad3ed528893cc5326914a70754/68747470733a2f2f7472656c6c6f2d6174746163686d656e74732e73332e616d617a6f6e6177732e636f6d2f3535326362623065333063633439303031616161323566632f373835783339342f62356430636139303064363930326131616130663233646332343161383264342f64766d5f617263682e706e67" alt="" data-canonical-src="https://trello-attachments.s3.amazonaws.com/552cbb0e30cc49001aaa25fc/785x394/b5d0ca900d6902a1aa0f23dc241a82d4/dvm_arch.png" style="max-width:100%;"></a></p>
 
             <p>On a physical Linux host:</p>
 
@@ -60,7 +61,7 @@ xxxxxx
             <h2>
                 <a id="user-content-what-is-pod" class="anchor" href="#what-is-pod" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Pod</h2>
 
-            <p>Pod is a concept originated from <a href="https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/pods.md">Google</a>. The key idea behind <strong>Pod</strong> is that in a microservie architecture usually involves some "helper" programs, such like log, monitoring, cron, etc. These helper programs are built to work co-operatively with the app. Therefore, instead of running in multiple isolated containers, these processes should share the same environment, although they are packaged in different images.</p>
+            <p>Pod is a concept originated from <a href="https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/pods.md">Google</a>. The key idea behind <strong>Pod</strong> is that in a microservie architecture usually involves some "helper" programs, such as log, monitoring, cron, etc. These helper programs are built to work co-operatively with the app. Therefore, instead of running in multiple isolated containers, these processes should share the same environment, although they are packaged in different images.</p>
 
             <h2>
                 <a id="user-content-pod-is-the-first-class-citizen-in-dvm" class="anchor" href="#pod-is-the-first-class-citizen-in-dvm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pod is the first class citizen in DVM</h2>
@@ -70,17 +71,17 @@ xxxxxx
 <pre><code>[root@user ~:]# dvm run -p nginx rails logstash cronjob
 </code></pre>
 
-            <p>Inside of a instance, different applications from different imagesshare the namespace: <code>PID</code>, <code>Network</code>, <code>IPC</code>, <code>UTS</code>, <code>User</code>. This model provides  a familiar view of a tranditional OS, instead of <strong><em>one process per container</em></strong> philosophy:</p>
+            <p>Inside of a instance, different applications from different images share the namespaces: <code>PID</code>, <code>Network</code>, <code>IPC</code>, <code>UTS</code>, <code>User</code>. This model provides a familiar view of a tranditional OS, instead of <strong><em>one process per container</em></strong> philosophy:</p>
 
             <ul class="task-list">
                 <li>processes can see each other</li>
-                <li>processes can use all IPC facility to communicate</li>
-                <li>processes share a hostname</li>
-                <li>processes have the access to all NICs attahed with the instance, and share the port range</li>
-                <li>processes have the access to all disk  attached with the instance</li>
+                <li>processes can use all IPC facilities to communicate</li>
+                <li>processes share the same hostname</li>
+                <li>processes have access to all NICs attached to the instance, and share the same port range</li>
+                <li>processes have access to all disk  attached to the instance</li>
             </ul>
 
-            <p>The exception is <code>Mount</code>. Since Pod includes multiple app images, DVM applies <code>Mount</code> namespace to separate the root filesystem between application.</p>
+            <p>The exception is <code>Mount</code>. Since Pod includes multiple app images, DVM applies the <code>Mount</code> namespace to separate the root filesystem between application.</p>
 
             <p><strong>Find out more in <a href="http://docs.getdvm.com">DVM docs</a></strong></p>
 
