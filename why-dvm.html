@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Why DVM | DVM - Make VM run like Container</title>
-    <meta name="description" content="DVM - Make VM run like Container. Fast as Container, Isolated by VM.">
+    <title>Why Hyper | Hyper - Make VM run like Container</title>
+    <meta name="description" content="Hyper - Make VM run like Container. Fast as Container, Isolated by VM.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
@@ -19,12 +19,12 @@
         <nav class="header">
             <a href="/">Home</a>
             <a href="./how-it-works.html">How it Works</a>
-            <a href="./why-dvm.html">Why DVM</a>
+            <a href="./why-hyper.html">Why Hyper</a>
             <a href="./faq.html">FAQs</a>
-            <a href="http://gnep.gitbooks.io/dvm/content/" target="_blank">Docs</a>
+            <a href="http://gnep.gitbooks.io/hyper/content/" target="_blank">Docs</a>
             <a href="./blog.html">Blog</a>
         </nav>
-        <a href="https://github.com/getdvm" target="_blank" class="btn btn-header">GitHub</a>
+        <a href="https://github.com/hyperhq" target="_blank" class="btn btn-header">GitHub</a>
     </div>
 </header>
 
@@ -35,47 +35,47 @@
             <section>
                 <img class="performance" src="./img/why/perf.png" alt="performance"/>
                 <h2>Performance</h2>
-                <p>When VMs take tens of seconds to boot, DVM is able to launch in <strong><em>Subsecond</em></strong>. Also, DVM requires the <strong><em>Minimal resource footprint</em></strong>: ~10MB mem. You may run hundreds of DVM instances on a server, where a dozens of VMs would overload.</p>
+                <p>When VMs take tens of seconds to boot, Hyper is able to launch in <strong><em>Subsecond</em></strong>. Also, Hyper requires the <strong><em>Minimal resource footprint</em></strong>: ~10MB mem. You may run hundreds of Hyper instances on a server, where a dozens of VMs would overload.</p>
             </section>
             <section>
                 <img class="secure" src="./img/why/secure.png" alt="secure"/>
                 <h2>Secure</h2>
-                <p>DVM is immune from the "shared kernel" problem in container. Virtualization offers an excellent <strong><em>hardware-enforced isolation</em></strong>. The attack surface for a VM instance is quite small, as it lacks the variety of functions (and, therefore, the potential flaws to be exploited) provided by standard operating systems.</p>
+                <p>Hyper is immune from the "shared kernel" problem in container. Virtualization offers an excellent <strong><em>hardware-enforced isolation</em></strong>. The attack surface for a VM instance is quite small, as it lacks the variety of functions (and, therefore, the potential flaws to be exploited) provided by standard operating systems.</p>
             </section>
             <section>
                 <img class="portable" src="./img/why/portable.png" alt="portable"/>
                 <h2>Portable</h2>
-                <p>DVM is <strong><em>Hypervisor Agnostic</em></strong>. <a href="http://gnep.gitbooks.io/dvm/content/release_notes/index.html" rel="noreferrer">The current implementation</a> supports KVM and Xen, with more in the roadmap. Combined with <a href="https://github.com/appc" rel="noreferrer">the portability of App Container Image</a>, DVM allows you to build, ship, run app anywhere, without concerning the underlying technologies.</p>
+                <p>Hyper is <strong><em>Hypervisor Agnostic</em></strong>. <a href="http://gnep.gitbooks.io/hyper/content/release_notes/index.html" rel="noreferrer">The current implementation</a> supports KVM and Xen, with more in the roadmap. Combined with <a href="https://github.com/appc" rel="noreferrer">the portability of App Container Image</a>, Hyper allows you to build, ship, run app anywhere, without concerning the underlying technologies.</p>
             </section>
             <section>
                 <img class="immutable" src="./img/why/immutable.png" alt="immutable"/>
                 <h2>Immutable</h2>
-                <p>DVM eliminates the need of Guest OS. There is no moving parts inside of a DVM instance to be configured or managed. <strong><em>The entire stack is immutable</em></strong>.</p>
+                <p>Hyper eliminates the need of Guest OS. There is no moving parts inside of a Hyper instance to be configured or managed. <strong><em>The entire stack is immutable</em></strong>.</p>
             </section>
             <section>
                 <img class="byok" src="./img/why/byok.png" alt="byok"/>
                 <h2>BYOK - bring your own kernel</h2>
-                <p>In a multi-tenant environment, the platform must allow developers to pick different the kernel and its modules. This is an easy job in DVM, but very hard to do in container, due to the nature of ”sharing the host kernel".</p>
+                <p>In a multi-tenant environment, the platform must allow developers to pick different the kernel and its modules. This is an easy job in Hyper, but very hard to do in container, due to the nature of ”sharing the host kernel".</p>
             </section>
             <section>
                 <img class="production" src="./img/why/production.png" alt="production"/>
                 <h2>Production Ready</h2>
-                <p>Virtualization is mature. Features like LiveMigration, SDN, SDS have been battle-tested for years. With DVM, you can just <strong><em>Plug &amp; Play</em></strong>. No need to wait another two years for the container-version SDN.</p>
+                <p>Virtualization is mature. Features like LiveMigration, SDN, SDS have been battle-tested for years. With Hyper, you can just <strong><em>Plug &amp; Play</em></strong>. No need to wait another two years for the container-version SDN.</p>
             </section>
             <section>
                 <img class="roi" src="./img/why/roi.png" alt="roi"/>
                 <h2>Better ROI</h2>
-                <p>Virtualization is widely implemented among enterprises. Instead of rebuilding everything with containers, DVM provides a <strong><em>Seamless Migration</em></strong> path for your running virtual infrastructure.</p>
+                <p>Virtualization is widely implemented among enterprises. Instead of rebuilding everything with containers, Hyper provides a <strong><em>Seamless Migration</em></strong> path for your running virtual infrastructure.</p>
             </section>
         </div>
-            <p class="clear">The following table gives a more detailed comparision between Container, (traditional) VM and DVM:</p>
+            <p class="clear">The following table gives a more detailed comparision between Container, (traditional) VM and Hyper:</p>
             <table>
                 <thead>
                 <tr>
                     <th>-</th>
                     <th>Container</th>
                     <th>VM</th>
-                    <th>DVM</th>
+                    <th>Hyper</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -136,7 +136,7 @@
                 </tbody>
             </table>
 
-            <h4>Find out more in <a href="https://docs.getdvm.com" rel="noreferrer">DVM docs</a>.</h4>
+            <h4>Find out more in <a href="http://docs.hyper.sh" rel="noreferrer">Hyper docs</a>.</h4>
 
     </div>
 </section>
@@ -148,7 +148,7 @@
             <h2>Company</h2>
             <ul>
                 <li><a href="./about.html">About</a></li>
-                <li><a target="_blank" href="https://medium.com/@dvm">Jobs</a></li>
+                <li><a target="_blank" href="https://medium.com/@hyper">Jobs</a></li>
                 <li><a href="./security.html">Security</a></li>
             </ul>
         </div>
@@ -161,28 +161,28 @@
         <div class="column">
             <h2>Support & Community</h2>
             <ul>
-                <li><a target="_blank" href="https://github.com/getdvm">Github</a></li>
+                <li><a target="_blank" href="https://github.com/hyperhq">Github</a></li>
                 <li><p>Mailing List</p>
                     <ul>
-                        <li><a target="_blank" href="https://groups.google.com/d/forum/dvm-user">General</a></li>
-                        <li><a target="_blank" href="https://groups.google.com/d/forum/dvm-dev">Developer</a></li>
+                        <li><a target="_blank" href="https://groups.google.com/d/forum/hyper-user">General</a></li>
+                        <li><a target="_blank" href="https://groups.google.com/d/forum/hyper-dev">Developer</a></li>
                     </ul>
                 </li>
 
-                <li><a target="_blank" href="https://twitter.com/getdvm">Twitter</a></li>
-                <li><a target="_blank" href="#">IRC</a></li>
-                <li><a target="_blank" href="https://gitter.im/getdvm">Gitter.im</a></li>
+                <li><a target="_blank" href="https://twitter.com/hyper_sh">Twitter</a></li>
+                <li><a target="_blank" href="irc://irc.freenode.org:6667/#hyperhq">IRC #hyperhq</a></li>
+                <li><a target="_blank" href="https://gitter.im/hyperhq">Gitter.im</a></li>
                 <li><a target="_blank" href="https://www.facebook.com/getdvm">Facebook</a></li>
             </ul>
         </div>
         <div class="column">
             <h2>Documentation</h2>
             <ul>
-                <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/get_started/index.html">Get Started</a></li>
-                <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/instance/index.html">Instance Management</a></li>
-                <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/pod/index.html">Running Pod</a></li>
-                <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/reference/index.html">Reference</a></li>
-                <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/release_notes/index.html">Release Notes</a></li>
+                <li><a target="_blank" href="http://gnep.gitbooks.io/hyper/content/get_started/index.html">Get Started</a></li>
+                <li><a target="_blank" href="http://gnep.gitbooks.io/hyper/content/instance/index.html">Instance Management</a></li>
+                <li><a target="_blank" href="http://gnep.gitbooks.io/hyper/content/pod/index.html">Running Pod</a></li>
+                <li><a target="_blank" href="http://gnep.gitbooks.io/hyper/content/reference/index.html">Reference</a></li>
+                <li><a target="_blank" href="http://gnep.gitbooks.io/hyper/content/release_notes/index.html">Release Notes</a></li>
             </ul>
         </div>
         <div class="column">
@@ -192,10 +192,10 @@
                     <input type="text" style="display: none;" name="b_5079c1cfdd3630a5d1a4a2f15_1c79a2241b" tabindex="-1" value="">
                     <button class="button" type="submit">Subscribe</button>
                 </form>
-                <p class="hint">Subscribe to the latest DVM news.</p>
+                <p class="hint">Subscribe to the latest Hyper news.</p>
             </div>
             <div class="copyright">
-                (c) 2015, GetDVM Inc. All rights reserved.
+                (c) 2015, HyperHQ Inc. All rights reserved.
             </div>
         </div>
     </div>

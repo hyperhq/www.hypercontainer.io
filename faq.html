@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>FAQs | DVM - Make VM run like Container</title>
-    <meta name="description" content="DVM - Make VM run like Container. Fast as Container, Isolated by VM.">
+    <title>FAQs | Hyper - Make VM run like Container</title>
+    <meta name="description" content="Hyper - Make VM run like Container. Fast as Container, Isolated by VM.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
 
@@ -18,32 +18,32 @@
         <nav class="header">
             <a href="/">Home</a>
             <a href="./how-it-works.html">How it Works</a>
-            <a href="./why-dvm.html">Why DVM</a>
+            <a href="./why-hyper.html">Why Hyper</a>
             <a href="./faq.html">FAQs</a>
-            <a href="http://gnep.gitbooks.io/dvm/content/" target="_blank">Docs</a>
+            <a href="http://gnep.gitbooks.io/hyper/content/" target="_blank">Docs</a>
             <a href="./blog.html">Blog</a>
         </nav>
-        <a href="https://github.com/getdvm" target="_blank" class="btn btn-header">GitHub</a>
+        <a href="https://github.com/hyperhq" target="_blank" class="btn btn-header">GitHub</a>
     </div>
 </header>
 
 <section class="desc title">
     <h3 data-sr="wait .1s enter bottom">FAQ</h3>
     <div class="blog">
-        <p>Q: Which hypervisor does DVM support?</p>
+        <p>Q: Which hypervisor does Hyper support?</p>
 
         <blockquote>
-            <p>DVM is <strong><em>Hypervisor Agnostic</em></strong>. Currently, DVM supports KVM and Xen, with more options in the roadmap.</p>
+            <p>Hyper is <strong><em>Hypervisor Agnostic</em></strong>. Currently, Hyper supports KVM and Xen, with more options in the roadmap.</p>
         </blockquote>
 
-        <p>Q: How is DVM different from the minimalist Linux distros, such like CoreOS and RancherOS?</p>
+        <p>Q: How is Hyper different from the minimalist Linux distros, such like CoreOS and RancherOS?</p>
 
         <blockquote>
-            <p>CoreOS and RancherOS are two popular minimalist Linux distros built for running app containers. Though primarily designed for bare metal server, they are commonly used as Guest OS in the cloud, due to the lack of isolation in containers. DVM, on the other hand, <strong><em>eliminates the need of Guest OS</em></strong>, by leveraging the hardware-enforced isolation in hypervisor. With that said, we see DVM as one form of <em>App Container</em>.</p>
-            <p>We would like to integrate DVM with the minimalist Linux distros.</p>
+            <p>CoreOS and RancherOS are two popular minimalist Linux distros built for running app containers. Though primarily designed for bare metal server, they are commonly used as Guest OS in the cloud, due to the lack of isolation in containers. Hyper, on the other hand, <strong><em>eliminates the need of Guest OS</em></strong>, by leveraging the hardware-enforced isolation in hypervisor. With that said, we see Hyper as one form of <em>App Container</em>.</p>
+            <p>We would like to integrate Hyper with the minimalist Linux distros.</p>
         </blockquote>
 
-        <p>Q: What is the performance of DVM?</p>
+        <p>Q: What is the performance of Hyper?</p>
 
         <blockquote>
             <ul class="task-list">
@@ -55,16 +55,16 @@
             </ul>
         </blockquote>
 
-        <p>Q: Does DVM use container technology at runtime?</p>
+        <p>Q: Does Hyper use container technology at runtime?</p>
 
         <blockquote>
-            <p><strong><em>No</em></strong>, DVM is a virtualization-based solution. It does not require any container technology (Docker daemon, LXC, Cgroup, Namespace), except <code>Mount</code> namespace for Pod. </p>
+            <p><strong><em>No</em></strong>, Hyper is a virtualization-based solution. It does not require any container technology (Docker daemon, LXC, Cgroup, Namespace), except <code>Mount</code> namespace for Pod. </p>
         </blockquote>
 
-        <p>Q: What kernel version is available in DVM?</p>
+        <p>Q: What kernel version is available in Hyper?</p>
 
         <blockquote>
-            <p>The current HyperKernel release is based on <a href="https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.0.1">stable 4.0.1</a>. Please not that you can configure DVM to use any compatible Linux kernel, though those might be slow and demand more resources.</p>
+            <p>The current HyperKernel release is based on <a href="https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.0.1">stable 4.0.1</a>. Please not that you can configure Hyper to use any compatible Linux kernel, though those might be slow and demand more resources.</p>
         </blockquote>
 
     </div>
@@ -77,7 +77,7 @@
             <h2>Company</h2>
             <ul>
                 <li><a href="./about.html">About</a></li>
-                <li><a target="_blank" href="https://medium.com/@dvm">Jobs</a></li>
+                <li><a target="_blank" href="https://medium.com/@hyper">Jobs</a></li>
                 <li><a href="./security.html">Security</a></li>
             </ul>
         </div>
@@ -90,40 +90,41 @@
         <div class="column">
             <h2>Support & Community</h2>
             <ul>
-                <li><a target="_blank" href="https://github.com/getdvm">Github</a></li>
+                <li><a target="_blank" href="https://github.com/hyperhq">Github</a></li>
                 <li><p>Mailing List</p>
                     <ul>
-                        <li><a target="_blank" href="https://groups.google.com/d/forum/dvm-user">General</a></li>
-                        <li><a target="_blank" href="https://groups.google.com/d/forum/dvm-dev">Developer</a></li>
+                        <li><a target="_blank" href="https://groups.google.com/d/forum/hyper-user">General</a></li>
+                        <li><a target="_blank" href="https://groups.google.com/d/forum/hyper-dev">Developer</a></li>
                     </ul>
                 </li>
 
-                <li><a target="_blank" href="https://twitter.com/getdvm">Twitter</a></li>
-                <li><a target="_blank" href="#">IRC</a></li>
-                <li><a target="_blank" href="https://gitter.im/getdvm">Gitter.im</a></li>
+                <li><a target="_blank" href="https://twitter.com/hyper_sh">Twitter</a></li>
+                <li><a target="_blank" href="irc://irc.freenode.org:6667/#hyperhq">IRC #hyperhq</a></li>
+                <li><a target="_blank" href="https://gitter.im/hyperhq">Gitter.im</a></li>
                 <li><a target="_blank" href="https://www.facebook.com/getdvm">Facebook</a></li>
             </ul>
         </div>
         <div class="column">
             <h2>Documentation</h2>
             <ul>
-                <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/get_started/index.html">Get Started</a></li>
-                <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/instance/index.html">Instance Management</a></li>
-                <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/pod/index.html">Running Pod</a></li>
-                <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/reference/index.html">Reference</a></li>
-                <li><a target="_blank" href="http://gnep.gitbooks.io/dvm/content/release_notes/index.html">Release Notes</a></li>
+                <li><a target="_blank" href="http://gnep.gitbooks.io/hyper/content/get_started/index.html">Get Started</a></li>
+                <li><a target="_blank" href="http://gnep.gitbooks.io/hyper/content/instance/index.html">Instance Management</a></li>
+                <li><a target="_blank" href="http://gnep.gitbooks.io/hyper/content/pod/index.html">Running Pod</a></li>
+                <li><a target="_blank" href="http://gnep.gitbooks.io/hyper/content/reference/index.html">Reference</a></li>
+                <li><a target="_blank" href="http://gnep.gitbooks.io/hyper/content/release_notes/index.html">Release Notes</a></li>
             </ul>
         </div>
         <div class="column">
             <div class="subscribe">
-                <form action="">
-                    <input type="text" placeholder="Enter Your Email"/>
+                <form action="//getdvm.us10.list-manage.com/subscribe/post?u=5079c1cfdd3630a5d1a4a2f15&amp;id=1c79a2241b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Enter Your Email">
+                    <input type="text" style="display: none;" name="b_5079c1cfdd3630a5d1a4a2f15_1c79a2241b" tabindex="-1" value="">
                     <button class="button" type="submit">Subscribe</button>
                 </form>
-                <p class="hint">Subscribe to the latest DVM news.</p>
+                <p class="hint">Subscribe to the latest Hyper news.</p>
             </div>
             <div class="copyright">
-                (c) 2015, GetDVM Inc. All rights reserved.
+                (c) 2015, HyperHQ Inc. All rights reserved.
             </div>
         </div>
     </div>

@@ -85,7 +85,7 @@ $(window).load(function() {
         command: "docker pull ubuntu:latest"
       }, {
         prefix: "[root@user ~:]#",
-        command: "dvm run ubuntu:latest",
+        command: "hyper run ubuntu:latest",
         result: "i-12345678 is created..."
       },{
         prefix: "[root@user ~:]#",
