@@ -247,12 +247,15 @@ pre, code {
   padding-bottom: 36px; }
 
 .logo {
-  background: url('../img/logo.svg');
+  background: url('../img/logo.png');
   background-size: 98px 34px;
   background-repeat: no-repeat;
   width: 98px;
-  height: 34px;
-  background-position: -35px; }
+  height: 34px; }
+  .logo a {
+    display: block;
+    width: 100%;
+    height: 100%; }
 
 .btn {
   font-family: "anmono", "Consolas", "Monaco", "Ubuntu Mono", monospace !important;
@@ -298,7 +301,6 @@ pre, code {
     position: absolute;
     right: 150px;
     top: 0;
-    width: 90%;
     text-align: right;
     font-size: 18px; }
     .page-header nav.header .dropdown {
