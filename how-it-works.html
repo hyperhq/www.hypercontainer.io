@@ -32,15 +32,17 @@
     <h3 data-sr="wait .1s enter bottom">How it works</h3>
     <div class="blog">
 
-
-            <p>Hyper is composed by two components:</p>
+            <p>Hyper has four components:</p>
 
             <ul class="task-list">
-                <li>Hyper Daemon (with REST APIs)</li>
-                <li>Hyper CLI</li>
+                <li>CLI: <strong><em>hyper</em></strong>
+                </li>
+                <li>Daemon: <strong><em>hyperd</em></strong> (with REST APIs)</li>
+                <li>Guest Kernel: <strong><em>hyperkernel</em></strong>
+                </li>
+                <li>Guest Init Service: <strong><em>hyperstart</em></strong>
+                </li>
             </ul>
-
-            <p><img src="./img/how-it-works.png" alt=""></p>
 
             <p>On a physical Linux host:</p>
 
@@ -48,7 +50,7 @@
 [root@user ~:]# hyper run nginx:latest
 </code></pre>
 
-            <p>A new VM instance is created, and Hyper will mount the image from the host onto the instance:</p>
+            <p>Upon the <strong><em>RUN</em></strong> command, Hyper launches a new VM instance, instead of containers, and mount the specified image onto the instance:</p>
 
 <pre><code>[root@user ~:]# docker ps
 [root@user ~:]#
@@ -56,34 +58,39 @@
 xxxxxx
 </code></pre>
 
-            <p>Inside of the VM instance, a minimalist Linux kernel (called <strong><em>HyperKernel</em></strong>) is booted. The kernel employs a tiny Init service, called <strong><em>HyperD</em></strong>, which acts as <a href="https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/">Pid 1 process</a> to launch apps from the loaded image.</p>
+            <p>Internal to the VM, a minimalist Linux kernel, called <strong><em>HyperKernel</em></strong>, is booted. HyperKernel is built with a tiny Init service, called <strong><em>HyperStart</em></strong>, which creates a <strong><em>Pod</em></strong>, setup <em>Mount</em> namespace, and launch apps from the loaded image.</p>
+
+            <p><img src="./img/how-it-works.png" alt="how it works"/></p>
 
             <h2>
-                <a id="user-content-what-is-pod" class="anchor" href="#what-is-pod" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Pod</h2>
+                <a id="user-content-what-is-pod" class="anchor" href="#what-is-pod" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Pod?</h2>
 
-            <p>Pod is a concept originated from <a href="https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/pods.md">Google</a>. The key idea behind <strong>Pod</strong> is that in a microservie architecture usually involves some "helper" programs, such as log, monitoring, cron, etc. These helper programs are built to work co-operatively with the app. Therefore, instead of running in multiple isolated containers, these processes should share the same environment, although they are packaged in different images.</p>
+            <p>Pod is a concept originated from <a href="https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/pods.md">Google</a>. The key idea behind <strong>Pod</strong> is that in a microservie architecture usually involves some "helper" programs, such as log, monitoring, cron, etc. These helper programs are built to work cooperatively with the app. Therefore, instead of running in multiple isolated containers, these processes should share the namespace, though they are packaged in different images.</p>
 
             <h2>
-                <a id="user-content-pod-is-the-first-class-citizen-in-hyper" class="anchor" href="#pod-is-the-first-class-citizen-in-hyper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pod is the first class citizen in Hyper</h2>
+                <a id="user-content-pod-is-the-first-class-in-hyper" class="anchor" href="#pod-is-the-first-class-in-hyper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pod is the first class in Hyper</h2>
 
             <p>In Hyper, a pod consists of a group of app images, launched in a single instance.</p>
 
 <pre><code>[root@user ~:]# hyper run -p nginx rails logstash cronjob
 </code></pre>
 
-            <p>Inside of a instance, different applications from different images share the namespaces: <code>PID</code>, <code>Network</code>, <code>IPC</code>, <code>UTS</code>, <code>User</code>. This model provides a familiar view of a tranditional OS, instead of <strong><em>one process per container</em></strong> philosophy:</p>
+            <p>Inside of a instance, different applications from different images share the namespaces: <strong><em><code>PID</code></em></strong>, <strong><em><code>Network</code></em></strong>, <strong><em><code>IPC</code></em></strong>, <strong><em><code>UTS</code></em></strong>, <strong><em><code>User</code></em></strong>. This model provides a familiar view of a tranditional OS, rather than the  philosophy: "<strong><em>one process per container</em></strong>":</p>
 
             <ul class="task-list">
-                <li>processes can see each other</li>
-                <li>processes can use all IPC facilities to communicate</li>
-                <li>processes share the same hostname</li>
-                <li>processes have access to all NICs attached to the instance, and share the same port range</li>
-                <li>processes have access to all disk  attached to the instance</li>
+                <li>Processes can see each other</li>
+                <li>Processes can use all IPC facilities to communicate</li>
+                <li>Processes share the same hostname</li>
+                <li>Processes have access to all NICs attached to the instance, and share the same port range</li>
+                <li>Processes have access to all disk  attached to the instance</li>
             </ul>
 
-            <p>The exception is <code>Mount</code>. Since Pod includes multiple app images, Hyper applies the <code>Mount</code> namespace to separate the root filesystem between application.</p>
+            <p>The exception is <strong><em><code>Mount</code></em></strong>. Since a Pod may have multiple app images, Hyper applies the <strong><em><code>Mount</code></em></strong> namespace to isolate the root filesystem from each other.</p>
+
+            <p>Note: Hyper is immune from <a href="https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/">Pid  1 problem</a>, since HyperStart  launches the app processes and continues to live in the same namespace with them.</p>
 
             <p><strong>Find out more in <a href="https://docs.hyper.sh">Hyper docs</a></strong></p>
+
 
     </div>
 </section>
