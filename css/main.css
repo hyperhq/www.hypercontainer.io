@@ -568,7 +568,7 @@ pre, code {
       text-align: left;
       margin: 1em auto; }
     .desc .blog strong, .desc .security strong {
-      color: #333333; }
+      color: #222222; }
     .desc .blog h1, .desc .blog h2, .desc .blog h3, .desc .blog h4, .desc .blog h5, .desc .blog h6, .desc .blog p, .desc .blog pre, .desc .blog table, .desc .security h1, .desc .security h2, .desc .security h3, .desc .security h4, .desc .security h5, .desc .security h6, .desc .security p, .desc .security pre, .desc .security table {
       width: 100%;
       max-width: 100%;

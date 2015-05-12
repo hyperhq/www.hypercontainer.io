@@ -77,7 +77,12 @@ function selectText(element) {
   }
 }
 
+window.sr = new scrollReveal();
+
 $(window).load(function() {
+  if (!document.querySelector(".terminal-player pre code")){
+    return false
+  }
   terminal({
     data  : [
       {
@@ -111,5 +116,4 @@ $(window).load(function() {
     $(".install input").select();
   })
 });
-window.sr = new scrollReveal();
 
