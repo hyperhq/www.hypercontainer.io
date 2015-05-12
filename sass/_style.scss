@@ -29,6 +29,17 @@ body {
   }
 }
 
+a{
+  strong{
+    color: inherit!important;
+  }
+}
+
+hr{
+  border-color: #efefef;
+  border-width: 2px;
+  margin: 40px 0;
+}
 pre, code {
   font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif;
 }
