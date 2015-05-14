@@ -84,7 +84,7 @@ $(function() {
         result: ""
       },{
         prefix: "[root@user ~:]#",
-        command: "virsh list",
+        command: "hyper list",
         result: "................<br/>Done"
       },{
         prefix: "[root@user ~:]#",
