@@ -59,27 +59,9 @@ function insertTerminal(option){
   }
 }
 
-function selectText(element) {
-  var doc = document
-    , text = $(element).get(0)
-    , range, selection
-    ;
-  if (doc.body.createTextRange) {
-    range = document.body.createTextRange();
-    range.moveToElementText(text);
-    range.select();
-  } else if (window.getSelection) {
-    selection = window.getSelection();
-    range = document.createRange();
-    range.selectNodeContents(text);
-    selection.removeAllRanges();
-    selection.addRange(range);
-  }
-}
-
 window.sr = new scrollReveal();
 
-$(window).load(function() {
+$(function() {
   if (!document.querySelector(".terminal-player pre code")){
     return false
   }
