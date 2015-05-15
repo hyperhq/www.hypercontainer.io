@@ -518,12 +518,14 @@ pre, code {
   blockquote{
     margin: 0;
     padding: 5px 20px;
-    border-left: 3px solid #efefef;
+    border-left: 3px solid #d0d0d0;
+    background: #FAFAFA;
     p:first-child{
       padding: 0;
     }
     p{
       color: #777777;
+      margin: 10px 0!important;
     }
     ul{
       padding-left: 15px;
@@ -532,6 +534,9 @@ pre, code {
         color: #777777;
       }
     }
+  }
+  .faq blockquote{
+    background: none;
   }
 }
 

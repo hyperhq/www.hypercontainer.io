@@ -611,16 +611,20 @@ pre, code {
   .desc blockquote {
     margin: 0;
     padding: 5px 20px;
-    border-left: 3px solid #efefef; }
+    border-left: 3px solid #d0d0d0;
+    background: #FAFAFA; }
     .desc blockquote p:first-child {
       padding: 0; }
     .desc blockquote p {
-      color: #777777; }
+      color: #777777;
+      margin: 10px 0 !important; }
     .desc blockquote ul {
       padding-left: 15px;
       margin: 0; }
       .desc blockquote ul li {
         color: #777777; }
+  .desc .faq blockquote {
+    background: none; }
 
 table {
   margin: 40px auto;

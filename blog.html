@@ -31,59 +31,121 @@
     <h3 data-sr="wait .1s enter bottom">Hyper - Make VM run like Container</h3>
     <div class="blog">
         <p class="publish-date">Published on May 4th, 2015</p>
-        <p>Docker, without doubt, has been the phenomenon in the world of open source startups. With the rise of Docker,  we are observing a paradigm shift from virtualization to containerization, which throws away the idea to emulate the entire, complete "Machine", instead to package the minimal amount of data for running the application and its dependencies.</p>
 
-        <h2>CaaS and the need for isolation</h2>
+        <p>Docker, without doubt, has been a phenomenal open source technology. With the rise of Docker, the world is
+            shifting its focus from "Machine" to "App", which is combined with the migration from <a
+                    href="http://en.wikipedia.org/wiki/Hardware_virtualization">(Hardware) Virtualization</a> to <a
+                    href="https://github.com/appc/spec">Containerization</a>.</p>
 
-        <p>Besides the trimmed image size, Containerizatin also removes the middle layer of the Guest OS. According to <a href="https://www.docker.com/whatisdocker/" rel="noreferrer">Docker's website</a>:</p>
+        <p>As we believe <em>AppContainer</em> is the future, it is necessary to note that there are more approaches to
+            implement it than the popular <a href="http://en.wikipedia.org/wiki/Operating-system-level_virtualization">OS-level
+                Container</a> solution. </p>
 
-        <p><img src="./img/blog/1_1.png" alt="image_01"/></p>
+        <p>Virtualization could be one of the them. Let me explain. </p>
 
-        <p>A great benefit of this is <strong><em>Immutable Infrastructure</em></strong>. Configurations are moved out to external data store, the image is static, app run in the exact same state as it is shipped, no more moving parts. Therefore, a new form of cloud is emerging: <strong><em>Container-as-a-Service</em></strong>, which blurs the line between IaaS and PaaS:</p>
+        <h2>
+            <a id="user-content-machine-vs-app" class="anchor" href="#machine-vs-app" aria-hidden="true"><span
+                    class="octicon octicon-link"></span></a>Machine vs App</h2>
 
-        <p><img src="./img/blog/1_2.png" alt="image_02"/></p>
+        <p>Traditionally, Virtualization is designed to emulate the hardware. The brainchild of this is the "virtual
+            machine" (VM) as we see today. A VM is a virtual instance of a full operating system, a.k.a.
+            "<em>Machine</em>". A virtual machine runs in the same way as a physical one, promising the identical
+            contract between application, OS and hardware. Therefore, everything in the world of VM works as it used to
+            be.</p>
 
-        <p>However, container, which is rooted in <strong><em>Shared Kernel</em></strong>, is considered lacking of the necessary isolation for multi-tenant environments. When containers of different customers share the single kernel on the box, no matter physical or virtual, it is not surprising that the attack surface is so big that it is merely impossible to ensure the security. </p>
+        <p>However, this perfect backward-compatibility comes with some severe compromises:</p>
 
-        <p>Virtualization, on the other hand, is born to emulate isolated hardware, a.k.a. "Machine". This hardware-enforced isolation is safe. As the proof, most public clouds today, if not all, are built on virtualization. </p>
+        <ul class="task-list">
+            <li>Fat: VM images are often in tens of GBs</li>
+            <li>Slow: it usually takes tens of seconds to boot</li>
+            <li>Heavy: a VM instance demands hundreds MBs of memory at the minimum, which means that a dozen of VMs will
+                overload the server
+            </li>
+            <li>Volatile: a VM instance tends to be long-running and suffers from various configuration drifts</li>
+        </ul>
 
-        <p>So, the question is: <strong>How we can make VM run like Container?</strong></p>
+        <p>Containerization, on the other hand, focus on the notion of "<em>App</em>". A (Docker) container cares
+            nothing more than how to run the application, and a (Docker) image packages the minimal amount of data for
+            the application and its dependencies. Therefore,</p>
 
-        <p>Without surprise, two major CaaS services today, <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html" rel="noreferrer">AWS ECS</a> and <a href="https://cloud.google.com/container-engine/docs/clusters/" rel="noreferrer">Google GCE</a>, are both built on top of VM instance. </p>
+        <ul class="task-list">
+            <li>Thin: a Docker image is usally 200-300 MBs</li>
+            <li>Fast: sub-second to launch a Docker container</li>
+            <li>Light: you can run hundreds of containers on a server, since each container consumes only the memory
+                needed by the application
+            </li>
+            <li>Immutable: due to the lighting-fast boot speed, containers are short-lived, so they always run in the
+                exact same state as the image is shipped
+            </li>
+        </ul>
 
-        <h2>Introduce Hyper</h2>
+        <p>Docker has a neat diagram <a href="https://www.docker.com/whatisdocker/">on their website</a> to illustration
+            the difference between these two:</p>
 
-        <p>Simply put,</p>
+        <p>
+            <img src="./img/blog/1_1.png" alt="hyper blog img_1_1"/>
+        </p>
 
-        <pre>
-<code>Hyper = Hypervisor + Docker Image</code>
-        </pre>
+        <p>However, as you may have noticed, the core idea behind Containerization has little to do with the <a
+                href="https://github.com/docker/libcontainer">Container technology</a>. Instead, all values of
+            AppContainer listed above comes from the fact of eliminating the full OS and focusing on the application.
+        </p>
 
-        <p>Hyper allows you to run a Docker image with any hypervisor (KVM, Xen, etc.). It creates a "VM" instance with a minimalist Linux kernel (called <strong><em>HyperKernel</em></strong>), which loads the Docker images from the host machine. </p>
+        <p>So, the question is:</p>
 
-        <p>Since there is no guest OS in the Hyper instance (like CoreOS or RancherOS) except the kernel, Hyper has an amazingly fast boot performance:</p>
+        <blockquote><p>Can we build an App-centric VM, which runs like Container?</p></blockquote>
 
-        <p>It takes 0.54 second to launch a Nginx image on a common laptop:</p>
 
-        <pre>
-<code>[root@user ~:]# docker pull nginx:latest
+        <h2>
+            <a id="user-content-hyper---a-hypervisor-based-appcontainer-solution" class="anchor"
+               href="#hyper---a-hypervisor-based-appcontainer-solution" aria-hidden="true"><span
+                    class="octicon octicon-link"></span></a>Hyper - a Hypervisor-based AppContainer solution</h2>
+
+        <p>In short,</p>
+
+        <blockquote>
+            <p>Hyper = Hypervisor + AppContainer Image</p>
+        </blockquote>
+
+        <p>Hyper allows you to run any AppContainer image (Docker, rkt) with any hypervisor (KVM, Xen, etc.). What's
+            different from Docker is that Hyper launches new VM instances to run the images, rather than creating
+            containers:</p>
+
+<pre><code>[root@user ~:]# docker pull nginx:latest
 [root@user ~:]# hyper run nginx:latest
-open Chrome ---&gt; load the page</code>
-        </pre>
+[root@user ~:]# docker ps
+[root@user ~:]#
+[root@user ~:]# hyper list
+.......
+Done
+</code></pre>
 
-        <p>Internal of Hyper, it doesn't use Docker daemon, LXC, cgroup, namepsace (except <code>mnt</code> in the case of Pod), and any other Container technology. Instead, Hyper is a pure hypervisor-based solution, where each instance runs its own kernel.</p>
+        <p>Since Hyper is a virtualization-based solution, it does not rely on the underlying host kernel. Instead,
+            every Hyper VM is booted with a minimalist Linux kernel, <strong><em>HyperKernel</em></strong>. Thanks to
+            the minimalism, HyperKernel is super light. The test result shows that a Hyper VM boots in 500-800
+            milliseconds, making it indistinguishable from Linux container.</p>
 
-        <h2>The best from both worlds</h2>
+        <p>
+            <img src="./img/how-it-works.png" alt="How it works."/>
+        </p>
 
-        <p>I am not saying that hypervisor is better than container to implement the goal of Containerization. Technology are always with pros/cons. </p>
+        <p>Moreover, upon starting, Hyper mounts the app images onto the instance, in which a tiny service, <strong><em>HyperStart</em></strong>,
+            serves as <a href="http://en.wikipedia.org/wiki/Init">Init process</a> to launch applications. In this
+            model, the application is completely "contained" within the VM instance and its kernel space, without the
+            need to access the host facility. </p>
 
-        <p>Besides the isolation feature, Hyper actually combines the best from both virtualization and container:</p>
+        <h2>
+            <a id="user-content-combine-the-best-from-both-worlds" class="anchor"
+               href="#combine-the-best-from-both-worlds" aria-hidden="true"><span
+                    class="octicon octicon-link"></span></a>Combine the best from both worlds</h2>
+
+        <p>Aside from the isolation part, Hyper combines the best from both VM and Container:</p>
 
         <table>
             <thead>
             <tr>
                 <th>-</th>
-                <th>Container</th>
+                <th>Docker</th>
                 <th>VM</th>
                 <th>Hyper</th>
             </tr>
@@ -96,28 +158,28 @@ open Chrome ---&gt; load the page</code>
                 <td>Strong, HW-enforced</td>
             </tr>
             <tr>
+                <td>Portable</td>
+                <td>Yes</td>
+                <td>No, hypervisor dependent</td>
+                <td>Yes, hypervisor agnostic and portable image</td>
+            </tr>
+            <tr>
                 <td>Boot</td>
                 <td>Fast, sub-second</td>
                 <td>Slow, tens of seconds</td>
                 <td>Fast, sub-second</td>
             </tr>
             <tr>
-                <td>Portable</td>
-                <td>Yes, but kernel dependency sometimes</td>
-                <td>No</td>
-                <td>Yes, bring your own kernel</td>
-            </tr>
-            <tr>
                 <td>Performance</td>
                 <td>Great</td>
-                <td>Good</td>
-                <td>Good, the same with VM</td>
+                <td>OK</td>
+                <td>Good, minimal resource footprint and overhead</td>
             </tr>
             <tr>
                 <td>Immutable</td>
                 <td>Yes</td>
                 <td>No, configuration management required</td>
-                <td>Yes, only kernel+image</td>
+                <td>Yes, guest os is gone</td>
             </tr>
             <tr>
                 <td>Image Size</td>
@@ -126,29 +188,53 @@ open Chrome ---&gt; load the page</code>
                 <td>Small, MBs</td>
             </tr>
             <tr>
-                <td>Compatibility</td>
-                <td>No, need new tools</td>
-                <td>Great, everything just works</td>
-                <td>Good, it is still a "Machine", much less changes</td>
+                <td>Backward Compatibility</td>
+                <td>No, brand new world</td>
+                <td>Great, everything still works</td>
+                <td>Good, still a "Machine", much less changes</td>
             </tr>
             <tr>
-                <td>Mature</td>
-                <td>Not yet</td>
-                <td>Production ready, SDN, SDS, LiveMigration, etc.</td>
-                <td>Not yet, but can leverage with VM technology</td>
+                <td>Maturity</td>
+                <td>No</td>
+                <td>Yes, production ready, SDN, SDS, LiveMigration, etc.</td>
+                <td>Yes, just plug-&amp;-play</td>
             </tr>
             <tr>
-                <td>Migration</td>
-                <td>Need to build a new container platform</td>
-                <td>-</td>
-                <td>Plug &amp; Play with any virtual infrastructure</td>
+                <td>ROI</td>
+                <td>Low, rebuild everything with container</td>
+                <td>N/A</td>
+                <td>High, seamless integration with your virtual infrastructure</td>
             </tr>
             </tbody>
         </table>
 
-        <p>Hyper is an open source project, which is inspired by Google's experimental <a href="" rel="noreferrer">NoVM</a>. </p>
+        <h2>
+            <a id="user-content-introducing-the-secure-multi-tenant-caas" class="anchor"
+               href="#introducing-the-secure-multi-tenant-caas" aria-hidden="true"><span
+                    class="octicon octicon-link"></span></a>Introducing the secure multi-tenant CaaS</h2>
 
-        <p><a href="https://www.docker.com/whatisdocker/" rel="noreferrer">https://www.docker.com/whatisdocker/</a></p>
+        <p>Prior to Docker, IaaS is the de-facto form of cloud. Most cloud platforms, if not all, offer some IaaS
+            service. Thanks to Docker, CaaS is gaining popularity as an echo of <a
+                    href="http://en.wikipedia.org/wiki/Microservices">Microservices Architecture</a>.</p>
+
+        <p>
+            <img src="./img/blog/1_2.png" alt="Hyper Blog Img_1_2"/>
+        </p>
+
+        <p>While the trend is promising, what holds us from the future is the lack of isolation in container. Without
+            the necessary security, it is impossible for build a public multi-tenant CaaS platform, as different
+            customers' applications have to share the single host kernel (no matter the host is physical or
+            virtual).</p>
+
+        <p>With Hyper, the roadblock is gone. Considering that the attack surface for a VM instance is quite small (as
+            it lacks the variety of functions provided by a full operating systems, and therefore, the potential flaws
+            to be exploited), Hyper is able to offer the much-needed hardware-enforced isolation. </p>
+
+        <p>Now, we can start to build the secure, multi-tenant CaaS!</p>
+
+        <p>
+            <img src="./img/blog/1_3.png" alt="Hyper Blog img_1_3"/></p>
+
     </div>
 </section>
 
