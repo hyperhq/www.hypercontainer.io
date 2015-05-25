@@ -30,24 +30,39 @@
 <section class="desc title">
     <h3 data-sr="wait .1s enter bottom">FAQ</h3>
     <div class="blog faq">
-        <p>Q: Which hypervisor does Hyper support?</p>
 
-        <blockquote>
-            <p>Hyper is <strong><em>hypervisor agnostic</em></strong>. Currently, Hyper supports KVM and Xen, with more options in the roadmap.</p>
-        </blockquote>
-
-        <p>Q: How is Hyper different from Intel's Clear Container?</p>
+        <p>Q: Compare with Intel ClearContainer</p>
         <blockquote>
             <p>Hyper and Clear Container (CC) share the similar idea: <strong><em>hypervisor-based AppC runtime</em></strong>. The current release of CC supports rkt only; and Hyper currently supports Docker only. Also, </p>
             <pre><code style="word-wrap: break-word;">The goal of Clear Linux OS, is to showcase the best of Intel Architecture technology, from low level kernel features to more complex items that span across the entire operating system stack.</code></pre>
             <p>Hyper aims to be a technology-neutral open source solution.</p>
         </blockquote>
 
-        <p>Q: How is Hyper different from the minimalist Linux distros, such like CoreOS and RancherOS?</p>
+        <p>Q: Compare with QBoot</p>
+
+        <blockquote>
+            <p>
+                QBoot is a minimal x86 firmware that runs on QEMU and, together with a slimmed-down QEMU configuration, boots a virtual machine in 40 ms on an Ivy Bridge Core i7 processor. Hyper uses QBoot as the default boot option.
+            </p>
+        </blockquote>
+
+        <p>Q: Compare with CoreOS or RancherOS</p>
 
         <blockquote>
             <p>CoreOS and RancherOS are two popular minimalist Linux distros built for running app containers. Though primarily designed for bare metal server, they are commonly used as Guest OS in the cloud, due to the lack of isolation in containers. Hyper, on the other hand, <strong><em>eliminates the need of Guest OS</em></strong>, by leveraging the hardware-enforced isolation in hypervisor.</p>
-            <p>With that said, we see Hyper as one form of <em>App Container</em>. We would like to integrate Hyper with the minimalist Linux distros.</p>
+            <p>With that said, we see Hyper as one form of <em>Containerization</em>. We would like to integrate Hyper with the minimalist Linux distros.</p>
+        </blockquote>
+
+        <p>Q: Does Hyper use Linux container?</p>
+
+        <blockquote>
+            <p>No, Hyper is a <strong><em>pure hypervisor-based</em></strong> solution. It does not require any container technology (Docker daemon, LXC, Cgroup, Namespace), except <strong><em><code>MOUNT</code></em></strong> namespace for <a href="https://docs.hyper.sh/pod/">Pod</a>. </p>
+        </blockquote>
+
+        <p>Q: What hypervisors are supported?</p>
+
+        <blockquote>
+            <p>Hyper is <strong><em>hypervisor agnostic</em></strong>. Currently Hyper supports KVM, with Xen and more options in the roadmap.</p>
         </blockquote>
 
         <p>Q: What is the performance of Hyper?</p>
@@ -62,16 +77,10 @@
             </ul>
         </blockquote>
 
-        <p>Q: Does Hyper use container technology at runtime?</p>
-
-        <blockquote>
-            <p>No, Hyper is a <strong><em>pure virtualization-based</em></strong> solution. It does not require any container technology (Docker daemon, LXC, Cgroup, Namespace), except <strong><em><code>Mount</code></em></strong> namespace for <a href="https://docs.hyper.sh/pod/">Pod</a>. </p>
-        </blockquote>
-
         <p>Q: What kernel version is available in Hyper?</p>
 
         <blockquote>
-            <p>The current HyperKernel release is based on <a href="https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.0.1">stable 4.0.1</a>. Please note that you can configure Hyper to use <strong><em>any compatible Linux kernel</em></strong>, though those might be slow and demand more resources.</p>
+            <p>The current release of Hyper uses <a href="https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.0.1">kernel stable 4.0.1</a>. Please note that you can configure Hyper to use <strong><em>any compatible Linux kernel</em></strong>, though those might be slow and demand more resources.</p>
         </blockquote>
 
     </div>
