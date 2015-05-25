@@ -2,11 +2,10 @@
 
 With the rise of Docker, the world is shifting its focus from "Machine" toward "App". As such, [the cloud of tomorrow](http://www.ibuildthecloud.com/blog/2014/08/19/containers-as-a-service-caas-is-the-cloud-operating-system/) will be very different than today.
 
-When the future is promising, what holding us is the lack of isolation in container. Without the necessary security, it is impossible for build a public multi-tenant CaaS platform,  as everyone have to share the single host kernel (no matter physical or virtual).
+When the future is exciting, what holding us is the lack of isolation in container. Without the necessary security, it is impossible for build a public multi-tenant CaaS platform,  as everyone have to share the single host kernel (no matter physical or virtual).
 
-[Hyper](hyper.sh) is a hypervisor-based AppContainer solution. The goal is to ***Make VM run like Container***, by combing the best from both:
+Hyper is a **Hypervisor-agnostic Docker Runtime**. The goal is to ***Make VM run like Container***, by combing the best from both:
 
-- **Run any AppContainer image on any hypervisor**
 - **Fast as Container**
 - **Isolated by VM**
 

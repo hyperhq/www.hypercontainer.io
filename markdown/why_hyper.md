@@ -13,11 +13,11 @@ Hyper is immune from the "*shared kernel*" problem in container, because virtual
 
 ## Portable
 
-Hyper is ***hypervisor agnostic***. [The current implementation](http://gnep.gitbooks.io/hyper/content/release_notes/index.html) supports KVM and Xen, with more in the roadmap. Combined with [the portability of App Container Image](https://github.com/appc), Hyper allows you to build, ship, run app anywhere, without worrying the infrastructure technology stack.
+Hyper is ***hypervisor agnostic***. [The current implementation](http://gnep.gitbooks.io/hyper/content/release_notes/index.html) supports KVM, with Xen and more in the roadmap. Combined with [the portability of App Container Image](https://github.com/appc), Hyper allows you to build, ship, run app anywhere, without worrying the infrastructure technology stack.
 
 ## Immutable
 
-Hyper eliminates the need of Guest OS. There is no moving parts inside of a Hyper instance to be configured or managed. ***The entire stack is Immutable***.
+Hyper eliminates the need of Guest OS. There is no moving parts inside of a HyperVM instance to be configured or managed. ***The entire stack is Immutable***.
 
 ## BYOK - bring your own kernel
 
@@ -29,14 +29,14 @@ Virtualization is mature. Features like LiveMigration, SDN, SDS have been battle
 
 ## Better ROI
 
-Virtualization is widely implemented among enterprises. Instead of rebuilding everything with containers, Hyper provides a ***Seamless Migration*** path to your existing virtual infrastructure.
+Virtualization is widely implemented among enterprises. Instead of rebuilding everything with containers, Hyper provides a ***Seamless Integration*** path to your existing virtual infrastructure.
 
 -------
 
 # Summary
-The following table gives a more detailed comparision between Docker, (traditional) VM and Hyper:
+The following table gives a more detailed comparision between Container, (traditional) VM and Hyper:
 
-| -  | Docker | VM | Hyper | 
+| -  | Container| VM | Hyper | 
 |---|---|---|---|
 | Isolation | Weak, shared kernel | Strong, HW-enforced  | Strong, HW-enforced  |
 | Portable  | Yes | No, hypervisor dependent | Yes, hypervisor agnostic and portable image |

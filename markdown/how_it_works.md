@@ -22,7 +22,7 @@ Upon the ***RUN*** command, Hyper launches a new VM instance, instead of contain
 
 Internal to the VM, a minimalist Linux kernel, called ***HyperKernel***, is booted. HyperKernel is built with a tiny Init service, called ***HyperStart***, which create a ***Pod***, setup *Mount* namespace, and launch apps from the loaded images.
 
-![](https://trello-attachments.s3.amazonaws.com/554c998a4c9dacc5c143ec99/1083x635/08dfe9e383fb0b566986fc76e3a2c8c1/hyper_2.png)
+![](https://trello-attachments.s3.amazonaws.com/554c998a4c9dacc5c143ec99/1083x635/c6cb963194f1756031c6cc359a35cec7/hyper_arch.png)
 
 ## What is Pod?
 
