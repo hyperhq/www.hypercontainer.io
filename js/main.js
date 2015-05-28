@@ -72,8 +72,8 @@ $(function() {
         command: "docker pull ubuntu:latest"
       }, {
         prefix: "[root@user ~:]#",
-        command: "hyper run ubuntu:latest",
-        result: "i-12345678 is created..."
+        command: "hyper run",
+        result: "pod-s8dn29i"
       },{
         prefix: "[root@user ~:]#",
         command: "docker ps",
@@ -84,7 +84,7 @@ $(function() {
         result: ""
       },{
         prefix: "[root@user ~:]#",
-        command: "hyper list",
+        command: "virsh list",
         result: "................<br/>Done"
       },{
         prefix: "[root@user ~:]#",
