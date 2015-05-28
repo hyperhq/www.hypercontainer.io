@@ -26,8 +26,8 @@ Hyper is ***hypervisor agnostic***. Currently Hyper supports KVM, with Xen and m
 ## Q: What are the performances of Hyper?
 
 - Boot: Start a hyper Pod only takes less than 350 millisecond.
-- CPU: CPU Performance loss rate is about 0.4 percent.
-- Mem: Memory Performance loss rate is about 0.64 percent.
+- CPU: CPU Performance overhead is about 0.4 percent.
+- Mem: Memory Performance overhead is about 0.64 percent.
 
 ## Q: Which kernel versions are available with Hyper?
 The current release of Hyper uses [kernel stable 4.0.1](https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.0.1). Please note that you can configure Hyper to use ***any compatible Linux kernel***, though those might be slow and demand more resources.
