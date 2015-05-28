@@ -72,7 +72,7 @@ $(function() {
         command: "docker pull ubuntu:latest"
       }, {
         prefix: "[root@user ~:]#",
-        command: "hyper run",
+        command: "hyper run ubuntu:latest",
         result: "pod-s8dn29i3"
       },{
         prefix: "[root@user ~:]#",
