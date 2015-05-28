@@ -1,42 +1,42 @@
 # Join the HyperCrew!
 
-HyperCrew is what we call ourselves: a team who is passionate about redefining the cloud. To achieve this, we are looking for individuals who demonstrate initiative for our goal and are as enthusiastic as we are about ***bringing Container-as-a-Service to the masses***.
+HyperCrew is how we call ourselves: a team who is passionate about redefining the cloud. To achieve this, we are looking for individuals who demonstrate initiative for our goal and are as enthusiastic as we are about ***bringing Container-as-a-Service to the masses***.
 
 -----------
 
 ## Developer Evangelist
-**Location**: 
+**Location**:
 Cupertino, CA
 New Yord City, NY
 
 **Responsibilities**:
-As a Developer Evangelist for Hyper, the job is to ***develop and grow the awareness of Hyper among developers***. You'll be working on: 
+As a Developer Evangelist for Hyper, your job would be to ***develop and grow the awareness of Hyper among developers***. You'll be working on:
 
-- Creating content for our blog and other channels to drive some of the latest thinking around app containers, microservices, Container-as-a-Service, etc
+- Creating content for our blog and other channels to drive some of the latest thinking around app containers, microservices, Container-as-a-Service, etc.
 - Organizing and volunteering at developer events
-- Speaking and sharing his/her expertise at user groups and conferences.
-- Building partnerships with individuals, companies and organizations that serve the same communities we do.
-- Connecting and networking with other developers and entrepreneurs to identify how Hyper might help them be even more awesome.
-- Gathering and socializing product feedback that will inform engineering, sales, and marketing decision making.
+- Speaking and sharing your expertise at user groups and conferences
+- Building partnerships with individuals, companies and organizations that serve the same communities we do
+- Connecting and networking with other developers and entrepreneurs to identify how Hyper might help them be even more awesome
+- Gathering and socializing product feedback that will inform engineering, sales, and marketing decision making
 
 **Requirements**:
 You should be a software development professional with a track record of delivering server-side applications. Strong communications skills are also essential to serve in this role. Some specific qualities we are looking for are:
-- Leadership and service in developer communities.
-- Strong technical writing skills demonstrated via blog posts and other written work.
+- Leadership and service in developer communities
+- Strong technical writing skills demonstrated via blog posts and other written work
 - Strong and diverse engineering skills
-- Social and hustling skills - a lot of great connections and opportunities are discovered simply by getting out and talking to people. This is something you should be able to do well.
+- Social and hustling skills - a lot of great connections and opportunities are discovered simply by getting out and talking to people. This is something you should be able to do well
 - Public speaking experience or aptitude
-- Friendly and approachable people do well as the teachers and mentors we're looking for.
-- Willingness to travel to anywhere our developer communities live, and stay productive and professional on the road.
-- Ability to work irregular hours and some weekends to support hackathons, conferences, user groups, and other developer events.
-- Entrepreneurial thinking and the ability to act effectively with only high-level direction is also essential.
+- Friendly and approachable people do well as the teachers and mentors we're looking for
+- Willingness to travel to anywhere our developer communities live, and stay productive and professional on the road
+- Ability to work irregular hours and some weekends to support hackathons, conferences, user groups, and other developer events
+- Entrepreneurial thinking and the ability to act effectively with only high-level direction is also essential
 
 Most importantly, your aptitude and willingness to learn is just as important to us as your existing knowledge.
- 
- [<i class="icon-mail-alt"></i> ***Apply this position***](jobs@hyper.sh)
+
+ [<i class="icon-mail-alt"></i> ***Apply for this position***](jobs@hyper.sh)
 
 ## Senior Linux Kernel Engineer
-**Location**: 
+**Location**:
 Cupertino, CA
 Beijing, China
 
@@ -61,4 +61,4 @@ Linux distribution development or packaging
 
 Most importantly, your aptitude and willingness to learn is just as important to us as your existing knowledge.
 
- [<i class="icon-mail-alt"></i> ***Apply this position***](jobs@hyper.sh)
+ [<i class="icon-mail-alt"></i> ***Apply for this position***](jobs@hyper.sh)

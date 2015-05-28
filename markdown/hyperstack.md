@@ -2,8 +2,8 @@
 
 ## What is HyperStack?
 
-HyperStack is an OpenStack-compatible DCOS software. 
+HyperStack is an OpenStack-compatible DCOS software.
 
 ## Value
 
-## Who 
+## Who

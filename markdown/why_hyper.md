@@ -9,7 +9,7 @@ When VMs take tens of seconds to boot, Hyper is able to launch instances in ***s
 
 ## Secure
 
-Hyper is immune from the "*shared kernel*" problem in container, because virtualization offers an excellent ***Hardware-enforced Isolation***. The attack surface for a VM instance is quite small, as it lacks the variety of functions (and, therefore, the potential flaws to be exploited) provided by standard operating systems.
+Hyper is immune from the "*shared kernel*" problem in container, because virtualization offers an excellent ***Hardware-enforced Isolation***. The attack surface of a VM instance is quite small, as it lacks the variety of functions (and, therefore, the potential flaws to be exploited) provided by standard operating systems.
 
 ## Portable
 
@@ -36,13 +36,13 @@ Virtualization is widely implemented among enterprises. Instead of rebuilding ev
 # Summary
 The following table gives a more detailed comparision between Container, (traditional) VM and Hyper:
 
-| -  | Container| VM | Hyper | 
+| -  | Container| VM | Hyper |
 |---|---|---|---|
 | Isolation | Weak, shared kernel | Strong, HW-enforced  | Strong, HW-enforced  |
 | Portable  | Yes | No, hypervisor dependent | Yes, hypervisor agnostic and portable image |
 | Boot  | Fast, sub-second  | Slow, tens of seconds  | Fast, sub-second  |
 | Performance  | Great | OK| Good, minimal resource footprint and overhead |
-| Immutable | Yes  | No, configuration management required | Yes, guest os is gone  | 
+| Immutable | Yes  | No, configuration management required | Yes, guest os is gone  |
 | Image Size| Small, MBs  | Big, GBs  | Small, MBs  |
 | Backward Compatibility | No, brand new world | Great, everything still works  | Good, still a "Machine", much less changes  |
 | Maturity   | No  | Yes, production ready, SDN, SDS, LiveMigration, etc.  | Yes, just plug-&-play |

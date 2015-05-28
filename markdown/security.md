@@ -1,6 +1,6 @@
 # Security & Privacy
 
-We understand that you want to place a high level of trust in tools you use to deploy and run your applications. We make the privacy of your data and the security of our tools and services a top priority. We apply best practices and focus on security to make sure we can grow a trustworthy relationship.
+We understand that you want to place a high level of trust in the tools you use to deploy and run your applications. We make the privacy of your data and the security of our tools and services a top priority. We apply best practices and focus on security to make sure we can grow a trustworthy relationship.
 
 # Vulnerability Reporting
 
