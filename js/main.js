@@ -73,7 +73,7 @@ $(function() {
       }, {
         prefix: "[root@user ~:]#",
         command: "hyper run",
-        result: "pod-s8dn29i"
+        result: "pod-s8dn29i3"
       },{
         prefix: "[root@user ~:]#",
         command: "docker ps",
@@ -84,7 +84,7 @@ $(function() {
         result: ""
       },{
         prefix: "[root@user ~:]#",
-        command: "virsh list",
+        command: "hyper list",
         result: "................<br/>Done"
       },{
         prefix: "[root@user ~:]#",
