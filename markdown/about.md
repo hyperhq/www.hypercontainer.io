@@ -6,8 +6,8 @@ When the future is exciting, what holds us is the lack of isolation in container
 
 Hyper is a **Hypervisor-agnostic Docker Runtime**. Its goal is to ***Make VM run like Container***, by combing the best from both:
 
-- **As Fast as Containers**
-- **As Isolated as VMs**
+- **As Fast as Container**
+- **Isolated by VM**
 
 With Hyper, we believe the future of Container-as-a-Service is just around the corner.
 
