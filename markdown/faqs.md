@@ -23,9 +23,9 @@ No, Hyper is a ***pure hypervisor-based*** solution. It does not require any con
 ## Q: Which hypervisors are supported?
 Hyper is ***hypervisor agnostic***. Currently Hyper supports KVM, with Xen and more options on the roadmap.
 
-## Q: What is the performance of Hyper?
+## Q: What are the performances of Hyper?
 
-- Boot: Start a hyper pod only takes less than 350 millisecond.
+- Boot: Start a hyper Pod only takes less than 350 millisecond.
 - CPU: CPU Performance loss rate is about 0.4 percent.
 - Mem: Memory Performance loss rate is about 0.64 percent.
 
