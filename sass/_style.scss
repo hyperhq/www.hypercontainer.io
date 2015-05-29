@@ -131,6 +131,10 @@ pre, code {
   background: rgba(255, 255, 255, 0);
 
   .logo {
+    @media (max-width: 800px) {
+      padding: 15px 10px;
+      margin-left: 0;
+    }
   }
 
   nav.header {
@@ -139,11 +143,22 @@ pre, code {
     top: 0;
     text-align: right;
     font-size: 18px;
-    @media (max-width: 800px) {
+    .border-menu {
+      display: none;
       position: relative;
-      display: inline-block;
-      right: 0;
+      padding-left: 1.25em;
     }
+    .border-menu:before {
+      content: "";
+      position: absolute;
+      top: 0.25em;
+      left: 0;
+      width: 1em;
+      height: 0.125em;
+      border-top: 0.375em double #626262;
+      border-bottom: 0.125em solid #626262;
+    }
+
     .dropdown {
       display: inline-block;
       height: 60px;
@@ -203,6 +218,50 @@ pre, code {
         padding: 15px 5px;
       }
     }
+
+    @media (max-width: 800px) {
+      .border-menu {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-top: 13px;
+        font-size: 1.8em;
+        cursor: pointer;
+        text-align: center;
+        padding: 13px 10px;
+      }
+      > a {
+        display: none;
+      }
+      &.show {
+        right: 150px;
+        top: 0;
+        text-align: right;
+        font-size: 18px;
+        width: 100%;
+        position: fixed;
+        height: 100%;
+        background: #fff;
+        left: 0;
+        padding-top: 80px;
+        z-index: 1;
+        .border-menu{
+          position: absolute;
+          right: 20px;
+          top: 10px;
+          &:before{
+            content: "×";
+            border: 0;
+            top: 0;
+          }
+        }
+        > a{
+          display: block;
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
   }
   .btn-header {
     position: absolute;
@@ -213,11 +272,6 @@ pre, code {
     line-height: 31px;
     background-size: 20px;
     vertical-align: baseline;
-    @media (max-width: 800px) {
-      position: relative;
-      display: inline-block;
-      vertical-align: top;
-    }
     img {
       display: inline-block;
       width: 22px;
@@ -271,7 +325,6 @@ pre, code {
     margin: 10vh auto 0 auto;
   }
   .terminal-player {
-    width: 100vh;
     max-width: 700px;
     background: #34323f;
     height: 35vh;
@@ -445,6 +498,8 @@ pre, code {
     height: 400px;
     @media (max-width: 960px){
       width: 100%;
+      height: auto;
+      padding: 20px;
       &:nth-child(2n) {
         background: #F3F6F8;
       }
@@ -516,6 +571,10 @@ pre, code {
         }
         @media (max-width: 500px) {
           padding: 0 5%;
+          h2{
+            padding: 0;
+            text-align: center;
+          }
           img{
             position: relative;
             top: 0;

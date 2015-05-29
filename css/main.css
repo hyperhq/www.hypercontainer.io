@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! HTML5 Boilerplate v5.0.0 | MIT License | http://h5bp.com/ */
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -306,17 +307,29 @@ pre, code {
   height: 60px;
   z-index: 100;
   background: rgba(255, 255, 255, 0); }
+  @media (max-width: 800px) {
+    .page-header .logo {
+      padding: 15px 10px;
+      margin-left: 0; } }
   .page-header nav.header {
     position: absolute;
     right: 150px;
     top: 0;
     text-align: right;
     font-size: 18px; }
-    @media (max-width: 800px) {
-      .page-header nav.header {
-        position: relative;
-        display: inline-block;
-        right: 0; } }
+    .page-header nav.header .border-menu {
+      display: none;
+      position: relative;
+      padding-left: 1.25em; }
+    .page-header nav.header .border-menu:before {
+      content: "";
+      position: absolute;
+      top: 0.25em;
+      left: 0;
+      width: 1em;
+      height: 0.125em;
+      border-top: 0.375em double #626262;
+      border-bottom: 0.125em solid #626262; }
     .page-header nav.header .dropdown {
       display: inline-block;
       height: 60px;
@@ -362,6 +375,42 @@ pre, code {
       @media (max-width: 1000px) {
         .page-header nav.header > a {
           padding: 15px 5px; } }
+    @media (max-width: 800px) {
+      .page-header nav.header .border-menu {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-top: 13px;
+        font-size: 1.8em;
+        cursor: pointer;
+        text-align: center;
+        padding: 13px 10px; }
+      .page-header nav.header > a {
+        display: none; }
+      .page-header nav.header.show {
+        right: 150px;
+        top: 0;
+        text-align: right;
+        font-size: 18px;
+        width: 100%;
+        position: fixed;
+        height: 100%;
+        background: #fff;
+        left: 0;
+        padding-top: 80px;
+        z-index: 1; }
+        .page-header nav.header.show .border-menu {
+          position: absolute;
+          right: 20px;
+          top: 10px; }
+          .page-header nav.header.show .border-menu:before {
+            content: "×";
+            border: 0;
+            top: 0; }
+        .page-header nav.header.show > a {
+          display: block;
+          text-align: center;
+          width: 100%; } }
   .page-header .btn-header {
     position: absolute;
     top: 13px;
@@ -371,11 +420,6 @@ pre, code {
     line-height: 31px;
     background-size: 20px;
     vertical-align: baseline; }
-    @media (max-width: 800px) {
-      .page-header .btn-header {
-        position: relative;
-        display: inline-block;
-        vertical-align: top; } }
     .page-header .btn-header img {
       display: inline-block;
       width: 22px; }
@@ -414,7 +458,6 @@ pre, code {
   .head .btn-large {
     margin: 10vh auto 0 auto; }
   .head .terminal-player {
-    width: 100vh;
     max-width: 700px;
     background: #34323f;
     height: 35vh;
@@ -563,7 +606,9 @@ pre, code {
     height: 400px; }
     @media (max-width: 960px) {
       .desc .desc-quarter {
-        width: 100%; }
+        width: 100%;
+        height: auto;
+        padding: 20px; }
         .desc .desc-quarter:nth-child(2n) {
           background: #F3F6F8; } }
   .desc .blog, .desc .security {
@@ -616,6 +661,9 @@ pre, code {
         @media (max-width: 500px) {
           .desc .blog.why section, .desc .security.why section {
             padding: 0 5%; }
+            .desc .blog.why section h2, .desc .security.why section h2 {
+              padding: 0;
+              text-align: center; }
             .desc .blog.why section img, .desc .security.why section img {
               position: relative;
               top: 0; }

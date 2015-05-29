@@ -62,6 +62,9 @@ function insertTerminal(option){
 window.sr = new scrollReveal();
 
 $(function() {
+  $(".border-menu").click(function(){
+    $("header .header").toggleClass("show");
+  });
   if (!document.querySelector(".terminal-player pre code")){
     return false
   }
@@ -96,6 +99,6 @@ $(function() {
   });
   $(".install pre").click(function(){
     $(".install input").select();
-  })
+  });
 });
 
