@@ -61,6 +61,38 @@ function insertTerminal(option){
 
 window.sr = new scrollReveal();
 
+renderBackground = function(){
+  var dotImg = new Image();
+  dotImg.src = "./img/grey-darker.png";
+  window.fromPix = 0;
+  dotImg.onload = function(){
+    renderCanvas(dotImg);
+  }
+};
+
+renderCanvas = function(dotImg){
+  var imgWidth = 397;
+  var imgHeight = 322;
+  var canvas = document.getElementById("bg-animation");
+  canvas.width = parseInt(getComputedStyle(canvas).width, 10);
+  canvas.height = parseInt(getComputedStyle(canvas).height, 10);
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(dotImg, 0, 0);
+  var hCount = Math.floor(canvas.width / imgWidth) + 1;
+  var vCount = Math.floor(canvas.height / imgHeight) + 1;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  window.requestAnimationFrame(function(){renderCanvas(dotImg)});
+  for(var h = 0; h<=hCount; h++){
+    for(var v = 0; v<=vCount; v++){
+      window.fromPix = fromPix + 0.08; // adjust speed.
+      if (fromPix >= imgHeight){
+        window.fromPix = 0;
+      }
+      ctx.drawImage(dotImg, 0, 0, imgWidth, imgHeight, h*imgWidth, (v-1)*imgHeight+fromPix-1, imgWidth, imgHeight);
+    }
+  }
+};
+
 $(function() {
   $(".border-menu").click(function(){
     $("header .header").toggleClass("show");
@@ -100,5 +132,6 @@ $(function() {
   $(".install pre").click(function(){
     $(".install input").select();
   });
+  renderBackground();
 });
 

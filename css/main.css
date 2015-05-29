@@ -438,8 +438,26 @@ pre, code {
   background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0) 100vh, #ffffff 110vh), url(../img/grey-darker.png);
   background: linear-gradient(-180deg, rgba(255, 255, 255, 0) 100vh, #ffffff 110vh), url(../img/grey-darker.png);
   background-blend-mode: screen;
-  -webkit-animation: bg-move 30s linear infinite;
-          animation: bg-move 30s linear infinite; }
+  z-index: 0; }
+  .head:after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #dedede;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: -webkit-linear-gradient(270deg, rgba(255, 255, 255, 0) 100vh, #ffffff 110vh);
+    background: linear-gradient(-180deg, rgba(255, 255, 255, 0) 100vh, #ffffff 110vh); }
+  .head canvas.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; }
   .head h1 {
     font-weight: 100;
     font-size: 48px; }
