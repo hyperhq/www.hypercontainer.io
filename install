@@ -397,6 +397,10 @@ function install_hyper() {
   local INST_SCRIPT="${BOOTSTRAP_DIR}/${UNTAR_DIR}/install.sh"
   echo_debug "start extract [${BLUE} ${INST_PKG} ${CYAN}] "
   set +e
+  if [ -d "${BOOTSTRAP_DIR}/${UNTAR_DIR}" ];then
+    echo_debug "found old dir ${BOOTSTRAP_DIR}/${UNTAR_DIR}, remove first!"
+    \rm -rf "${BOOTSTRAP_DIR}/${UNTAR_DIR}"
+  fi
   ${BASH_C} "tar xzf ${INST_PKG}"
   if [ $? -ne 0 ];then
     echo_error "\nFile ${INST_PKG} is corrupted! please retry!"
