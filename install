@@ -1,0 +1,786 @@
+#!/bin/bash
+#*******************************************************************
+# Description:  This script is used to install hyper cli and hyperd
+#*******************************************************************
+# Usage:
+#   wget -qO- https://hyper.sh/install | bash
+#   curl -sSL https://hyper.sh/install | bash
+#*******************************************************************
+
+#exit script if any command failed
+set -e
+set -o pipefail
+
+#*******************************************************************
+# Variable
+#*******************************************************************
+CURRENT_USER="$(id -un 2>/dev/null || true)"
+BOOTSTRAP_DIR="/tmp/hyper-bootstrap-${CURRENT_USER}"
+
+OPT_DEBUG="false"
+OPT_NO_DOWNLOAD="false"
+
+
+#*******************************************************************
+# Parameter
+#*******************************************************************
+INSTALL_URL="https://hyper.sh/install"
+S3_URL="https://hyper-install-test.s3.amazonaws.com"
+PKG_FILENAME="hyper-latest.tgz"
+UNTAR_DIR="hyper-dev"
+SUPPORT_EMAIL="support@hyper.sh"
+
+
+#*******************************************************************
+# Constant
+#*******************************************************************
+SUPPORT_DISTRO=(debian ubuntu fedora centos)
+UBUNTU_CODE=(trusty utopic vivid)
+DEBIAN_CODE=(jessie)
+CENTOS_VER=(6 7)
+FEDORA_VER=(21 22)
+
+#Color Constant
+BLACK=`tput setaf 0`   #<reserved>
+RED=`tput setaf 1`     #error
+GREEN=`tput setaf 2`   #success
+YELLOW=`tput setaf 3`  #warning
+BLUE=`tput setaf 4`    #infomation
+PURPLE=`tput setaf 5`  #exception
+CYAN=`tput setaf 6`    #<reserved>
+WHITE=`tput setaf 7`   #normal
+LIGHT=`tput bold `     #light color
+RESET=`tput sgr0`      #restore color setting
+
+#Message
+MSG_ROOT_PRIVILEGE_REQUIRED="This install script needs to run as root, please use sudo!"
+MSG_NOT_SUPPORT_PLATFORM="Sorry, Hyper only support x86_64 platform!"
+MSG_NOT_SUPPORT_DISTRO="Sorry, Hyper only support (${SUPPORT_DISTRO[@]}) now!"
+MSG_QEMU_NOT_INSTALL="Please install Qemu 2.0+ first!"
+MSG_QEMU_LOW_VERSION="Need Qemu version 2.0 at least!"
+MSG_DOCKER_NOT_INSTALL="Please install docker 1.5+ first!"
+MSG_DOCKER_LOW_VERSION="Need Docker version 1.5 at least!"
+MSG_DOCKER_NOT_RUNNING="Docker daemon isn't running, please start it first!"
+MSG_FETCH_MD5_FAILED="Fetch md5 of package failed!"
+MSG_FETCH_MD5_FORMAT_INVALID="Format of md5 file is invalid!"
+MSG_FETCH_PACKAGE_FAILED="Fetch package failed!"
+MSG_EXEC_INSTALL_FAILED="Install hyper failed!"
+MSG_HYPER_NOT_FOUND="Can not find hyper && hyperd after setup!"
+
+#Error
+ERR_ROOT_PRIVILEGE_REQUIRED=10
+ERR_NOT_SUPPORT_PLATFORM=20
+ERR_NOT_SUPPORT_DISTRO=21
+ERR_NOT_SUPPORT_DISTRO_VERSION=22
+ERR_DOCKER_NOT_INSTALL=23
+ERR_DOCKER_LOW_VERSION=24
+ERR_DOCKER_NOT_RUNNING=25
+ERR_QEMU_NOT_INSTALL=26
+ERR_QEMU_LOW_VERSION=27
+ERR_FETCH_MD5_FAILED=30
+ERR_FETCH_MD5_FORMAT_INVALID=31
+ERR_FETCH_PACKAGE_FAILED=32
+ERR_INSTALL_PKG_CORRUPTED=40
+ERR_EXEC_INSTALL_FAILED=41
+ERR_HYPER_NOT_FOUND=60
+
+
+#*******************************************************************
+# Function Definition
+#*******************************************************************
+
+function main() {
+  #1
+  check_user
+
+  #2
+  echo_info "\nCheck dependency "
+  check_deps_platform
+  check_deps_distro
+  check_deps_docker
+  check_deps_qemu
+  echo_success " Done\n"
+  #3
+  echo_info "Fetch package "
+  fetch_hyper_package
+  echo_success " Done\n"
+  #4
+  echo_info "Installing "
+  install_hyper
+  echo_success " Done\n"
+  #5
+  echo_info "Start hyperd service\n"
+  start_hyperd_service
+  #6
+  check_hyper_after_install
+  exit 0
+}
+
+
+function check_user() {
+  echo_debug "check user privilege ..."
+  BASH_C="bash -c"
+  if [ "${CURRENT_USER}" != "root" ];then
+    if ( command_exist sudo );then
+      BASH_C="sudo -E bash -c"
+    elif ( command_exist su );then
+      BASH_C='su -c'
+    else
+      echo_error "\n${MSG_ROOT_PRIVILEGE_REQUIRED}"
+      exit ${ERR_ROOT_PRIVILEGE_REQUIRED}
+    fi
+    echo "Hint: Hyper installer need root privilege"
+    sudo -s echo
+  fi
+  echo_debug "CURRENT_USER: [ ${CURRENT_USER} ]"
+  echo_debug "BASH_C: [ ${BASH_C} ]"
+}
+
+
+function check_hyper_before_install() {
+  echo_debug "check hyper && hyperd before install ... "
+  if ( command_exist hyper hyperd );then
+    echo -n "${YELLOW}"
+    cat <<COMMENT
+
+Warning: "hyper" appears to already installed. You may press Ctrl+C to abort this process.
++ sleep 10
+COMMENT
+    echo -n "${RESET}"
+    if [ "${OPT_DEBUG}" == "false" ];then
+      n=10
+      until [ ${n} -le 0 ]; do
+        echo -n "." && sleep 1
+        n=$((n-1))
+      done
+    else
+      echo_debug "skip sleep in debug mode"
+    fi
+  else
+    echo_debug "It's the first time to install hyper"
+  fi
+}
+
+function check_hyper_after_install() {
+  echo_debug "check hyper && hyperd after install ... "
+  set +e
+  if ( command_exist hyper hyperd );then
+    HYPER_VER="$(hyper version | awk '{print $5}')"
+    echo_normal "\nhyper ${HYPER_VER} has been successfully setup."
+    sleep 2
+    pgrep hyperd >/dev/null 2>&1
+    if [ $? -eq 0 ];then
+      echo_success "\nhyperd is running."
+    else
+      echo_warn "\nhyperd start failed."
+      cat <<COMMENT
+Please try to start it by manual:
+    sudo service hyperd restart
+    sudo service hyperd status
+COMMENT
+    fi
+  else
+    echo_error "\n${MSG_HYPER_NOT_FOUND}\n"
+    exit ${ERR_HYPER_NOT_FOUND}
+  fi
+  set -e
+}
+
+
+
+function check_deps_platform() {
+  echo_debug -n "check platform ... "
+  ARCH="$(uname -m)"
+  echo_debug "[ ${ARCH} ]"
+  if [ "${ARCH}" != "x86_64" ];then
+    echo_error "\n${MSG_NOT_SUPPORT_PLATFORM}\n"
+    exit ${ERR_NOT_SUPPORT_PLATFORM}
+  fi
+  echo -n "."
+}
+
+function check_deps_distro() {
+  echo_debug "check distro ... "
+  LSB_DISTRO="" ; LSB_VER="" ; LSB_CODE=""
+  if ( command_exist lsb_release );then
+    LSB_DISTRO="$(lsb_release -si)"
+    LSB_VER="$(lsb_release -sr)"
+    LSB_CODE="$(lsb_release -sc)"
+  fi
+  if [ -z "${LSB_DISTRO}" ];then
+    if [ -r /etc/lsb-release ];then
+      LSB_DISTRO="$(. /etc/lsb-release && echo "${DISTRIB_ID}")"
+      LSB_VER="$(. /etc/lsb-release && echo "${DISTRIB_RELEASE}")"
+      LSB_CODE="$(. /etc/lsb-release && echo "${DISTRIB_CODENAME}")"
+    elif [ -r /etc/os-release ];then
+      LSB_DISTRO="$(. /etc/os-release && echo "$ID")"
+      LSB_VER="$( . /etc/os-release && echo "$VERSION_ID")"
+    elif [ -r /etc/fedora-release ];then
+      LSB_DISTRO="fedora"
+    elif [ -r /etc/debian_version ];then
+      LSB_DISTRO="Debian"
+      LSB_VER="$(cat /etc/debian_version)"
+    fi
+  fi
+  LSB_DISTRO=$( echo "${LSB_DISTRO}" | tr '[:upper:]' '[:lower:]' )
+  case "${LSB_DISTRO}" in
+    ubuntu|debian)
+      if [ "${LSB_DISTRO}" == "ubuntu" ];then
+        SUPPORT_CODE_LIST="${UBUNTU_CODE[@]}"
+      else
+        SUPPORT_CODE_LIST="${DEBIAN_CODE[@]}"
+      fi
+      echo_debug "[ ${LSB_DISTRO} ${LSB_VER}(${LSB_CODE}) ]"
+      if ( echo "${SUPPORT_CODE_LIST}" | grep -v -w "${LSB_CODE}" &>/dev/null );then
+        echo_error "\nHyper support ${LSB_DISTRO}( ${SUPPORT_CODE_LIST} ), but current is ${LSB_CODE}(${LSB_VER})\n" red dark
+        exit ${ERR_NOT_SUPPORT_DISTRO_VERSION}
+      fi
+    ;;
+    centos|fedora)
+      CMAJOR=$( echo ${LSB_VER} | cut -d"." -f1 )
+      if [  "${LSB_DISTRO}" == "centos" ];then
+        SUPPORT_VER_LIST="${CENTOS_VER[@]}"
+      else
+        SUPPORT_VER_LIST="${FEDORA_VER[@]}"
+      fi
+      if ( echo "${SUPPORT_VER_LIST}" | grep -v -w "${CMAJOR}" &>/dev/null );then
+        echo_error "\nHyper support ${LSB_DISTRO}( ${SUPPORT_VER_LIST} ), but current is ${LSB_VER}\n\n" red dark
+        exit ${ERR_NOT_SUPPORT_DISTRO_VERSION}
+      fi
+    ;;
+    *)
+      echo_error "\n${MSG_NOT_SUPPORT_DISTRO}\n" red dark
+      exit ${ERR_NOT_SUPPORT_DISTRO}
+    ;;
+  esac
+  echo -n "."
+}
+
+function check_deps_docker() {
+  echo_debug "check docker ... "
+  if ( command_exist docker );then
+    set +e
+    sudo docker version > /dev/null 2>&1
+    if [ $? -ne 0 ];then
+      echo_error "\n${MSG_DOCKER_NOT_RUNNING}\n"
+      cat <<COMMENT
+start docker service:
+    sudo service docker start
+COMMENT
+      exit ${ERR_DOCKER_NOT_RUNNING}
+    fi
+    set -e
+
+    local DOCKER_VER=$(${BASH_C} "docker version" 2>/dev/null | sed -ne 's/Server version:[[:space:]]*\([0-9]\{1,\}\)*/\1/p')
+    echo_debug "[ docker ${DOCKER_VER} installed ]"
+    read DMAJOR DMINOR DFIX < <( echo ${DOCKER_VER} | awk -F"." '{print $1,$2,$3}')
+    if [ ${DMAJOR} -lt 1 ] || [ ${DMAJOR} -eq 1 -a ${DMINOR} -lt 5 ];then
+      echo_error "\n${MSG_DOCKER_LOW_VERSION}\n"
+      display_how_to_install_docker
+      exit ${ERR_DOCKER_LOW_VERSION}
+    fi
+  else
+    echo_error "\n${MSG_DOCKER_NOT_INSTALL}\n"
+    display_how_to_install_docker
+    exit ${ERR_DOCKER_NOT_INSTALL}
+  fi
+  echo -n "."
+}
+
+function check_deps_qemu() {
+  echo_debug "check qemu ... "
+  if ( command_exist qemu-system-x86_64 );then
+    local QEMU_VER=$(qemu-system-x86_64 --version | awk '{print $4}' | cut -d"," -f1)
+    echo_debug "[ qemu ${QEMU_VER} installed ]"
+    read QMAJOR QMINOR QFIX < <( echo ${QEMU_VER} | awk -F'.' '{print $1,$2,$3 }')
+    if [ ${QMAJOR} -lt 2 ] ;then
+      echo_error "\n${MSG_QEMU_LOW_VERSION}\n"
+      display_how_to_install_qemu
+      exit ${ERR_QEMU_LOW_VERSION}
+    fi
+  else
+    echo_error "\n${MSG_QEMU_NOT_INSTALL}\n"
+    display_how_to_install_qemu
+    exit ${ERR_QEMU_NOT_INSTALL}
+  fi
+  echo -n "."
+}
+
+
+function fetch_hyper_package() {
+  local SRC_URL="${S3_URL}/${PKG_FILENAME}"
+  local MD5_URL="${SRC_URL}.md5"
+  local TGT_FILE="${BOOTSTRAP_DIR}/${PKG_FILENAME}"
+  local NEED_DOWNLOAD="false"
+  local NEED_INSTALL="false"
+
+  if [ ! -d ${BOOTSTRAP_DIR} ];then
+    mkdir -p ${BOOTSTRAP_DIR}
+  fi
+  cd ${BOOTSTRAP_DIR}
+  echo_debug "BOOTSTRAP_DIR: ${BOOTSTRAP_DIR}"
+  echo_debug "CURRENT_DIR  : $(pwd)"
+  echo_debug "TGT_FILE     : ${TGT_FILE}"
+  echo -n "."
+
+  echo_debug "check local old package ..."
+  if [ -f "${TGT_FILE}" ];then
+    echo_debug "found old package [${BLUE} ${TGT_FILE} ${CYAN}], validate tgz now..."
+    validate_tgz "${TGT_FILE}"
+  fi
+  if [ ! -f "${TGT_FILE}" ];then
+    NEED_DOWNLOAD="true"
+  else
+    OLD_MD5=$( md5sum ${TGT_FILE} | awk '{print $1}' )
+    if [ "${OPT_NO_DOWNLOAD}" == "true" ];then
+      echo_debug "skip download install package, use old package."
+    else
+      #check md5 on s3
+      CURL_NO_SAVE=$( get_curl_no_save )
+      echo_debug "CURL_NO_SAVE: ${CURL_NO_SAVE}"
+      echo_debug "Fetch md5 command: [ ${BLUE} ${CURL_NO_SAVE} ${MD5_URL} ${CYAN} ]"
+
+      set +e
+      REMOTE_MD5_INFO=($(${CURL_NO_SAVE} ${MD5_URL}))
+      if [ $? -ne 0 ];then
+        echo_error "\n${MSG_FETCH_MD5_FAILED} (${MD5_URL}) "
+        exit ${ERR_FETCH_MD5_FAILED}
+      fi
+      set -e
+
+      echo_debug "REMOTE_MD5_INFO: ${REMOTE_MD5_INFO[@]}"
+      if [ ! -z ${REMOTE_MD5_INFO} -a ${#REMOTE_MD5_INFO[@]} -eq 2 ];then
+        NEW_MD5=${REMOTE_MD5_INFO[0]}
+        NEW_PKG=${REMOTE_MD5_INFO[1]}
+        echo ${REMOTE_MD5_INFO[@]} > ${TGT_FILE}.md5
+      else
+        echo_debug "${MSG_FETCH_MD5_FORMAT_INVALID}"
+        display_support ${ERR_FETCH_MD5_FORMAT_INVALID}
+      fi
+      echo_debug "OLD_MD5: ${OLD_MD5} \nNEW_MD5: ${NEW_MD5}"
+      if [ ! -z ${NEW_MD5} -a "${OLD_MD5}" != "${NEW_MD5}" ];then
+        echo_prompt "\nFound new version ${NEW_PKG/.tgz/}"
+        NEED_DOWNLOAD="true"
+      else
+        echo_debug "local package is the latest version, MD5: ${NEW_MD5}"
+      fi
+    fi
+    echo -n "."
+  fi
+
+  echo_debug "NEED_DOWNLOAD: ${NEED_DOWNLOAD}"
+  if [ "${NEED_DOWNLOAD}" == "true" ];then
+    echo_debug "start download hyper install package..."
+    echo_debug "download file from [ ${SRC_URL} ] to [ ${TGT_FILE} ]"
+    \rm ${TGT_FILE} -rf
+    CURL_SAVE=$(get_curl_save)
+    echo_debug "Fetch command(debug): [ ${CURL_SAVE} ${TGT_FILE} ${SRC_URL} ]"
+
+    set +e
+    ${CURL_SAVE} ${TGT_FILE} ${SRC_URL}
+    if [ $? -ne 0 ];then
+      \rm ${TGT_FILE} -rf
+      echo_error "\n${MSG_FETCH_PACKAGE_FAILED}"
+      exit ${ERR_FETCH_PACKAGE_FAILED}
+    fi
+    set -e
+
+    NEED_INSTALL="true"
+  else
+    NEED_INSTALL="true"
+  fi
+  echo -n "."
+}
+
+function install_hyper() {
+  local INST_PKG="${BOOTSTRAP_DIR}/${PKG_FILENAME}"
+  local INST_SCRIPT="${BOOTSTRAP_DIR}/${UNTAR_DIR}/install.sh"
+  echo_debug "start extract [${BLUE} ${INST_PKG} ${CYAN}] "
+  set +e
+  ${BASH_C} "tar xzf ${INST_PKG}"
+  if [ $? -ne 0 ];then
+    echo_error "\nFile ${INST_PKG} is corrupted! please retry!"
+    exit ${ERR_INSTALL_PKG_CORRUPTED}
+  else
+    cd "${BOOTSTRAP_DIR}/${UNTAR_DIR}"
+    stop_running_hyperd
+    echo_debug "Start execute [${BLUE} ${INST_SCRIPT} ${CYAN}]"
+    check_hyper_before_install
+    ${BASH_C} "./install.sh" 1> /dev/null
+    if [ $? -eq 0 ];then
+      echo -n "."
+      echo_debug "finish install hyper."
+      create_link
+      install_hyperd_service
+    else
+      echo_debug "${MSG_EXEC_INSTALL_FAILED}\n"
+      exit ${ERR_EXEC_INSTALL_FAILED}
+    fi
+  fi
+  set -e
+  echo -n "."
+}
+
+function create_link() {
+  if [ -f /usr/local/bin/hyper -a ! -f /usr/bin/hyper ];then
+    echo_debug "create link for hyper & hyperd ( /usr/bin => /usr/local/bin ) ..."
+    ${BASH_C} "ln -s /usr/local/bin/hyper /usr/bin/hyper"
+    ${BASH_C} "ln -s /usr/local/bin/hyperd /usr/bin/hyperd"
+    echo -n "."
+  fi
+}
+
+function install_hyperd_service() {
+  if [ "${LSB_DISTRO}" == "ubuntu" -a "${LSB_CODE}" == "utopic" ];then
+    echo_debug "<use sysvinit for ubuntu 14.10>"
+    install_service_sysvinit
+  elif ( command_exist systemctl );then
+    echo_debug "<systemd found>"
+    install_service_systemd
+  else
+    echo_debug "<no systemd found, use sysvinit>"
+    install_service_sysvinit
+  fi
+  echo -n "."
+}
+
+function install_service_sysvinit() {
+  echo_debug "start install hyperd as service(sysvinit) ..."
+  local SRC_INIT_DIR="${BOOTSTRAP_DIR}/${UNTAR_DIR}/service/init.d"
+  local SRC_INIT_FILE="${SRC_INIT_DIR}/hyperd.${LSB_DISTRO}"
+  local TGT_INIT_FILE="/etc/init.d/hyperd"
+  if [ -f "${SRC_INIT_FILE}" ];then
+    echo_debug "finish install hyperd service\n"
+    ${BASH_C} "cp ${SRC_INIT_FILE} ${TGT_INIT_FILE}"
+    ${BASH_C} "chmod +x ${TGT_INIT_FILE}"
+  fi
+}
+
+function install_service_systemd() {
+  echo_debug "start install hyperd as service(systemd) ..."
+  local SRC_INIT_DIR="${BOOTSTRAP_DIR}/${UNTAR_DIR}/service/systemd"
+  local SRC_INIT_FILE="${SRC_INIT_DIR}/hyperd.service"
+  local TGT_INIT_FILE="/lib/systemd/system/hyperd.service"
+  if [ -f "${SRC_INIT_FILE}" ];then
+    echo_debug "finish install hyperd service\n"
+    ${BASH_C} "cp ${SRC_INIT_FILE} ${TGT_INIT_FILE}"
+    ${BASH_C} "chmod 644 ${TGT_INIT_FILE}"
+  fi
+}
+
+function start_hyperd_service() {
+  INIT_TYPE="$1" #systemd|sysvinit
+  echo_debug "start hyperd service(${INIT_TYPE})"
+  if [ "${INIT_TYPE}" == "systemd" ];then
+    ${BASH_C} "systemctl start hyperd"
+  else
+    ${BASH_C} "service hyperd start"
+  fi
+  sleep 2
+}
+
+function display_support() {
+  echo_error "\nSorry, we are suffering from some technical issue($1), please contact ${SUPPORT_EMAIL}\n"
+  if [ $# -eq 0 ];then
+    exit 99
+  else
+    exit $1
+  fi
+}
+
+
+function stop_running_hyperd() {
+  echo_debug "check running hyperd"
+  if ( command_exist hyperd );then
+    echo_debug "stop running hyperd"
+    set +e
+    if [ "${LSB_DISTRO}" == "ubuntu" -a "${LSB_CODE}" == "utopic" ];then
+      echo_debug "<use sysvinit for ubuntu 14.10>"
+      ${BASH_C} "service hyperd stop" >/dev/null 2>&1
+    elif ( command_exist systemctl );then
+      echo_debug "<systemd>"
+      ${BASH_C} "systemctl stop hyperd" >/dev/null 2>&1
+    else
+      echo_debug "<sysvinit>"
+      ${BASH_C} "service hyperd stop" >/dev/null 2>&1
+    fi
+    sleep 2
+    set -e
+  else
+    echo_debug "There is no hyperd running"
+  fi
+  echo -n "."
+}
+
+function display_how_to_install_docker() {
+  case "${LSB_DISTRO}" in
+    debian|ubuntu)
+      comment_for_install_docker
+    ;;
+    centos)
+      CMAJOR=$( echo ${LSB_VER} | cut -d"." -f1 )
+      if [ ! -z ${CMAJOR} -a ${CMAJOR} -eq 6 ];then
+        cat <<COMMENT
+install docker:
+    sudo yum install http://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+    sudo yum install docker-io
+
+COMMENT
+      else
+        comment_for_install_docker
+      fi
+    ;;
+    fedora)
+      comment_for_install_docker
+    ;;
+    *)
+      echo -e "see https://docs.docker.com/installation/\n"
+    ;;
+  esac
+}
+
+function comment_for_install_docker() {
+  cat <<COMMENT
+install docker:
+    wget -qO- https://get.docker.com/ | bash
+    or
+    curl -sSL https://get.docker.com/ | bash
+
+COMMENT
+}
+
+function display_how_to_install_qemu() {
+  case "${LSB_DISTRO}" in
+    debian|ubuntu)
+      echo -e "install qemu:\n    sudo apt-get install qemu\n"
+    ;;
+    centos)
+      CMAJOR=$( echo ${LSB_VER} | cut -d"." -f1 )
+      if [ ! -z ${CMAJOR} -a ${CMAJOR} -eq 6 ];then
+        comment_for_install_qemu
+      else
+        echo -e "install qemu:\n    sudo yum install qemu\n"
+      fi
+    ;;
+    fedora)
+      echo -e "install qemu:\n    sudo yum install qemu\n"
+    ;;
+    *)
+      echo -e "see https://docs.docker.com/installation/\n"
+    ;;
+  esac
+}
+
+function comment_for_install_qemu() {
+  cat <<COMMENT
+install qemu:
+
+    sudo yum install gcc libuuid-devel libaio-devel spice-server-devel zlib-devel gnutls-devel cyrus-sasl-devel glib2-devel libaio-devel spice-protocol flex bison libtool
+
+    wget http://wiki.qemu-project.org/download/qemu-2.3.0.tar.bz2
+
+    tar -xjf qemu-2.3.0.tar.bz2
+
+    cd qemu-2.3.0
+
+    ./configure --prefix=/usr/local/ --target-list=x86_64-softmmu --enable-vnc --disable-xen --enable-vnc-tls --enable-vnc-sasl --enable-kvm  --enable-linux-aio --disable-docs --enable-vhost-net --disable-libiscsi --disable-smartcard-nss --enable-debug  --enable-spice --enable-uuid
+
+    make -j4
+
+    sudo make install
+
+COMMENT
+}
+
+############################################################
+function command_exist() {
+  type "$@" > /dev/null 2>&1
+}
+
+function get_curl_save() {
+  echo $(get_curl true)
+}
+
+function get_curl_no_save() {
+  echo $(get_curl false)
+}
+
+function get_curl() {
+  SAVE=$1
+  CURL_C=""
+  if ( command_exist wget );then
+    case "${OPT_DEBUG}" in
+      true)
+        if [ "${SAVE}" = "true" ];then
+          CURL_C='wget -O '
+        else
+          CURL_C='wget -O- '
+        fi
+      ;;
+      *)
+        if [ "${SAVE}" = "true" ];then
+          CURL_C='wget -qO '
+        else
+          CURL_C='wget -qO- '
+        fi
+      ;;
+    esac
+  elif ( command_exist curl );then
+    case "${OPT_DEBUG}" in
+      true)
+        if [ "${SAVE}" = "true" ];then
+          CURL_C='curl -SL -o  '
+        else
+          CURL_C='curl -SL '
+        fi
+      ;;
+      *)
+        if [ "${SAVE}" = "true" ];then
+          CURL_C='curl -sSL -o  '
+        else
+          CURL_C='curl -sSL '
+        fi
+      ;;
+    esac
+  else
+    echo_error "\nThere is no wget or curl, please install first, exit!\n"
+    exit 98
+  fi
+  echo ${CURL_C}
+}
+
+#-----------------------------------------------
+# usage: show_message <COLOR> <STYLE> <MESSAGE>
+#-----------------------------------------------
+function show_message() {
+  local MSG_TYPE=$1
+  local STYLE=$2
+  local COLOR=$3
+  local MSG_TXT="$4"
+  local NOBREAK="false"
+
+  case "${MSG_TYPE}" in
+    info )
+      NOBREAK="true"
+    ;;
+    debug )
+      MSG_TXT="[debug] ${MSG_TXT}"
+    ;;
+    *)
+    ;;
+  esac
+
+  case $(echo ${COLOR} | tr '[:upper:]' '[:lower:]') in
+    black  ) COLOR=0 ;;
+    red    ) COLOR=1 ;; #error/failure
+    green  ) COLOR=2 ;; #success
+    yellow ) COLOR=3 ;; #warn
+    blue   ) COLOR=4 ;; #info
+    purple ) COLOR=5 ;;
+    cyan   ) COLOR=6 ;; #debug
+    white|*) COLOR=7 ;;
+  esac
+  if [ "${STYLE}" == "light" ];then
+    tput bold
+  fi
+  tput setaf ${COLOR}
+  if [ "${NOBREAK}" == "true" ];then
+    echo -e -n "${MSG_TXT}"
+  else
+    echo -e "${MSG_TXT}"
+  fi
+  tput sgr0
+}
+
+#-----------------------------------------------
+# usage: echo_* [OPTION] <MESSAGE>
+#-----------------------------------------------
+function echo_info() {
+  show_message info light blue "$@"
+}
+
+function echo_prompt() {
+  show_message prompt light yellow "$@"
+}
+
+function echo_debug() {
+  if [ "${OPT_DEBUG}" == "true" ];then
+    show_message debug dark cyan "$@"
+  fi
+}
+
+function echo_success() {
+  show_message sucess light green "$@"
+}
+
+function echo_warn() {
+  show_message warn dark yellow "$@"
+}
+
+function echo_error() {
+  show_message error dark red "$@"
+}
+
+function echo_normal() {
+  show_message normal dark white "$@"
+}
+
+function validate_tgz() {
+  local TGZ_FILE="$1"
+  if [ $# -eq 0 ];then
+    echo_error "\nError: There is no tgz to validate, exit!"
+    exit 90
+  fi
+  if [ ! -r "${TGZ_FILE}" ];then
+    echo_error "\nError: File [ ${TGZ_FILE} ] not found, exit!"
+    exit 91
+  fi
+  set +e
+  tar ztvf "${TGZ_FILE}" > /dev/null 2>&1
+  if [ $? -ne 0 ];then
+    echo_debug "${YELLOW}Warn: file [${BLUE} ${TGZ_FILE} ${YELLOW}] is corrupted!, will remove and re-download.${CYAN}"
+    \rm ${TGZ_FILE} -rf
+  fi
+  set -e
+}
+
+
+function display_usage() {
+  echo_info "Usage: ./$(echo $(basename $0)) [--debug] [--no-download]"
+  exit 1
+}
+
+
+#*******************************************************************
+# Main
+#*******************************************************************
+#check arguments
+if [ $# -eq 0 ];then
+  OPT_DEBUG="false"
+  OPT_NO_DOWNLOAD="false"
+elif [ $# -ge 1 ];then
+  OPT_LST=($@)
+  for OPT in ${OPT_LST[@]}
+  do
+    case "${OPT}" in
+      --debug)
+        OPT_DEBUG="true"
+        echo "<debug mode on>"
+      ;;
+      --no-download)
+        OPT_NO_DOWNLOAD="true"
+        echo_info "<no download on>"
+      ;;
+      *)
+        echo_error "\nUnknown Option ${OPT}\n"
+        display_usage
+        exit 1
+      ;;
+    esac
+  done
+else
+  display_usage
+fi
+
+####
+main
