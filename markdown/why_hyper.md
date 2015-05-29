@@ -5,7 +5,7 @@
 
 ## Performance
 
-When VMs take tens of seconds to boot, Hyper is able to launch instances in ***sub-second***. Also, Hyper requires the ***minimal resource footprint***: ~12MB mem, which means higher density: run hundreds of Hyper instances on a server, where a dozens of VMs would overload.
+When VMs take tenths of seconds to boot, Hyper is able to launch instances in ***sub-second***. Also, Hyper requires the ***minimal resource footprint***: ~12MB mem, which means higher density: run hundreds of Hyper instances on a server, where a dozens of VMs would overload.
 
 ## Secure
 
@@ -40,7 +40,7 @@ The following table gives a more detailed comparision between Container, (tradit
 |---|---|---|---|
 | Isolation | Weak, shared kernel | Strong, HW-enforced  | Strong, HW-enforced  |
 | Portable  | Yes | No, hypervisor dependent | Yes, hypervisor agnostic and portable image |
-| Boot  | Fast, sub-second  | Slow, tens of seconds  | Fast, sub-second  |
+| Boot  | Fast, sub-second  | Slow, tenths of seconds  | Fast, sub-second  |
 | Performance  | Great | OK| Good, minimal resource footprint and overhead |
 | Immutable | Yes  | No, configuration management required | Yes, guest os is gone  |
 | Image Size| Small, MBs  | Big, GBs  | Small, MBs  |
