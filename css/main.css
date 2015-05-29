@@ -227,6 +227,8 @@ body {
   margin: 0; }
   body * {
     box-sizing: border-box; }
+  body.show {
+    overflow: hidden; }
 
 a strong {
   color: inherit !important; }
@@ -311,6 +313,13 @@ pre, code {
     .page-header .logo {
       padding: 15px 10px;
       margin-left: 0; } }
+  @media (max-width: 500px) {
+    .page-header .wrapper {
+      padding: 10px 20px; }
+      .page-header .wrapper .btn-header {
+        right: 20px; }
+      .page-header .wrapper nav.header {
+        right: 120px; } }
   .page-header nav.header {
     position: absolute;
     right: 150px;
@@ -387,7 +396,7 @@ pre, code {
         padding: 13px 10px; }
       .page-header nav.header > a {
         display: none; }
-      .page-header nav.header.show {
+      .show .page-header nav.header {
         right: 150px;
         top: 0;
         text-align: right;
@@ -399,15 +408,15 @@ pre, code {
         left: 0;
         padding-top: 80px;
         z-index: 1; }
-        .page-header nav.header.show .border-menu {
+        .show .page-header nav.header .border-menu {
           position: absolute;
           right: 20px;
           top: 10px; }
-          .page-header nav.header.show .border-menu:before {
+          .show .page-header nav.header .border-menu:before {
             content: "×";
             border: 0;
             top: 0; }
-        .page-header nav.header.show > a {
+        .show .page-header nav.header > a {
           display: block;
           text-align: center;
           width: 100%; } }

@@ -27,6 +27,9 @@ body {
   * {
     box-sizing: border-box;
   }
+  &.show{
+    overflow: hidden;
+  }
 }
 
 a{
@@ -137,6 +140,18 @@ pre, code {
     }
   }
 
+  .wrapper{
+    @media (max-width: 500px) {
+      padding: 10px 20px;
+      .btn-header{
+        right: 20px;
+      }
+      nav.header{
+        right: 120px;
+      }
+    }
+  }
+
   nav.header {
     position: absolute;
     right: 150px;
@@ -233,7 +248,7 @@ pre, code {
       > a {
         display: none;
       }
-      &.show {
+      .show & {
         right: 150px;
         top: 0;
         text-align: right;

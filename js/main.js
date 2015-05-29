@@ -95,7 +95,7 @@ renderCanvas = function(dotImg){
 
 $(function() {
   $(".border-menu").click(function(){
-    $("header .header").toggleClass("show");
+    $("body").toggleClass("show");
   });
   if (!document.querySelector(".terminal-player pre code")){
     return false
