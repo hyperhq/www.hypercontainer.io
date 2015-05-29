@@ -32,7 +32,7 @@ Pod is a concept originated from [Google](https://github.com/GoogleCloudPlatform
 
 In Hyper, a Pod consists of a group of app images, launched in a single instance.
 
-	[root@user ~:]# hyper run -p nginx rails logstash cronjob
+	[root@user ~:]# hyper run -p podfile.json
 
 Inside of a Hyper instance, multiple applications from different images share the namespaces: ***`PID`***, ***`Network`***, ***`IPC`***, ***`UTS`***, ***`User`***. Pods help to provide a familiar view of a tranditional OS to applications, rather than the philosophy of "***one process per container***":
 
