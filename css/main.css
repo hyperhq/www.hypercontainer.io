@@ -771,8 +771,7 @@ table {
   padding: 100px 0; }
   @media (max-width: 400px) {
     .get {
-      padding: 80px;
-      height: 200px; } }
+      padding: 80px; } }
   .get .btn-large {
     margin: 0 auto;
     background: transparent;
