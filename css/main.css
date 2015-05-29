@@ -312,6 +312,11 @@ pre, code {
     top: 0;
     text-align: right;
     font-size: 18px; }
+    @media (max-width: 800px) {
+      .page-header nav.header {
+        position: relative;
+        display: inline-block;
+        right: 0; } }
     .page-header nav.header .dropdown {
       display: inline-block;
       height: 60px;
@@ -354,6 +359,9 @@ pre, code {
       padding: 15px 20px; }
       .page-header nav.header > a:hover {
         color: #333333; }
+      @media (max-width: 1000px) {
+        .page-header nav.header > a {
+          padding: 15px 5px; } }
   .page-header .btn-header {
     position: absolute;
     top: 13px;
@@ -363,6 +371,11 @@ pre, code {
     line-height: 31px;
     background-size: 20px;
     vertical-align: baseline; }
+    @media (max-width: 800px) {
+      .page-header .btn-header {
+        position: relative;
+        display: inline-block;
+        vertical-align: top; } }
     .page-header .btn-header img {
       display: inline-block;
       width: 22px; }

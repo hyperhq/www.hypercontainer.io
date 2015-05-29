@@ -139,6 +139,11 @@ pre, code {
     top: 0;
     text-align: right;
     font-size: 18px;
+    @media (max-width: 800px) {
+      position: relative;
+      display: inline-block;
+      right: 0;
+    }
     .dropdown {
       display: inline-block;
       height: 60px;
@@ -194,6 +199,9 @@ pre, code {
       &:hover {
         color: #333333;
       }
+      @media (max-width: 1000px) {
+        padding: 15px 5px;
+      }
     }
   }
   .btn-header {
@@ -203,9 +211,13 @@ pre, code {
     width: 80px;
     height: 34px;
     line-height: 31px;
-    //        background: url("../img/github.png") no-repeat left center;
     background-size: 20px;
     vertical-align: baseline;
+    @media (max-width: 800px) {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+    }
     img {
       display: inline-block;
       width: 22px;
