@@ -11,7 +11,7 @@ set -e
 CURRENT_USER="$(id -un 2>/dev/null || true)"
 BOOTSTRAP_DIR="/tmp/hyper-bootstrap-${CURRENT_USER}"
 ########## Parameter ##########
-S3_URL="https://hyper-install-test.s3.amazonaws.com"
+S3_URL="https://hyper-install.s3.amazonaws.com"
 PKG_FILE="hyper-latest.tgz"
 UNTAR_DIR="hyper-dev"
 SUPPORT_EMAIL="support@hyper.sh"
