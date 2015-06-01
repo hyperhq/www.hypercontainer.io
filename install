@@ -11,7 +11,7 @@ set -e
 CURRENT_USER="$(id -un 2>/dev/null || true)"
 BOOTSTRAP_DIR="/tmp/hyper-bootstrap-${CURRENT_USER}"
 ########## Parameter ##########
-S3_URL="https://hyper-install.s3.amazonaws.com"
+S3_URL="https://hyper-install-test.s3.amazonaws.com"
 PKG_FILE="hyper-latest.tgz"
 UNTAR_DIR="hyper-dev"
 SUPPORT_EMAIL="support@hyper.sh"
@@ -59,11 +59,11 @@ main() {
 }
 check_hyper_before_install() {
   if (command_exist hyper hyperd);then
-    echo -n "${YELLOW}"
+    echo "${WHITE}"
     cat <<COMMENT
-Warning: "hyper" appears to already installed, hyperd serive will be restart.
+Prompt: "hyper" appears to already installed, hyperd serive will be restart during install.
 You may press Ctrl+C to abort this process.
-+ sleep 10
++ sleep 10 seconds
 COMMENT
     echo -n "${RESET}"
     n=10
@@ -82,7 +82,7 @@ check_user() {
     else
       show_message error "${ERR_ROOT_PRIVILEGE_REQUIRED[1]}" && exit ${ERR_ROOT_PRIVILEGE_REQUIRED[0]}
     fi
-    show_message info "${YELLOW}Hint: Hyper installer need root privilege\n"
+    show_message info "\n${WHITE}Hint: Hyper installer need root privilege\n"
     sudo -s echo -n
   fi
 }
@@ -165,9 +165,8 @@ check_deps_docker() {
     set +e
     sudo docker version > /dev/null 2>&1
     if [ $? -ne 0 ];then
-      show_message error "${ERR_DOCKER_NOT_RUNNING[1]}"
+      show_message error "${ERR_DOCKER_NOT_RUNNING[1]}\n"
       cat <<COMMENT
-
 Please start docker service:
     sudo service docker start
 
@@ -321,22 +320,17 @@ check_hyper_after_install() {
 ----------------------------------------------------
 To see how to use hyper cli:
     sudo hyper help
-
 To manage hyperd service:
     sudo service hyperd {start|stop|restart|status}
-
 To get more information:
     http://hyper.sh
-
 COMMENT
     else
-      show_message error "start hyperd failed."
+      show_message error "start hyperd failed.\n"
       cat <<COMMENT
-
 Please try to start hyperd by manual:
     sudo service hyperd restart
     sudo service hyperd status
-
 COMMENT
     fi
     set -e
