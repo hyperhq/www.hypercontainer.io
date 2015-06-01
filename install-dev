@@ -3,16 +3,17 @@
 # Description:  This script is used to install hyper cli and hyperd
 #*******************************************************************
 # Usage:
-#   wget -qO- https://hyper.sh/install-dev | bash
-#   curl -sSL https://hyper.sh/install-dev | bash
+#   wget -qO- https://hyper.sh/install | bash
+#   curl -sSL https://hyper.sh/install | bash
 #*******************************************************************
 set -e
+DEV_MODE="-dev"
 ########## Variable ##########
 CURRENT_USER="$(id -un 2>/dev/null || true)"
 BOOTSTRAP_DIR="/tmp/hyper-bootstrap-${CURRENT_USER}"
 ########## Parameter ##########
-S3_URL="https://hyper-install-dev.s3.amazonaws.com"
-PKG_FILE="hyper-latest.tgz"
+S3_URL="https://hyper-install${DEV_MODE}.s3.amazonaws.com"
+PKG_FILE="hyper-latest${DEV_MODE}.tgz"
 UNTAR_DIR="hyper-dev"
 SUPPORT_EMAIL="support@hyper.sh"
 ########## Constant ##########
