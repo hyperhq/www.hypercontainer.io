@@ -132,6 +132,6 @@ $(function() {
   $(".install pre").click(function(){
     $(".install input").select();
   });
-  renderBackground();
+  //renderBackground();
 });
 
