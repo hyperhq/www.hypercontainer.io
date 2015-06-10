@@ -9,19 +9,19 @@ When VMs take tenths of seconds to boot, Hyper is able to launch instances in **
 
 ## Secure
 
-Hyper is immune from the "*shared kernel*" problem in container, because virtualization offers an excellent ***Hardware-enforced Isolation***. The attack surface of a VM instance is quite small, as it lacks the variety of functions (and, therefore, the potential flaws to be exploited) provided by standard operating systems.
+Hyper is immune from the "*shared kernel*" problem in containers, because virtualization offers an excellent ***Hardware-enforced Isolation***. The attack surface of a VM instance is quite small, bacause it lacks of the variety of functions (and, therefore, the potential flaws to be exploited) provided by standard operating systems.
 
 ## Portable
 
-Hyper is ***hypervisor agnostic***. [The current implementation](http://gnep.gitbooks.io/hyper/content/release_notes/index.html) supports KVM, with Xen and more in the roadmap. Combined with [the portability of App Container Image](https://github.com/appc), Hyper allows you to build, ship, run app anywhere, without worrying the infrastructure technology stack.
+Hyper is ***hypervisor agnostic***. [The current implementation](http://gnep.gitbooks.io/hyper/content/release_notes/index.html) supports KVM, with Xen, and more in the roadmap. Combined with [the portability of App Container Image](https://github.com/appc), Hyper allows you to build, ship, and run apps anywhere, without worrying about the infrastructure technology stack.
 
 ## Immutable
 
-Hyper eliminates the need of Guest OS. There is no moving parts inside of a HyperVM instance to be configured or managed. ***The entire stack is Immutable***.
+Hyper eliminates the need for Guest OS. There is no moving part inside of a HyperVM instance to be configured or managed. ***The entire stack is Immutable***.
 
 ## BYOK - bring your own kernel
 
-In a multi-tenant environment, the platform must allow developers to pick different kernel and modules. This is an easy job in Hyper, but very hard to do in containers, due to the fact of ”sharing the host kernel".
+In a multi-tenant environment, the platform must allow developers to pick different kernel and modules. This is an easy job in Hyper, but very hard to do with containers, due to the fact of ”sharing the host kernel".
 
 ## Production Ready
 
@@ -49,4 +49,3 @@ The following table gives a more detailed comparision between Container, (tradit
 | ROI| Low, rebuild everything with container  | N/A | High, seamless integration with your virtual infrastructure  |
 
 ### Find out more in [Hyper docs](https://docs.hyper.sh).
-
