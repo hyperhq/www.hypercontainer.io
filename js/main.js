@@ -129,8 +129,8 @@ $(function() {
     dom: ".terminal-player pre code",
     timeout: 5000
   });
-  $(".install pre").click(function(){
-    $(".install input").select();
+  $(".install button.install-button").click(function(e){
+    $(e.currentTarget).parents(".install").find("input.install-input").select();
   });
   //renderBackground();
 });
