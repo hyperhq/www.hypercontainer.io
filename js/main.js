@@ -129,7 +129,7 @@ $(function() {
     dom: ".terminal-player pre code",
     timeout: 5000
   });
-  $(".install button.install-button").click(function(e){
+  $(".install button.install-button, .install input.install-input").click(function(e){
     $(e.currentTarget).parents(".install").find("input.install-input").select();
   });
   //renderBackground();
