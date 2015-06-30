@@ -309,7 +309,7 @@ pre, code {
   height: 60px;
   z-index: 100;
   background: rgba(255, 255, 255, 0); }
-  @media (max-width: 800px) {
+  @media (max-width: 880px) {
     .page-header .logo {
       padding: 15px 10px;
       margin-left: 0; } }
@@ -378,13 +378,13 @@ pre, code {
       color: #666666;
       text-decoration: none;
       height: 60px;
-      padding: 15px 20px; }
+      padding: 15px 15px; }
       .page-header nav.header > a:hover {
         color: #333333; }
       @media (max-width: 1000px) {
         .page-header nav.header > a {
           padding: 15px 5px; } }
-    @media (max-width: 800px) {
+    @media (max-width: 880px) {
       .page-header nav.header .border-menu {
         display: inline-block;
         width: 1em;
@@ -491,7 +491,7 @@ pre, code {
     overflow: auto;
     text-align: left;
     padding: 10px;
-    margin: 0 auto; }
+    margin: 5vh auto 0 auto; }
     .head .terminal-player pre {
       white-space: pre-wrap;
       color: #dedede;
@@ -543,42 +543,25 @@ pre, code {
   to {
     background-position: 0 100%; } }
 
-.install {
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 50%;
-  float: left; }
-  @media (max-width: 650px) {
-    .install {
-      width: 100%;
-      float: none; } }
-  .install pre {
-    color: #666666; }
-  .install .tips {
-    font-size: 14px;
-    color: #888888;
-    margin-top: 2em; }
-  .install .install-button {
-    border: 0;
-    font-size: 17px;
-    padding: 4px 20px;
-    height: 42px;
-    background: #606EC3;
-    color: #fff;
-    font-family: robotoslab,"Helvetica Neue",Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif; }
-  .install .install-input {
-    height: 32px;
-    padding: 0px 10px;
-    font-size: 14px;
-    width: 80%;
-    text-align: center;
-    vertical-align: bottom; }
+.install-button {
+  font-size: 24px;
+  padding: 10px 30px;
+  background: #606EC3;
+  border: 2px solid #606EC3;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: background 0.3s, color 0.3s;
+          transition: background 0.3s, color 0.3s;
+  font-family: robotoslab,"Helvetica Neue",Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif; }
+  .install-button:hover {
+    background: #ffffff;
+    color: #606EC3; }
 
 .install-wrapper {
   border-radius: 3px;
   position: relative;
   padding: 30px 0;
-  margin-top: 40px;
+  margin-top: 10vh;
   max-width: 1070px; }
   @media (max-width: 650px) {
     .install-wrapper {

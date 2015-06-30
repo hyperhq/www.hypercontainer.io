@@ -134,7 +134,7 @@ pre, code {
   background: rgba(255, 255, 255, 0);
 
   .logo {
-    @media (max-width: 800px) {
+    @media (max-width: 880px) {
       padding: 15px 10px;
       margin-left: 0;
     }
@@ -225,7 +225,7 @@ pre, code {
       color: #666666;
       text-decoration: none;
       height: 60px;
-      padding: 15px 20px;
+      padding: 15px 15px;
       &:hover {
         color: #333333;
       }
@@ -234,7 +234,7 @@ pre, code {
       }
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 880px) {
       .border-menu {
         display: inline-block;
         width: 1em;
@@ -366,7 +366,7 @@ pre, code {
     overflow: auto;
     text-align: left;
     padding: 10px;
-    margin: 0 auto;
+    margin: 5vh auto 0 auto;
     pre {
       white-space: pre-wrap;
       color: #dedede;
@@ -420,46 +420,26 @@ pre, code {
   }
 }
 
-.install {
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 50%;
-  float: left;
-  @media (max-width: 650px){
-    width: 100%;
-    float: none;
-  }
-  pre {
-    color: #666666;
-  }
-  .tips {
-    font-size: 14px;
-    color: #888888;
-    margin-top: 2em;
-  }
-  .install-button {
-    border: 0;
-    font-size: 17px;
-    padding: 4px 20px;
-    height: 42px;
-    background: #606EC3;
-    color: #fff;
-    font-family: robotoslab,"Helvetica Neue",Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
-  }
-  .install-input {
-    height: 32px;
-    padding: 0px 10px;
-    font-size: 14px;
-    width: 80%;
-    text-align: center;
-    vertical-align: bottom;
+
+.install-button {
+  font-size: 24px;
+  padding: 10px 30px;
+  background: #606EC3;
+  border: 2px solid #606EC3;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  font-family: robotoslab,"Helvetica Neue",Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+  &:hover{
+    background: #ffffff;
+    color: #606EC3;
   }
 }
 .install-wrapper{
   border-radius: 3px;
   position: relative;
   padding: 30px 0;
-  margin-top: 40px;
+  margin-top: 10vh;
   max-width: 1070px;
   @media (max-width: 650px){
     margin-top: 0;
