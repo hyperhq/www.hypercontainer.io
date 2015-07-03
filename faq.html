@@ -23,7 +23,7 @@
             <a href="./why-hyper.html">Why Hyper</a>
             <a href="./faq.html">FAQs</a>
             <a href="https://docs.hyper.sh/" target="_blank">Docs</a>
-            <a href="https://medium.com/@hyperhq" target="_blank">Blog</a>
+            <a href="https://hyper.sh/blog/" target="_blank">Blog</a>
         </nav>
         <a href="https://github.com/hyperhq" target="_blank" class="btn btn-header">GitHub</a>
     </div>
@@ -38,7 +38,7 @@
         <blockquote>
             <p>No, Hyper is a <strong><em>pure hypervisor-based</em></strong> solution. It does not require any container technology (Docker daemon, LXC, Cgroup, Namespace), except <strong><em><code>MOUNT</code></em></strong> namespace for <a href="https://docs.hyper.sh/get_started/pod.html">Pods</a>. </p>
         </blockquote>
-        
+
         <p>Q: Which hypervisors are supported?</p>
 
         <blockquote>
@@ -60,16 +60,16 @@
         <blockquote>
             <p>The current release of Hyper uses <a href="https://www.kernel.org/pub/linux/kernel/v4.x/ChangeLog-4.0.1">kernel stable 4.0.1</a>. Please note that you can configure Hyper to use <strong><em>any compatible Linux kernel</em></strong>, though those might be slow and demand more resources.</p>
         </blockquote>
-        
+
         <p>Q: Compare with CoreOS or RancherOS</p>
 
         <blockquote>
             <p>CoreOS and RancherOS are two popular minimalist Linux distributions built for running app containers. Though primarily designed for bare metal server, they are commonly used as Guest OS in the cloud, due to the lack of isolation in containers. Hyper, on the other hand, <strong><em>eliminates the need of a Guest OS</em></strong>, by leveraging the hardware-enforced isolation in the hypervisor.</p>
             <p>With that said, we see Hyper as one form of <em>Containerization</em>. We would like to integrate Hyper with the minimalist Linux distros.</p>
         </blockquote>
-        
+
         <p>Q: Compare with Intel ClearContainer?</p>
-        
+
         <blockquote>
             <p>Hyper and Clear Container (CC) share the similar idea of: <strong><em>hypervisor-based AppC runtime</em></strong>. The current release of CC supports rkt only; and Hyper currently supports Docker only. Also,</p>
             <pre style="white-space: pre-wrap;"><code>The goal of Clear Linux OS, is to showcase the best of Intel Architecture technology, from low level kernel features to more complex items that span across the entire operating system stack.</code></pre>
