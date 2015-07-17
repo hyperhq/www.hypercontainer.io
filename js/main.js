@@ -129,8 +129,8 @@ $(function() {
     dom: ".terminal-player pre code",
     timeout: 5000
   });
-  $(".install button.install-button, .install input.install-input").click(function(e){
-    $(e.currentTarget).parents(".install").find("input.install-input").select();
+  $(".install-wrapper .install-button, .install-wrapper input.install-input").click(function(e){
+    $(e.currentTarget).parents(".install-wrapper").find(".install-input").select();
   });
   //renderBackground();
 });

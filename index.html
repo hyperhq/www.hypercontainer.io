@@ -35,8 +35,10 @@
           <h1 data-sr="enter bottom ease-out 50px"><b>Hypervisor</b>-agnostic <b>Docker</b> Engine_</h1>
           <div data-sr="wait .1s enter bottom" class="terminal-player"><pre><code></code></pre></div>
             <div class="wrapper install-wrapper clearfix">
-                <a href="https://docs.hyper.sh/get_started/install.html" target="_blank" class="install-button">Install Now</a>
-                <a href="https://slack.hyper.sh/" target="_blank" class="slack-button">Join Slack</a>
+                <pre><button class="install-button">Install</button><input class="install-input" type="text" value="curl -sSL https://hyper.sh/install | bash" readonly="readonly"/></pre>
+                <p class="install-desc">Other install methods: please visit our
+                    <a href="https://docs.hyper.sh/get_started/install.html" target="_blank"> install page</a>
+                </p>
             </div>
         </section>
 
@@ -108,8 +110,9 @@
                             </ul>
                         </li>
 
-                        <li><a target="_blank" href="https://twitter.com/hyper_sh">Twitter</a></li>
-                        <li><a href="irc://chat.freenode.net:6667/#hypersh">IRC (freenode) #hypersh</a> / <a target="_blank" href="http://webchat.freenode.net?channels=hypersh&uio=d4">Web</a></li>
+                        <li><a href="https://twitter.com/hyper_sh" class="twitter-follow-button" data-show-count="false">Follow @hyper_sh</a></li>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        <li style="margin-top: 5px"><script async defer src="https://slack.hyper.sh/slackin.js"></script></li>
                     </ul>
                 </div>
                 <div class="column">

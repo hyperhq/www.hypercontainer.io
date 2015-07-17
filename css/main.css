@@ -545,81 +545,43 @@ pre, code {
   to {
     background-position: 0 100%; } }
 
-.install-button, .slack-button {
+.install-button {
   font-size: 24px;
   padding: 10px 30px;
   background: #606EC3;
   border: 2px solid #606EC3;
   color: #fff;
   text-decoration: none;
-  margin: 10px 20px;
+  margin: 0;
   display: inline-block;
   -webkit-transition: background 0.3s, color 0.3s;
           transition: background 0.3s, color 0.3s;
   font-family: robotoslab,"Helvetica Neue",Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif; }
-  .install-button:hover, .slack-button:hover {
+  .install-button:hover {
     background: #ffffff;
     color: #606EC3; }
-
-.slack-button {
-  background: #FFFFFF;
-  color: #606ec3; }
 
 .install-wrapper {
   border-radius: 3px;
   position: relative;
   padding: 30px 0;
-  margin-top: 10vh;
+  margin-top: 8vh;
   max-width: 1070px; }
   @media (max-width: 650px) {
     .install-wrapper {
       margin-top: 0; } }
   .install-wrapper p.install-desc {
     text-align: center;
-    padding: 0 100px;
-    font-size: 13px;
-    color: #999999; }
-  .install-wrapper .or {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left: -20px;
-    width: 40px;
-    height: 100%; }
-    @media (max-width: 650px) {
-      .install-wrapper .or {
-        display: none; } }
-    .install-wrapper .or:before {
-      position: absolute;
-      height: 35%;
-      width: 0;
-      display: block;
-      content: "";
-      border-right: 1px dashed #9E9D9D;
-      left: 20px; }
-    .install-wrapper .or:after {
-      position: absolute;
-      height: 35%;
-      width: 0;
-      display: block;
-      content: "";
-      border-right: 1px dashed #9E9D9D;
-      left: 20px;
-      bottom: 0; }
-    .install-wrapper .or .dot {
-      position: absolute;
-      top: 50%;
-      margin-top: -20px;
-      color: #646363;
-      background-color: #FFF;
-      border-radius: 50%;
-      display: block;
-      width: 100%;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      font-size: 14px;
-      font-style: italic; }
+    margin-top: 3vh; }
+  .install-wrapper pre .install-input {
+    display: inline-block;
+    height: 57px;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 50%;
+    text-align: center;
+    border: 2px solid #606EC3;
+    margin-left: -2px; }
 
 .desc {
   width: 100%;
