@@ -884,15 +884,28 @@ ul.partners {
   padding: 0; }
   ul.partners li {
     display: inline-block;
-    width: 280px;
-    position: relative; }
+    position: relative;
+    vertical-align: top;
+    margin: 0 20px 50px 20px;
+    opacity: 1;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s; }
+    ul.partners li:first-child {
+      margin-left: 0; }
+    ul.partners li:last-child {
+      margin-right: 0; }
+    ul.partners li:hover {
+      opacity: 0.75; }
     ul.partners li a {
       display: block;
       text-decoration: none;
       padding: 0px;
       border: 1px solid #dedede;
-      border-radius: 3px; }
+      border-radius: 3px;
+      width: 280px;
+      height: 160px; }
       ul.partners li a p {
+        position: absolute;
         bottom: 0;
         width: 100%;
         margin: 0 !important;
@@ -903,6 +916,15 @@ ul.partners {
         border-color: #cdcdcd; }
         ul.partners li a:hover p {
           color: #606EC3; }
+    ul.partners li .partner-fill {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 160px;
+      background-position: center 1px;
+      background-repeat: no-repeat;
+      background-size: 68%; }
 
 body.gray-bg:before {
   display: block;

@@ -849,15 +849,34 @@ ul.partners{
   padding: 0;
   li{
     display: inline-block;
-    width: 280px;
     position: relative;
+    vertical-align: top;
+    margin: 0 20px 50px 20px;
+    opacity: 1;
+    -webkit-transition: opacity .3s;
+    -moz-transition: opacity .3s;
+    -ms-transition: opacity .3s;
+    -o-transition: opacity .3s;
+    transition: opacity .3s;
+    &:first-child{
+      margin-left: 0;
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+    &:hover{
+      opacity: 0.75;
+    }
     a{
       display: block;
       text-decoration: none;
       padding: 0px;
       border: 1px solid #dedede;
       border-radius: 3px;
+      width: 280px;
+      height: 160px;
       p{
+        position: absolute;
         bottom: 0;
         width: 100%;
         margin:0!important;
@@ -871,6 +890,16 @@ ul.partners{
         }
         border-color: #cdcdcd;
       }
+    }
+    .partner-fill{
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 160px;
+      background-position: center 1px;
+      background-repeat: no-repeat;
+      background-size: 68%;
     }
   }
 }
