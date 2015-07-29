@@ -350,29 +350,42 @@ pre, code {
       .page-header nav.header .dropdown > span {
         padding: 15px 20px;
         line-height: 30px;
-        display: inline-block; }
+        display: inline-block;
+        width: 110px;
+        text-align: center;
+        border: 1px solid transparent; }
       .page-header nav.header .dropdown ul {
         height: 0;
         position: absolute;
+        width: 100%;
         top: 100%;
         left: 0;
         margin: 0;
         padding: 0;
         list-style: none;
         text-align: left;
-        overflow: hidden; }
+        overflow: hidden;
+        border-top: 1px solid transparent;
+        -webkit-transition: height .3s;
+        transition: height .3s; }
         .page-header nav.header .dropdown ul li {
           line-height: 30px;
           background: #ffffff;
-          padding: 15px 20px;
-          border-bottom: 1px solid #eeeeee; }
+          padding: 10px 0;
+          border-bottom: 1px solid #eeeeee;
+          text-align: center; }
           .page-header nav.header .dropdown ul li a {
             color: #666666;
             text-decoration: none; }
           .page-header nav.header .dropdown ul li:last-child {
             border-bottom: 0; }
       .page-header nav.header .dropdown:hover ul {
-        height: auto; }
+        height: 204px;
+        z-index: 100;
+        border: 1px solid #eeeeee; }
+      .page-header nav.header .dropdown:hover > span {
+        background: #ffffff;
+        border: 1px solid #eeeeee; }
     .page-header nav.header > a {
       display: inline-block;
       line-height: 30px;
@@ -396,6 +409,8 @@ pre, code {
         text-align: center;
         padding: 13px 10px; }
       .page-header nav.header > a {
+        display: none; }
+      .page-header nav.header .dropdown {
         display: none; }
       .show .page-header nav.header {
         right: 150px;
@@ -421,7 +436,12 @@ pre, code {
         .show .page-header nav.header > a {
           display: block;
           text-align: center;
-          width: 100%; } }
+          width: 100%; }
+        .show .page-header nav.header .dropdown {
+          display: block;
+          width: 100%; }
+          .show .page-header nav.header .dropdown span {
+            width: 100%; } }
   .page-header .btn-header {
     position: absolute;
     top: 13px;

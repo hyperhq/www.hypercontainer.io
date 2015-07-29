@@ -186,10 +186,14 @@ pre, code {
         padding: 15px 20px;
         line-height: 30px;
         display: inline-block;
+        width: 110px;
+        text-align: center;
+        border: 1px solid transparent;
       }
       ul {
         height: 0;
         position: absolute;
+        width: 100%;
         top: 100%;
         left: 0;
         margin: 0;
@@ -197,11 +201,18 @@ pre, code {
         list-style: none;
         text-align: left;
         overflow: hidden;
+        border-top: 1px solid transparent;
+        -webkit-transition: height .3s;
+        -moz-transition: height .3s;
+        -ms-transition: height .3s;
+        -o-transition: height .3s;
+        transition: height .3s;
         li {
           line-height: 30px;
           background: #ffffff;
-          padding: 15px 20px;
+          padding: 10px 0;
           border-bottom: 1px solid #eeeeee;
+          text-align: center;
           a {
             color: #666666;
             text-decoration: none;
@@ -216,7 +227,13 @@ pre, code {
       }
       &:hover {
         ul {
-          height: auto;
+          height: 204px;
+          z-index: 100;
+          border: 1px solid #eeeeee;
+        }
+        > span {
+          background: #ffffff;
+          border: 1px solid #eeeeee;
         }
       }
     }
@@ -249,6 +266,9 @@ pre, code {
       > a {
         display: none;
       }
+      .dropdown {
+        display: none;
+      }
       .show & {
         right: 150px;
         top: 0;
@@ -276,6 +296,13 @@ pre, code {
           display: block;
           text-align: center;
           width: 100%;
+        }
+        .dropdown{
+          display: block;
+          width: 100%;
+          span{
+            width: 100%;
+          }
         }
       }
     }
