@@ -6,7 +6,7 @@
 No, Hyper is a ***pure hypervisor-based*** solution. It does not require any container technology (Docker daemon, LXC, Cgroup, Namespace), except ***`MOUNT`*** namespace for [Pods](https://docs.hyper.sh/pod/).
 
 ## Q: Which hypervisors are supported?
-Hyper is ***hypervisor agnostic***. Currently Hyper supports KVM, with Xen and more options on the roadmap.
+Hyper is ***hypervisor agnostic***. Currently Hyper supports KVM, Xen, VirtualBox (MacPOS), and more options on the roadmap.
 
 ## Q: What are the performances of Hyper?
 
