@@ -9,7 +9,7 @@ When VMs take tenths of seconds to boot, Hyper is able to launch instances in **
 
 ## Secure
 
-Hyper is immune from the "*shared kernel*" problem in containers, because virtualization offers an excellent ***Hardware-enforced Isolation***. The attack surface of a VM instance is quite small, bacause it lacks of the variety of functions (and, therefore, the potential flaws to be exploited) provided by standard operating systems.
+Hyper is immune from the "*shared kernel*" problem in containers, because virtualization offers an excellent ***Hardware-enforced Isolation***. The attack surface of a VM instance is quite small, because it lacks of the variety of functions (and, therefore, the potential flaws to be exploited) provided by standard operating systems.
 
 ## Portable
 
