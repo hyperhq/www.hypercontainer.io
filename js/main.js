@@ -104,7 +104,7 @@ $(function() {
     data  : [
       {
         prefix: "[root@user ~:]#",
-        command: "docker pull ubuntu:latest"
+        command: "hyper pull ubuntu:latest"
       }, {
         prefix: "[root@user ~:]#",
         command: "hyper run ubuntu:latest",
