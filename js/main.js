@@ -104,15 +104,14 @@ $(function() {
     data  : [
       {
         prefix: "[root@user ~:]#",
-        command: "hyper pull ubuntu:latest"
+        command: "hyper pull ubuntu:latest  #pull image from docker registry"
+      }, {
+        prefix: "[root@user ~:]#",
+        command: "hyper images"
       }, {
         prefix: "[root@user ~:]#",
         command: "hyper run ubuntu:latest",
-        result: "pod-s8dn29i3"
-      },{
-        prefix: "[root@user ~:]#",
-        command: "docker ps",
-        result: ""
+        result: "POD id is pod-gGOWErcjyG"
       },{
         prefix: "[root@user ~:]#",
         command: "",
