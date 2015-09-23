@@ -120,7 +120,7 @@ $(function() {
       },{
         prefix: "[root@user ~:]#",
         command: "hyper list",
-        result: "        POD ID                     POD Name            VM name       Status<br/>pod-gGOWErcjyG     ubuntu-latest-6535844697      vm-oOMHnULbBZ      running"
+        result: "        POD ID                     POD Name            VM name       Status<br/>pod-gGOWErcjyG     ubuntu-latest-6535844697                       succeeded"
       },{
         prefix: "[root@user ~:]#",
         command: ""
