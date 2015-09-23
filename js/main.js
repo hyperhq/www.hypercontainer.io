@@ -113,8 +113,8 @@ $(function() {
         command: "hyper run ubuntu:latest",
         result: "POD id is pod-gGOWErcjyG"
       },{
-        prefix: "[root@user ~:]#",
-        command: "",
+        prefix: "root@ubuntu-latest-0318287820:/#",
+        command: "exit",
         result: ""
       },{
         prefix: "[root@user ~:]#",
