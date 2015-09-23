@@ -461,7 +461,7 @@ pre, code {
 .head {
   position: relative;
   width: 100%;
-  height: 110vh;
+  /*height: 110vh;*/
   min-height: 640px;
   padding-top: 12vh;
   text-align: center;
@@ -509,7 +509,7 @@ pre, code {
   .head .terminal-player {
     max-width: 700px;
     background: #34323f;
-    height: 35vh;
+    height: 284px;
     overflow: auto;
     text-align: left;
     padding: 10px;
@@ -585,7 +585,7 @@ pre, code {
   border-radius: 3px;
   position: relative;
   padding: 30px 0;
-  margin-top: 8vh;
+  margin-top: 0vh;
   max-width: 1070px; }
   @media (max-width: 650px) {
     .install-wrapper {

@@ -107,7 +107,8 @@ $(function() {
         command: "hyper pull ubuntu:latest  #pull image from docker registry"
       }, {
         prefix: "[root@user ~:]#",
-        command: "hyper images"
+        command: "hyper images",
+        result: "REPOSITORY    TAG        IMAGE ID                CREATED       VIRTUAL SIZE<br/>ubuntu     latest    91e54dfb1179    2015-08-21 04:21:15           179.6 MB"
       }, {
         prefix: "[root@user ~:]#",
         command: "hyper run ubuntu:latest",
@@ -115,11 +116,11 @@ $(function() {
       },{
         prefix: "root@ubuntu-latest-0318287820:/#",
         command: "exit",
-        result: ""
+        result: "exit"
       },{
         prefix: "[root@user ~:]#",
         command: "hyper list",
-        result: "................<br/>Done"
+        result: "        POD ID                     POD Name            VM name       Status<br/>pod-gGOWErcjyG     ubuntu-latest-6535844697      vm-oOMHnULbBZ      running"
       },{
         prefix: "[root@user ~:]#",
         command: ""
