@@ -104,23 +104,23 @@ $(function() {
     data  : [
       {
         prefix: "[root@user ~:]#",
-        command: "hyper pull ubuntu:latest  #pull image from docker registry"
-      }, {
-        prefix: "[root@user ~:]#",
-        command: "hyper images",
-        result: "REPOSITORY    TAG        IMAGE ID                CREATED       VIRTUAL SIZE<br/>ubuntu     latest    91e54dfb1179    2015-08-21 04:21:15           179.6 MB"
+        command: "docker pull ubuntu:latest"
       }, {
         prefix: "[root@user ~:]#",
         command: "hyper run ubuntu:latest",
-        result: "POD id is pod-gGOWErcjyG"
+        result: "POD id is pod-CEdvQxoNNS"
       },{
-        prefix: "root@ubuntu-latest-0318287820:/#",
-        command: "exit",
-        result: "exit"
+        prefix: "[root@user ~:]#",
+        command: "docker ps",
+        result: "................"
+      },{
+        prefix: "[root@user ~:]#",
+        command: "virsh list",
+        result: "................"
       },{
         prefix: "[root@user ~:]#",
         command: "hyper list",
-        result: "        POD ID                     POD Name            VM name       Status<br/>pod-gGOWErcjyG     ubuntu-latest-6535844697                       succeeded"
+        result: "POD ID              POD Name             VM name             Status<br/>................"
       },{
         prefix: "[root@user ~:]#",
         command: ""
