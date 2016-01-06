@@ -112,15 +112,11 @@ $(function() {
       },{
         prefix: "[root@user ~:]#",
         command: "docker ps",
-        result: "................"
+        result: "[root@user ~:]#"
       },{
         prefix: "[root@user ~:]#",
         command: "virsh list",
         result: "................"
-      },{
-        prefix: "[root@user ~:]#",
-        command: "hyper list",
-        result: "POD ID              POD Name             VM name             Status<br/>................"
       },{
         prefix: "[root@user ~:]#",
         command: ""
