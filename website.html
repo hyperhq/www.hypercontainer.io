@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+    <title>Hyper_ - The Infinite Container Host in the Cloud</title>
+    <script src="website/assets/bundle.js"></script>
+</head>
+<body>
+    <img class="circles" src="website/assets/imgs/circle.svg">
+    <header class="header">
+        <img class="logo" src="website/assets/imgs/logo.svg">
+        <nav class="menu">
+            <a class="link" href="#feature">FEATURE</a>
+            <a class="link" href="#">DOCS</a>
+            <a class="access button" href="#access">EARLY ACCESS</a>
+        </nav>
+    </header>
+    <section class="main">
+        <div class="title">Hyper</div>
+        <div class="slogan">The <span class="highlight">Infinite Container Host</span> in the Cloud</div>
+        <!-- <a id="play" class="button" href="#intro">
+            <i class="icon-play icon fa fa-play-circle"></i>
+            <i class="icon-loading icon fa fa-spin fa-cog"></i>
+            <div class="desc">QUICK PREVIEW</div>
+        </a> -->
+        <div class="coming">COMING SOON</div>
+    </section>
+    <a id="intro" href="#">
+        <video id="video" src="http://ftp.nluug.nl/pub/graphics/blender/demo/movies/Sintel.2010.720p.mkv" autoplay></video>
+    </a>
+    <div class="line"></div>
+    <section class="intro1">
+        <div class="title">Advantage</div>
+        <div class="item-container">
+            <div class="item">
+                <i class="icon fa fa-laptop"></i>
+                <div class="name">A laptop in the cloud</div>
+                <div class="desc">Hyper_ gives you a seamless workflow as your local machine. Just install Hyper CLI,  a gigantic laptop is immediately ready to play, with unlimited capacity,but nothing to setup.</div>
+            </div>
+            <div class="item">
+                <i class="icon fa fa-bullseye"></i>
+                <div class="name">Secure as VM</div>
+                <div class="desc">By leveraging Intel VT technology, we implant the hardware-enforced isolation into containers, so your application is as secure as in VM</div>
+            </div>
+        </div>
+        <div class="item-container">
+            <div class="item">
+                <i class="icon fa fa-cogs"></i>
+                <div class="name">Fast as Container / Immutable</div>
+                <div class="desc">No moving parts in Hyper_. Your app is 100% immutable. Upgrade, Rollback, Failover, Scale-out/in completes in seconds!</div>
+            </div>
+            <div class="item">
+                <i class="icon fa fa-clock-o"></i>
+                <div class="name">Charge by Second</div>
+                <div class="desc">Spin-up a new container in 3s, run a job in 20s, destroy the container in 1s, and you pay as little as 3+20+1=23s. No more upfront reservation, no more billing by hour.</div>
+            </div>
+        </div>
+    </section>
+    <section class="intro2" id="feature">
+        <div class="title">FEATURE</div>
+        <ul class="list-container">
+            <li class="item">
+                <div class="info">
+                    <i class="icon fa fa-square-o"></i>
+                    <div class="name">Container</div>
+                </div>
+                <ul class="list">
+                    <li class="desc-item"><div class="head">Your containers are completely isolated with others. Powered by <a href="https://hyper.sh/" target="_blank">Hyper</a></div></li>
+                    <pre>hyper run ubuntu</pre>
+                </ul>
+            </li>
+            <li class="item">
+                <div class="info">
+                    <i class="icon fa fa-hdd-o"></i>
+                    <div class="name">Volume</div>
+                </div>
+                <ul class="list">
+                    <li class="desc-item"><div class="head">100% Persistent, Redundant, Distributed</div></li>
+                    <li class="desc-item"><div class="head">Failover is as simple as re-mounting volumes on the new container</div></li>
+                    <pre>hyper run ubuntu -v vol-s10d9xre:/data/</pre>
+                </ul>
+            </li>
+            <li class="item">
+                <div class="info">
+                    <i class="icon fa fa-tasks"></i>
+                    <div class="name">Network</div>
+                </div>
+                <ul class="list">
+                    <li class="desc-item">
+                        <div class="head">Private IP</div>
+                        <div class="desc">Every container gets a private IP</div>
+                        <pre>10.0.0.5</pre>
+                    </li>
+                    <li class="desc-item">
+                        <div class="head">Floating IP</div>
+                        <div class="desc">Attach/dettach reserved public IP</div>
+                        <pre>hyper attach -c c-h0ksdie7 -i 211.98.26.1</pre>
+                    </li>
+                    <li class="desc-item">
+                        <div class="head">Port</div>
+                        <div class="desc">No open port by default</div>
+                        <pre>hyper run nginx -p 80</pre>
+                    </li>
+                </ul>
+            </li>
+            <li class="item">
+                <div class="info">
+                    <i class="icon fa fa-terminal"></i>
+                    <div class="name">Remote Access</div>
+                </div>
+                <ul class="list">
+                    <li class="desc-item"><div class="head">Login your container as it runs on your local laptop</div></li>
+                    <pre>hyper exec -c c-h0ksdie7 /bin/sh</pre>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <section class="intro3" id="access">
+        <img class="logo" src="website/assets/imgs/logo.svg">
+        <div class="slogan">The Infinite Container Host in the Cloud</div>
+        <form class="form">
+            <input type="text" class="email round" placeholder="YOUR EMAIL ADDRESS" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            <input type="submit" class="submit round button" value="subscibe">
+        </form>
+    </section>
+    <footer class="footer">
+        © 2016 Hyper_, Inc. All Rights Reserved
+    </footer>
+</body>
+</html>
