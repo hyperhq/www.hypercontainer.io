@@ -398,19 +398,18 @@ html, body {
         justify-content: center;
         margin: 0 auto;
         margin-top: 50px;
-		@media screen and (max-width: 700px) {
-			display: flex;
-			flex-direction: column;
-			.email {
-				width: 250px;
-			}
-			.submit {
-				margin-top: 30px;
-				margin-left: 0;
-			}
-		}
+				@media screen and (max-width: 700px) {
+					display: flex;
+					flex-direction: column;
+					.email {
+						width: 250px;
+					}
+					.submit {
+						margin-top: 30px;
+						margin-left: 0;
+					}
+				}
         .round {
-            font-family: 'Moon-Light';
             font-size: 18px;
             border-radius: 100px;
             text-align: center;
@@ -423,12 +422,13 @@ html, body {
             padding: 10px 5px;
             background-color: #272532;
             border: 2px dashed #514c68;
-			&::placeholder {
-				color: #514c68;
-				opacity: 0.5;
-			}
+						&::placeholder {
+							color: #514c68;
+							opacity: 0.5;
+						}
         }
         .submit {
+						font-family: 'Moon-Light';
             padding: 10px 20px;
             margin-left: 20px;
             color: white;
