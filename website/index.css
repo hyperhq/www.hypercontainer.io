@@ -416,7 +416,8 @@ html, body {
             outline: none;
         }
         .email {
-            width: 300px;
+            width: 250px;
+						margin: 0 10px;
             color: #514c68;
             font-weight: bold;
             padding: 10px 5px;
