@@ -9,8 +9,10 @@ const validEmail = function(email) {
 }
 
 window.onSubmit = function() {
-    const email = document.getElementById('email').value.trim()
-    const fullname = document.getElementById('full-name').value.trim()
+    const emailDom = document.getElementById('email')
+    const fullnameDom = document.getElementById('full-name')
+    const email = emailDom.value.trim()
+    const fullname = fullnameDom.value.trim()
     if (!fullname) {
         alert('Invalid Fullname')
         return false
@@ -25,6 +27,8 @@ window.onSubmit = function() {
       name: fullname,
       email
     }, null, () => {
+        emailDom.value = ''
+        fullnameDom.value = ''
         alert('Subscribe Succeed')
     })
 }
