@@ -29,6 +29,8 @@ window.onSubmit = function() {
     }, null, () => {
         emailDom.value = ''
         fullnameDom.value = ''
-        alert('Subscribe Succeed')
+        analytics.track('Requested Private Beta', {}, {}, () => {
+          alert('Subscribe Succeed')
+        })
     })
 }
