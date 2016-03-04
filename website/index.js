@@ -10,11 +10,17 @@ const validEmail = function(email) {
 
 window.onSubmit = function() {
     const emailDom = document.getElementById('email')
-    const fullnameDom = document.getElementById('full-name')
+    const firstnameDom = document.getElementById('first-name')
+    const lastnameDom = document.getElementById('last-name')
     const email = emailDom.value.trim()
-    const fullname = fullnameDom.value.trim()
-    if (!fullname) {
-        alert('Invalid Fullname')
+    const firstname = firstnameDom.value.trim()
+    const lastname = lastnameDom.value.trim()
+    if (!firstname) {
+        alert('Invalid Firstname')
+        return false
+    }
+    if (!lastname) {
+        alert('Invalid Lastname')
         return false
     }
     if (!validEmail(email)) {
@@ -24,11 +30,13 @@ window.onSubmit = function() {
     let userId = analytics.user().id()
     if (!userId) userId = uuid.v4()
     analytics.identify(userId, {
-      name: fullname,
+      firstname,
+      lastname,
       email
     }, null, () => {
         emailDom.value = ''
-        fullnameDom.value = ''
+        firstnameDom.value = ''
+        lastnameDom.value = ''
         analytics.track('Requested Private Beta', {}, {}, () => {
           alert('Subscribe Succeed')
         })
