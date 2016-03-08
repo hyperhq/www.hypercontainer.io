@@ -1,0 +1,151 @@
+@font-face {
+	font-family: 'Lato-Regular';
+	src: url('assets/fonts/Lato-Regular.eot'),
+        url('assets/fonts/Lato-Regular.woff') format('woff'),
+        url('assets/fonts/Lato-Regular.ttf') format('truetype'),
+        url('assets/fonts/Lato-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'ONEDAY';
+    src: url('assets/fonts/ONEDAY.eot');
+    src: url('assets/fonts/ONEDAY.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/ONEDAY.woff2') format('woff2'),
+        url('assets/fonts/ONEDAY.woff') format('woff'),
+        url('assets/fonts/ONEDAY.ttf') format('truetype'),
+        url('assets/fonts/ONEDAY.svg#ONEDAY') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Moon-Light';
+    src: url('assets/fonts/Moon-Light.eot');
+    src: url('assets/fonts/Moon-Light.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/Moon-Light.woff2') format('woff2'),
+        url('assets/fonts/Moon-Light.woff') format('woff'),
+        url('assets/fonts/Moon-Light.ttf') format('truetype'),
+        url('assets/fonts/Moon-Light.svg#Moon-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$color-main: #9852f0;
+$color-minor: #E27500;
+$color-back: #272532;
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+html, body {
+	background-image: url('assets/imgs/bg.svg');
+	background-size: cover;
+	background-color: #23212E;
+  color: #1b1c1c;
+  font-size: 12px;
+	font-family: 'Moon-Light';
+}
+
+.bg {
+	height: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.logo {
+  	margin: 0 auto;
+  	display: block;
+  	min-height: 200px;
+  	max-height: 300px;
+  }
+}
+
+.block {
+	width: 100%;
+	display: block;
+}
+
+.main {
+	width: 100%;
+	background-color: #1b1c1c;
+	padding: 80px 0;
+	.content1 {
+		color: white;
+		display: flex;
+		max-width: 940px;
+		margin: 0 auto;
+		/*margin-top: 10px;*/
+		font-family: 'Lato-Regular';
+		.intro {
+			width: 250px;
+			margin: 0 20px;
+			.title {
+				font-size: 20px;
+				font-weight: bold;
+				height: 80px;
+				color: #B8C73D;
+			}
+			.desc {
+				color: #33BB9C;
+				font-size: 16px;
+			}
+		}
+	}
+	.content2 {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 80px;
+		.title {
+			color: #B8C73D;
+			font-size: 32px;
+			font-weight: bold;
+			text-align: right;
+			align-self: flex-start;
+			font-family: 'Oswald', sans-serif;
+		}
+		.form {
+			display: flex;
+			.input-wrap {
+				margin-top: 9px;
+				display: flex;
+				flex-direction: column;
+				margin-left: 50px;
+				.input {
+					background-color: transparent;
+					border: 2px solid #81debc;
+					color: #828282;
+					padding: 5px 20px;
+					font-size: 16px;
+					margin-bottom: 12px;
+					width: 329px;
+					height: 24px;
+					font-weight: bold;
+					&:focus {
+						outline: 0;
+					}
+				}
+			}
+			.button {
+				margin-left: 20px;
+				align-self: flex-end;
+				background-color: #33BB9C;
+				font-size: 18px;
+				border: 3px solid #1b1c1c;
+				box-shadow: 0px 0px 0px 2px #33BB9C;
+				padding: 5px 25px;
+				font-weight: bold;
+				margin-bottom: 13px;
+			}
+		}
+	}
+	.footer {
+		margin-top: 100px;
+		color: #aaa;
+		width: 100%;
+		text-align: center;
+	}
+}
