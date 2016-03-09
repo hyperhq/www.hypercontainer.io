@@ -47,7 +47,7 @@ html, body {
 	background-color: #23212E;
   color: #1b1c1c;
   font-size: 12px;
-	font-family: 'Moon-Light';
+	font-family: 'Roboto', sans-serif;
 }
 
 .bg {
@@ -66,6 +66,26 @@ html, body {
 .block {
 	width: 100%;
 	display: block;
+}
+
+.popupS-content {
+	font-size: 16px;
+	overflow: auto;
+	button {
+		padding: 5px 40px;
+    background-color: #80C71B;
+    border: 2px solid #5F9C09;
+    border-radius: 40px;
+    color: white;
+    margin-top: 20px;
+    float: right;
+		outline: 0;
+		font-size: 14px;
+		font-weight: bold;
+		&:hover {
+			opacity: 0.9;
+		}
+	}
 }
 
 .main {
@@ -117,6 +137,9 @@ html, body {
 				padding: 5px 25px;
 				font-weight: bold;
 				margin-bottom: 13px;
+				&:hover {
+					opacity: 0.9;
+				}
 			}
 		}
 	}
@@ -159,6 +182,7 @@ html, body {
 		}
 	}
 	.footer {
+		font-family: 'Roboto', sans-serif;
 		margin-top: 100px;
 		color: #aaa;
 		width: 100%;
