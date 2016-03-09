@@ -41,10 +41,13 @@ a {
 	color: white;
 }
 
+.back {
+	width: 100%;
+	position: absolute;
+	z-index: -1;
+}
+
 html, body {
-	background-image: url('assets/imgs/bg.svg');
-	background-size: cover;
-	background-color: #23212E;
   color: #1b1c1c;
   font-size: 12px;
 	font-family: 'Lato-Regular', sans-serif;
@@ -68,7 +71,10 @@ html, body {
 
 .block {
 	width: 100%;
-	display: block;
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	min-width: 940px;
 }
 
 .popupS-content {
