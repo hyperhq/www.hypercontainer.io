@@ -45,6 +45,8 @@ a {
 	width: 100%;
 	position: absolute;
 	z-index: -1;
+	top: 0;
+	min-width: 940px;
 }
 
 html, body {
@@ -71,10 +73,7 @@ html, body {
 
 .block {
 	width: 100%;
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	min-width: 940px;
+	display: block;
 }
 
 .popupS-content {
