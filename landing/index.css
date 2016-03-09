@@ -176,7 +176,7 @@ html, body {
 		.intro {
 			margin-bottom: 80px;
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
 			padding: 0 10px;
 			.icon {
 				flex: 0 0 100px;
