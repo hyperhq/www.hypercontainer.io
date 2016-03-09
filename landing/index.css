@@ -48,6 +48,8 @@ html, body {
   color: #1b1c1c;
   font-size: 12px;
 	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
 }
 
 .bg {
@@ -58,8 +60,9 @@ html, body {
 	.logo {
   	margin: 0 auto;
   	display: block;
-  	min-height: 200px;
-  	max-height: 300px;
+  	width: 85%;
+  	max-width: 300px;
+		max-width: 600px;
   }
 }
 
@@ -93,7 +96,10 @@ html, body {
 	background-color: #1b1c1c;
 	padding: 80px 0;
 	.content1 {
-		display: flex;
+		@media screen and (min-width: 770px) {
+			display: flex;
+		}
+		padding: 0 20px;
 		align-items: center;
 		justify-content: center;
 		/*margin-top: 20px;*/
@@ -106,7 +112,14 @@ html, body {
 			font-family: 'Oswald', sans-serif;
 		}
 		.form {
-			display: flex;
+			@media screen and (min-width: 770px) {
+				display: flex;
+				.input-wrap {
+					.input {
+						width: 329px;
+					}
+				}
+			}
 			.input-wrap {
 				margin-top: 9px;
 				display: flex;
@@ -119,7 +132,6 @@ html, body {
 					padding: 5px 20px;
 					font-size: 16px;
 					margin-bottom: 12px;
-					width: 329px;
 					height: 24px;
 					font-weight: bold;
 					&::placeholder {
@@ -131,6 +143,7 @@ html, body {
 				}
 			}
 			.button {
+				float: right;
 				margin-left: 20px;
 				align-self: flex-end;
 				background-color: #33BB9C;
@@ -160,6 +173,7 @@ html, body {
 			margin-bottom: 80px;
 			display: flex;
 			align-items: center;
+			padding: 0 10px;
 			.icon {
 				margin-right: 20px;
 				.fa {
