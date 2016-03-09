@@ -35,7 +35,7 @@ module.exports = {
     },
     plugins: [
         // new ExtractTextPlugin("index.css"),
-        // new webpack.optimize.UglifyJsPlugin({ minimize: true }),
+        new webpack.optimize.UglifyJsPlugin({ minimize: true }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()

@@ -114,7 +114,7 @@ html, body {
 				margin-left: 50px;
 				.input {
 					background-color: transparent;
-					border: 2px solid #81debc;
+					border: 2px solid #33BB9C;
 					color: #828282;
 					padding: 5px 20px;
 					font-size: 16px;
@@ -122,6 +122,9 @@ html, body {
 					width: 329px;
 					height: 24px;
 					font-weight: bold;
+					&::placeholder {
+						color: #707070;
+					}
 					&:focus {
 						outline: 0;
 					}
@@ -184,7 +187,7 @@ html, body {
 	.footer {
 		font-family: 'Roboto', sans-serif;
 		margin-top: 100px;
-		color: #aaa;
+		color: #777;
 		width: 100%;
 		text-align: center;
 	}
