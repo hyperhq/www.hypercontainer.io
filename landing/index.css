@@ -209,5 +209,12 @@ html, body {
 		color: #777;
 		width: 100%;
 		text-align: center;
+		a {
+			margin-left: 10px;
+			color: #B8C73D;
+			&:hover {
+				opacity: 0.9;
+			}
+		}
 	}
 }
