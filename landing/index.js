@@ -44,7 +44,7 @@ window.onSubmit = function() {
         firstnameDom.value = ''
         lastnameDom.value = ''
         analytics.track('Requested Private Beta', {}, {}, () => {
-          popup('Subscribe Succeed')
+          popup('Success! We\'ll be in touch soon.')
         })
     })
 }
