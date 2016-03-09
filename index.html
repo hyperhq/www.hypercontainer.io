@@ -1,162 +1,78 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Hyper - Make VM run like Container</title>
-        <meta name="description" content="Hyper - Make VM run like Container. Fast as Container, Isolated by VM.">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="icon" type="image/x-icon" href="./favicon.ico">
-
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.min.css">
-        <script type="text/javascript">
-          window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var n=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(n?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(a,o);for(var r=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["clearEventProperties","identify","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=r(p[c])};
-          heap.load("1712878093");
-        </script>
-    </head>
-    <body>
-    <header class="page-header">
-        <div class="wrapper">
-            <div class="logo"><a href="/"></a></div>
-            <nav class="header">
-                <div class="border-menu"></div>
-                <a href="/">Home</a>
-                <a href="https://docs.hyper.sh/get_started/install.html" target="_blank">Install</a>
-                <a href="./how-it-works.html">How it works</a>
-                <a href="./why-hyper.html">Why Hyper</a>
-                <a href="https://docs.hyper.sh/" target="_blank">Docs</a>
-                <div class="dropdown">
-                    <span>About</span>
-                    <ul>
-                        <li><a href="https://hyper.sh/blog/" target="_blank">Blog</a></li>
-                        <li><a href="./partners.html">Partners</a></li>
-                        <li><a href="./faq.html">FAQs</a></li>
-                        <li><a href="./about.html">About</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <a href="https://github.com/hyperhq" target="_blank" class="btn btn-header">GitHub</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+    <title>HYPER_ - Secure Container Cloud</title>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+    analytics.load("nvH6a5ZCf29Xp6i1lWTHZB8fOJ92m6kp");
+    analytics.page()
+    }}();
+    </script>
+    <script src="landing/assets/bundle.js"></script>
+</head>
+<body>
+  <img class="back" src="landing/assets/imgs/bg2.svg">
+  <div class="bg">
+    <img class="logo" src="landing/assets/imgs/logo.svg" />
+  </div>
+  <img class="block" src="landing/assets/imgs/block.svg" />
+  <div class="main">
+    <div class="content1">
+      <div class="title">
+        <div class="span">JOIN THE</div>
+        <div class="span">PRIVATE BETA</div>
+      </div>
+      <form class="form" onsubmit="onSubmit();return false;">
+          <div class="input-wrap">
+            <input id="first-name" type="text" class="input" placeholder="FIRST NAME" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            <input id="last-name" type="text" class="input" placeholder="LAST NAME" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            <input id="email" type="text" class="input" placeholder="EMAIL ADDRESS" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          </div>
+          <input id="submit" type="submit" class="button" value="SUBMIT">
+      </form>
+    </div>
+    <div class="content2">
+      <div class="intro">
+        <div class="icon"><i class="fa fa-code-fork"></i></div>
+        <div class="wrap">
+          <div class="title">Docker Workflow</div>
+          <div class="desc">There is no need to learn a new set of commands. The Docker native workflow makes working with HYPER_ as simple as running Docker on your own laptop.</div>
         </div>
-    </header>
-
-        <section class="head">
-          <canvas class="background" id="bg-animation"></canvas>
-          <h1 data-sr="enter bottom ease-out 50px"><b>Hypervisor</b>-agnostic <b>Docker</b> Runtime_</h1>
-          <div data-sr="wait .1s enter bottom" class="terminal-player"><pre><code></code></pre></div>
-            <div class="wrapper install-wrapper clearfix">
-                <pre><button class="install-button">Install</button><input class="install-input" type="text" value="curl -sSL https://hyper.sh/install | bash" readonly="readonly"/></pre>
-                <p class="install-desc">Other install methods: please visit our
-                    <a href="https://docs.hyper.sh/get_started/install.html" target="_blank"> install page</a>
-                </p>
-            </div>
-        </section>
-
-        <section class="desc clearfix">
-            <div class="desc-quarter">
-                <h3 data-sr="wait .1s enter bottom">Fast as Container</h3>
-                <div class="desc-img fast" data-sr="wait .2s enter bottom"></div>
-                <div data-sr="wait .2s enter bottom">
-                    <p> A standard server running Ubuntu 14.04 <br/>
-                        hyper run nginx --> Chrome --> load webpage <br/>
-                        0.54 second
-                    </p>
-                </div>
-            </div>
-            <div class="desc-quarter">
-                <h3 data-sr="wait .1s enter bottom">Isolated by VM</h3>
-                <div class="desc-img isolation" data-sr="wait .2s enter bottom"></div>
-                <div data-sr="wait .2s enter bottom">
-                    <p>Independent kernel <br/>
-                        Minimal attack surface</p>
-                </div>
-            </div>
-            <div class="desc-quarter">
-                <h3 data-sr="wait .1s enter bottom">Pod in First Class</h3>
-                <div class="desc-img pod" data-sr="wait .2s enter bottom"></div>
-                <div data-sr="wait .2s enter bottom">
-                    <p>Run multiple Docker images in one VM <br/>
-                        Share Namespace <br/>
-                        Dynamically update Pod</p>
-                </div>
-            </div>
-            <div class="desc-quarter">
-                <h3 data-sr="wait .1s enter bottom">Immutable Infrastructure</h3>
-                <div class="desc-img immutable" data-sr="wait .2s enter bottom"></div>
-                <div data-sr="wait .2s enter bottom">
-                    <p>Only kernel + image, Guest OS is gone! <br/>
-                        Build, Ship, Run, No moving parts!</p>
-                </div>
-            </div>
-        </section>
-        <section class="get subscribe">
-            <h2 class="hint">Subscribe to the latest Hyper news.</h2>
-            <form action="//hyper.us10.list-manage.com/subscribe/post?u=5079c1cfdd3630a5d1a4a2f15&amp;id=1c79a2241b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Enter Your Email">
-                <input type="text" style="display: none;" name="b_5079c1cfdd3630a5d1a4a2f15_1c79a2241b" tabindex="-1" value="">
-                <button class="button" type="submit">Subscribe</button>
-            </form>
-        </section>
-
-        <footer>
-            <div class="wrapper clearfix">
-                <div class="column">
-                    <h2>Company</h2>
-                    <ul>
-                        <li><a href="./about.html">About</a></li>
-                        <li><a href="./jobs.html">Jobs</a></li>
-                        <li><a href="./security.html">Security</a></li>
-                        <li><a href="./partners.html">Partners</a></li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <h2>Support & Community</h2>
-                    <ul>
-                        <li><a target="_blank" href="https://github.com/hyperhq">Github</a></li>
-                        <li><p>Mailing List</p>
-                            <ul>
-                                <li><a target="_blank" href="https://groups.google.com/d/forum/hyper-user">General</a></li>
-                                <li><a target="_blank" href="https://groups.google.com/d/forum/hyper-dev">Developer</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="https://twitter.com/hyper_sh" class="twitter-follow-button" data-show-count="false">Follow @hyper_sh</a></li>
-                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                        <li style="margin-top: 5px"><script async defer src="https://slack.hyper.sh/slackin.js"></script></li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <h2>Documentation</h2>
-                    <ul>
-                        <li><a target="_blank" href="https://docs.hyper.sh/get_started/install.html">Get Started</a></li>
-                        <li><a target="_blank" href="https://docs.hyper.sh/get_started/pod.html">Running Pod</a></li>
-                        <li><a target="_blank" href="https://docs.hyper.sh/reference/podfile.html">Reference</a></li>
-                        <li><a target="_blank" href="https://docs.hyper.sh/release_notes/index.html">Release Notes</a></li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <div class="copyright no-subscribe">
-                        (c) 2015, HyperHQ Inc. All rights reserved.
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <script src="js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="js/vendor/scrollReveal.min.js"></script>
-        <script src="js/main.js"></script>
-
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-61225823-1', 'auto');
-          ga('send', 'pageview');
-
-        </script>
-    </body>
+      </div>
+      <div class="intro">
+        <div class="icon"><i class="fa fa-bullseye"></i></div>
+        <div class="wrap">
+          <div class="title">As Secure As Virtual Machines</div>
+          <div class="desc">Your applications run with hardware enforced isolation giving you the security of virtual machines with the speed of containers.</div>
+        </div>
+      </div>
+      <div class="intro">
+        <div class="icon"><i class="fa fa-cogs"></i></div>
+        <div class="wrap">
+          <div class="title">Hyper Elastic</div>
+          <div class="desc">Sub-second start up times allow you to meet your user’s demands without wasting money on over-provisioning.</div>
+        </div>
+      </div>
+      <div class="intro">
+        <div class="icon"><i class="fa fa-hdd-o"></i></div>
+        <div class="wrap">
+          <div class="title">Persistent Storage</div>
+          <div class="desc">Run stateful workload using HYPER_’s replicated, distributed and fault-tolerant storage.</div>
+        </div>
+      </div>
+      <div class="intro">
+        <div class="icon"><i class="fa fa-clock-o"></i></div>
+        <div class="wrap">
+          <div class="title">Pay Per Second</div>
+          <div class="desc">Per second billing means that you only pay for what you use. Combine that with sub-second start up times and you’ll only pay for exactly what you need.</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">© 2016 HyperHQ Inc. All Rights Reserved</div>
+  </div>
+</body>
 </html>
