@@ -47,7 +47,7 @@ html, body {
 	background-color: #23212E;
   color: #1b1c1c;
   font-size: 12px;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Lato-Regular', sans-serif;
 	margin: 0;
 	padding: 0;
 }
@@ -168,7 +168,6 @@ html, body {
 		max-width: 800px;
 		margin: 0 auto;
 		margin-top: 100px;
-		font-family: 'Roboto', sans-serif;
 		.intro {
 			margin-bottom: 80px;
 			display: flex;
@@ -186,12 +185,14 @@ html, body {
 			}
 			.wrap {
 				.title {
+					font-family: 'Moon-Light';
 					font-size: 28px;
 					margin-bottom: 10px;
-					font-weight: bold;
+					/*font-weight: bold;*/
 					color: #B8C73D;
 				}
 				.desc {
+					font-family: 'Lato-Regular';
 					color: #33BB9C;
 					font-size: 18px;
 				}
@@ -199,7 +200,6 @@ html, body {
 		}
 	}
 	.footer {
-		font-family: 'Roboto', sans-serif;
 		margin-top: 100px;
 		color: #777;
 		width: 100%;
