@@ -41,11 +41,17 @@ a {
 	color: white;
 }
 
-.back {
-	width: 100%;
+.bg-back {
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	right: 0;
 	position: absolute;
 	z-index: -1;
-	top: 0;
+}
+
+.back {
+	width: 100%;
 	min-width: 770px;
 }
 
@@ -55,8 +61,6 @@ html, body {
 	font-family: 'Lato-Regular', sans-serif;
 	margin: 0;
 	padding: 0;
-	overflow-x: hidden;
-	-webkit-overflow-scrolling: touch;
 }
 
 .bg {
