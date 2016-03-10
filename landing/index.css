@@ -209,12 +209,19 @@ html, body {
 		color: #777;
 		width: 100%;
 		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 		a {
 			margin-left: 10px;
 			color: #B8C73D;
 			&:hover {
 				opacity: 0.9;
 			}
+		}
+		#twitter-widget-0 {
+			margin-top: 10px;
 		}
 	}
 }
