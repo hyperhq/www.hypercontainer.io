@@ -55,10 +55,11 @@ html, body {
 	font-family: 'Lato-Regular', sans-serif;
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
 }
 
 .bg {
-	height: 500px;
+	height: 400px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -221,6 +222,9 @@ html, body {
 			}
 		}
 		#twitter-widget-0 {
+			margin-top: 10px;
+		}
+		.__slackin {
 			margin-top: 10px;
 		}
 	}
