@@ -210,6 +210,30 @@ html, body {
 			}
 		}
 	}
+	.project {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		.intro {
+			font-family: 'Moon-Light';
+			color: #80C71B;
+			font-size: 18px;
+		}
+		.hypercontainer {
+			font-family: 'Lato-Regular';
+			font-size: 16px;
+	    margin-top: 10px;
+	    padding: 10px 30px;
+	    border: 3px solid #5f9c09;
+	    border-radius: 40px;
+	    color: #B8C73D;
+	    font-weight: bold;
+			&:hover {
+				opacity: 0.9;
+			}
+		}
+	}
 	.footer {
 		margin-top: 100px;
 		color: #777;
