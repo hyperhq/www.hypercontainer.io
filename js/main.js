@@ -103,22 +103,34 @@ $(function() {
   terminal({
     data  : [
       {
-        prefix: "[root@user ~:]#",
-        command: "docker pull ubuntu:latest"
+        prefix: "[root@localhost ~]#",
+        command: "hyperctl pull ubuntu:latest",
+        result: "..."
       }, {
-        prefix: "[root@user ~:]#",
-        command: "hyper run ubuntu:latest",
-        result: "POD id is pod-CEdvQxoNNS"
+        prefix: "[root@localhost ~]#",
+        command: "hyperctl run -t ubuntu"
       },{
-        prefix: "[root@user ~:]#",
-        command: "docker ps",
-        result: "[root@user ~:]#"
+        prefix: "root@ubuntu-2994825143:/#",
+        command: "ls",
+        result: '<div class="result" style="color:#0CB6DC;">bin   dev  home  lib64  mnt  proc  run   srv  <pre style="display:inline;color:#00D200;">tmp</pre>  var</div><div class="result" style="color:#0CB6DC;">boot  etc  lib   media  opt  root  sbin  sys  usr</div>'
       },{
-        prefix: "[root@user ~:]#",
+        prefix: "root@ubuntu-2994825143:/#",
+        command: "exit",
+        result: "exit"
+      }, {
+        prefix: "[root@localhost ~]#",
+        command: "hyperctl run -d ubuntu",
+        result: "<div>POD id is pod-aEafFYramp</div><div>Time to run a POD is 143 ms</div>"
+      },{
+        prefix: "[root@localhost ~]#",
+        command: "hyperctl list",
+        result: "<div>POD ID              POD Name            VM name             Status</div><div>pod-CMLStRNiKG      ubuntu-2994825143                       succeeded</div><div>pod-aEafFYramp      ubuntu-3972307775   vm-TeLKCtGBcF       running</div>"
+      },{
+        prefix: "[root@localhost ~]#",
         command: "virsh list",
-        result: "................"
+        result: "<div> Id    Name                           State</div><div>----------------------------------------------------</div><div> 104   vm-TeLKCtGBcF                  running</div>"
       },{
-        prefix: "[root@user ~:]#",
+        prefix: "[root@localhost ~]#",
         command: ""
       }
     ],
@@ -130,4 +142,3 @@ $(function() {
   });
   //renderBackground();
 });
-
