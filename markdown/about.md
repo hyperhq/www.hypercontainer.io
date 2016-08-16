@@ -4,7 +4,7 @@ With the rise of Docker, the world is shifting its focus from "Machine" toward "
 
 When the future is exciting, what holds us is the lack of isolation in container. Without the necessary security, it is impossible to build a public multi-tenant CaaS platform, as everyone has to share the single host's kernel (no matter physical or virtual).
 
-Hyper is a **Hypervisor-agnostic Docker Runtime**. Its goal is to ***Make VM run like Container***, by combing the best from both:
+Hyper is a **Hypervisor-agnostic Docker Runtime**. Its goal is to ***Make VM run like Container***, by combining the best from both:
 
 - **As Fast as Container**
 - **Isolated by VM**

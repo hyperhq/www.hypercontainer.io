@@ -2,21 +2,19 @@
 
 Hyper has four components:
 
-  - CLI: ***hyper***
+  - CLI: ***hyperctl***
   - Daemon: ***hyperd*** (with REST APIs)
   - Guest Kernel: ***hyperkernel***
   - Guest Init Service: ***hyperstart***
 
 On a physical Linux host:
 
-        [root@user ~:]# docker pull nginx:latest
-        [root@user ~:]# hyper run nginx:latest
+        [root@user ~:]# hyperctl pull nginx:latest
+        [root@user ~:]# hyperctl run nginx:latest
 
 Upon the ***RUN*** command, Hyper launches a new VM instance, instead of containers, and mount the specified image onto the instance:
 
-        [root@user ~:]# docker ps
-        [root@user ~:]#
-        [root@user ~:]# hyper list
+        [root@user ~:]# hyperctl list
         ......
         Done
 
@@ -46,5 +44,5 @@ The exception is ***`Mount`***. Since a Pod may have multiple app images, Hyper 
 
 Note: Hyper is immune from [Pid 1 problem](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/), since HyperStart launches the app processes and continues to live in the same namespace with them.
 
-**Find out more in [Hyper docs](https://docs.hyper.sh)**
+**Find out more in [Hyper docs](http://docs.hypercontainer.io)**
 

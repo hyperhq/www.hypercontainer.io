@@ -48,4 +48,4 @@ The following table gives a more detailed comparision between Container, (tradit
 | Maturity   | No  | Yes, production ready, SDN, SDS, LiveMigration, etc.  | Yes, just plug-&-play |
 | ROI| Low, rebuild everything with container  | N/A | High, seamless integration with your virtual infrastructure  |
 
-### Find out more in [Hyper docs](https://docs.hyper.sh).
+### Find out more in [Hyper docs](http://docs.hypercontainer.io).
