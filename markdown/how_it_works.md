@@ -2,21 +2,19 @@
 
 Hyper has four components:
 
-  - CLI: ***hyper***
+  - CLI: ***hyperctl***
   - Daemon: ***hyperd*** (with REST APIs)
   - Guest Kernel: ***hyperkernel***
   - Guest Init Service: ***hyperstart***
 
 On a physical Linux host:
 
-        [root@user ~:]# docker pull nginx:latest
-        [root@user ~:]# hyper run nginx:latest
+        [root@user ~:]# hyperctl pull nginx:latest
+        [root@user ~:]# hyperctl run nginx:latest
 
 Upon the ***RUN*** command, Hyper launches a new VM instance, instead of containers, and mount the specified image onto the instance:
 
-        [root@user ~:]# docker ps
-        [root@user ~:]#
-        [root@user ~:]# hyper list
+        [root@user ~:]# hyperctl list
         ......
         Done
 
