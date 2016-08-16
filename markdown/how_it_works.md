@@ -44,5 +44,5 @@ The exception is ***`Mount`***. Since a Pod may have multiple app images, Hyper 
 
 Note: Hyper is immune from [Pid 1 problem](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/), since HyperStart launches the app processes and continues to live in the same namespace with them.
 
-**Find out more in [Hyper docs](https://docs.hyper.sh)**
+**Find out more in [Hyper docs](http://docs.hypercontainer.io)**
 
